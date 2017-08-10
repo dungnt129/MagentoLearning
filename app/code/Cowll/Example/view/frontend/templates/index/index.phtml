@@ -1,0 +1,44 @@
+<h3>Thời tiết trong ngày</h3>
+
+<div id="weather">
+    <div class="top-content">
+        <h2>Hà Nội, Việt Nam</h2>
+    </div>
+
+    <div class="mid-content">
+        <div class="col">
+            <div class="image"></div>
+            <div class="temperature"></div>
+        </div>
+        <div class="col">
+            <ul class="info"></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['jquery', 'simple_weather'], function ($) {
+        $(document).ready(function() {
+            $.simpleWeather({
+                woeid: '',
+                location: 'Hanoi, VN',
+                unit: 'c',
+                success: function(weather) {
+                    html = '<h2>To day: '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+                    html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+                    html += '<li class="currently">'+weather.currently+'</li>';
+                    html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
+
+                    for(var i=0;i<weather.forecast.length;i++) {
+                        html += '<p class="weather-next">'+weather.forecast[i].day+': '+weather.forecast[i].high+' °C</p>';
+                    }
+
+                    $("#weather").html(html);
+                },
+                error: function(error) {
+                    $("#weather").html('<p>'+error+'</p>');
+                }
+            });
+        });
+    });
+</script>
