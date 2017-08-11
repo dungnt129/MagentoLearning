@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Dự báo thời tiết</title>
+        <css src="Dmit_Lesson1::css/style.css"/>
+    </head>
+
+    <referenceBlock name="content">
+        <block class="Dmit\Lesson1\Block\Weather" name="dmit_bai1" template="weather.phtml" />
+    </referenceBlock>
+</page>
