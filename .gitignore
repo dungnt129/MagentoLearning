@@ -24,6 +24,7 @@ atlassian*
 /node_modules
 /.grunt
 
+/pub/media/banner/*
 /pub/media/*.*
 !/pub/media/.htaccess
 /pub/media/catalog/*
