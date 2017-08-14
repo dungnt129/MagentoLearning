@@ -1,5 +1,7 @@
 <?php
+
 namespace Cowll\Banner\Controller\Adminhtml\Index;
+
 class Delete extends \Magento\Backend\App\Action
 {
     /**
@@ -9,22 +11,35 @@ class Delete extends \Magento\Backend\App\Action
 
     public function execute()
     {
+        // Get ID of record by param
         $id = $this->getRequest()->getParam('id');
+
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
+                // Init model and delete
                 $model = $this->_objectManager->create('Cowll\Banner\Model\Banner');
                 $model->load($id);
                 $id = $model->getId();
                 $model->delete();
-                $this->messageManager->addSuccess(__('Delete image success.'));
+
+                // Display success message
+                $this->messageManager->addSuccess(__('The image has been deleted.'));
+
+                // Redirect to list page
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
+                // Display error message
                 $this->messageManager->addError($e->getMessage());
+                // Go back to edit form
                 return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
             }
         }
-        $this->messageManager->addError(__('Delete error, please try again.'));
+
+        // Display error message
+        $this->messageManager->addError(__('We can\'t find a image to delete.'));
+
+        // Redirect to list page
         return $resultRedirect->setPath('*/*/');
     }
 }

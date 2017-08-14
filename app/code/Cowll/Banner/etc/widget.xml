@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="cowll_banner_manager" class="Cowll\Banner\Block\Banner\BannerWidget">
+        <label translate="true">Banner Widget</label>
+
+        <description translate="true">Display Banner</description>
+
+        <parameters>
+            <parameter name="mode" xsi:type="select" required="true" visible="true">
+                <label translate="true">Display mode</label>
+                <description translate="true">Select mode for side</description>
+                <options>
+                    <option name="default" value="horizontal" selected="true">
+                        <label translate="true">horizontal</label>
+                    </option>
+                    <option name="vertical" value="vertical">
+                        <label translate="true">vertical</label>
+                    </option>
+                    <option name="fade" value="fade">
+                        <label translate="true">fade</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="number_image" xsi:type="text" visible="true">
+                <label translate="true">Number images will display</label>
+            </parameter>
+
+            <parameter name="auto" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Automatically transition</label>
+            </parameter>
+
+            <parameter name="pager" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display pager</label>
+            </parameter>
+
+            <parameter name="speed" xsi:type="text" visible="true">
+                <label translate="true">Slide transition duration (in ms)</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

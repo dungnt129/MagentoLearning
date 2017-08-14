@@ -4,6 +4,9 @@ namespace Cowll\Banner\Controller\Adminhtml\Index;
 
 class Index extends \Magento\Backend\App\Action
 {
+
+    const ADMIN_RESOURCE = 'Cowll_Banner::banner_manager';
+
     protected $resultPageFactory;
 
     public function __construct(
@@ -14,17 +17,14 @@ class Index extends \Magento\Backend\App\Action
         $this->resultPageFactory = $resultPageFactory;
     }
 
-    /**
-     * Execute view action
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
     public function execute()
     {
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        // Load layout and set active menu
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Cowll_Banner::banner_manager');
         $resultPage->getConfig()->getTitle()->prepend(__('Banner manager'));
+
         return $resultPage;
     }
+
 }

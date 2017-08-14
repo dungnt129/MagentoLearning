@@ -9,7 +9,7 @@ class Edit extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ADMIN_RESOURCE = 'Cowll_Banner::edit';
+    const ADMIN_RESOURCE = 'Cowll_Banner::save';
 
     protected $_coreRegistry;
     protected $resultPageFactory;
@@ -51,6 +51,7 @@ class Edit extends \Magento\Backend\App\Action
                 return $resultRedirect->setPath('*/*/');
             }
         }
+
         // Registry banner
         $this->_coreRegistry->register('banner', $model);
 

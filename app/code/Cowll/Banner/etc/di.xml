@@ -10,7 +10,7 @@
 
     <virtualType name="Cowll\Banner\Model\ResourceModel\Banner\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">banners</argument>
+            <argument name="mainTable" xsi:type="string">banner</argument>
             <argument name="resourceModel" xsi:type="string">Cowll\Banner\Model\ResourceModel\Banner</argument>
         </arguments>
     </virtualType>

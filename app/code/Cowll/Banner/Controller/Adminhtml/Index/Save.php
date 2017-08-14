@@ -1,16 +1,21 @@
 <?php
+
 namespace Cowll\Banner\Controller\Adminhtml\Index;
+
 use Magento\Backend\App\Action;
 use Cowll\Banner\Model\Banner;
 use Magento\Framework\App\Request\DataPersistorInterface;
+
 class Save extends Action
 {
     /**
      * Authorization level of a basic admin session
      */
     const ADMIN_RESOURCE = 'Cowll_Banner::save';
+
     protected $dataProcessor;
     protected $dataPersistor;
+
     /**
      * @param Action\Context $context
      * @param PostDataProcessor $dataProcessor
@@ -26,10 +31,12 @@ class Save extends Action
         $this->dataPersistor = $dataPersistor;
         parent::__construct($context);
     }
+
     public function execute()
     {
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
+
         if ($data) {
             // Optimize data
             if (isset($data['status']) && $data['status'] === 'true') {
@@ -46,19 +53,23 @@ class Save extends Action
                 else
                     $data['image'] = null;
             }
+
             // Init model and load by ID if exists
             $model = $this->_objectManager->create('Cowll\Banner\Model\Banner');
             $id = $this->getRequest()->getParam('id');
             if ($id) {
                 $model->load($id);
             }
+
             // Validate data
             if (!$this->dataProcessor->validateRequireEntry($data)) {
                 // Redirect to Edit page if has error
                 return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
             }
+
             // Update model
             $model->setData($data);
+
             // Save data to database
             try {
                 $model->save();
@@ -71,9 +82,11 @@ class Save extends Action
             } catch (\Exception $e) {
                 $this->messageManager->addException($e, __('Something went wrong while saving the image.'));
             }
+
             $this->dataPersistor->set('banner', $data);
             return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
         }
+
         // Redirect to List page
         return $resultRedirect->setPath('*/*/');
     }

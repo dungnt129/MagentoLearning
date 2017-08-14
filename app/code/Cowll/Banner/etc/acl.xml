@@ -10,9 +10,8 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Cowll_Banner::banner_manager" title="Banner" translate="title" sortOrder="10">
-                    <resource id="Cowll_Banner::new" title="New Image" translate="title" sortOrder="10" />
-                    <resource id="Cowll_Banner::edit" title="Edit Image" translate="title" sortOrder="20" />
-                    <resource id="Cowll_Banner::delete" title="Delete Image" translate="title" sortOrder="30" />
+                    <resource id="Cowll_Banner::save" title="Save Image" translate="title" sortOrder="10" />
+                    <resource id="Cowll_Banner::delete" title="Delete Image" translate="title" sortOrder="20" />
                 </resource>
             </resource>
         </resources>

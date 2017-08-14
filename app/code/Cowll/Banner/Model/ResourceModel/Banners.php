@@ -1,13 +1,11 @@
 <?php
-
-
 namespace Cowll\Banner\Model\ResourceModel;
 
 class Banners extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     protected function _construct()
     {
-        $this->_init('banners', 'id');
+        $this->_init('banner', 'id');
     }
 
     protected function _afterSave(\Magento\Framework\Model\AbstractModel $object)

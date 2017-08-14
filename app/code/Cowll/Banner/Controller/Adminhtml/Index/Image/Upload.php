@@ -1,9 +1,14 @@
 <?php
+
 namespace Cowll\Banner\Controller\Adminhtml\Index\Image;
+
 use Magento\Framework\Controller\ResultFactory;
+
 class Upload extends \Magento\Backend\App\Action
 {
+
     protected $imageUploader;
+
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader
@@ -11,6 +16,7 @@ class Upload extends \Magento\Backend\App\Action
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
     }
+
     /**
      * Check admin permissions for this controller
      */
@@ -18,6 +24,7 @@ class Upload extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Cowll_Banner::save');
     }
+
     public function execute()
     {
         // Save image to temp folder
@@ -33,7 +40,7 @@ class Upload extends \Magento\Backend\App\Action
         } catch (\Exception $e) {
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
-
+        
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 }
