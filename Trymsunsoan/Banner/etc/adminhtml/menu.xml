@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Trymsunsoan_Banner::banner_manager" title="Banner Manager" module="Trymsunsoan_Banner" action="banner/index/index" resource="Trymsunsoan_Banner::Banner_manager" />
+        <add id="Trymsunsoan_Banner::list_manager" parent="Trymsunsoan_Banner::banner_manager" title="List Banner" module="Trymsunsoan_Banner" action="banner/index/index" resource="Trymsunsoan_Banner::Banner_manager" />
+    </menu>
+</config>
