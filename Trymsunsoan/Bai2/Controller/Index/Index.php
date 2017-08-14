@@ -1,41 +1,63 @@
 <?php
 namespace Trymsunsoan\Bai2\Controller\Index;
-class Index extends \Magento\Framework\App\Action\Action {
+use \Magento\Framework\App\Action\Context;
+use \Trymsunsoan\Bai2\Model\BannerFactory;
+class Index extends \Magento\Framework\App\Action\Action
+{
+    protected $bannerFactory;
+
+    public function __construct(Context $context, BannerFactory $bannerFactory)
+    {
+        $this->bannerFactory = $bannerFactory;
+        parent::__construct($context);
+    }
+
     public function execute()
     {
-        /* Insert data
-         * Ta can truyen vao tham so la namspace cua Banner
-         * */
+/*      $banner = $this->bannerFactory->create();
+        $data = $banner->load(1)->getData();
+        print_r(json_encode( $data));*/
 
-        $banner = $this->_objectManager->create( 'Trymsunsoan\Bai2\Model\Banner' );
-        /*        $banner->addData([
-                    'link' => 'banner_link',
-                    'image' => 'avatar.png',
-                    'sort_order' => 1,
-                    'status' => true
-                ])->save();
-                for( $i = 0; $i < 100; $i++ ){
-                    $banner->addData([
-                        'link' => 'banner_link'.$i,
-                        'image' => 'avatar'.$i.'.png',
-                        'sort_order' => $i,
-                        'status' => true
-                    ])->save()->unsetData();
-                }*/
-        /*        $data = $banner->load(1)->getData();//get banner co id=1
-                print_r( $data );*/
+        //  SU DUNG COLLECTION
+        //create banner instance
+        $banner = $this->bannerFactory->create();
+        $collection = $banner->getCollection();
+        //  SELECT * FROM banner;
+        //$data = $collection->getData();
+
+        //  SELECT * FROM banner WHERE id > 20
+        //$data  = $collection->addFieldToFilter('id', [ 'gt'=> 20 ])->getData();
+
+        //  SELECT id FROM banner WHERE id > 50
+        //  $data = $collection->addFieldToSelect('id')->addFieldToFilter('id', ['gt' => 50])->getData();
 
 
-        //UPDATE DATA
-        /*        try{
-                    $data = $banner->load(1);
-                    $data->setImage(  'trymsunsoan.png' )->save();
-                }catch (\Exception $e){
-                    echo $e;
-                }*/
+        //  SELECT id FROM banner WHERE id > 50 AND image LIKE '%.png';
+        /*
+            $data = $collection->addFieldToSelect('id')
+                ->addFieldToFilter('id', ['gt' => 50])
+                ->addFieldToFilter('image', ['like' => '%.png'])
+                ->getData();
+        */
 
-        //DELETE DATA
-        $data = $banner->load(1);
-        $data->delete();
+        // thay getData() bằng getSeclect, $data lúc này chính là câu lệnh query mà Mageto  sinh ra để truy vấn vào databse
+        /*
+        $data = $collection->addFieldToSelect('id')
+            ->addFieldToFilter('id', ['gt' => 50])
+            ->addFieldToFilter('image', ['like' => '%.png'])
+            ->getSelect();
+        */
+
+
+       //SELECT id FROM banner WHERE id > 50 AND (image LIKE '%.png' OR image LIKE '%.jpg'  )
+        $data = $collection->addFieldToSelect('id')
+                ->addFieldToFilter('id', ['gt' => 50])
+                ->addFieldToFilter('image', [
+                    ['like' => '%.png'],
+                    ['like' => '%.jpg']
+                ])
+                ->getData();
+
+        print_r(  json_encode( $data ));
     }
 }
