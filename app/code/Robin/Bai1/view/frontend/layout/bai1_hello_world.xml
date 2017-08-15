@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title> Du bao thoi tiet</title>
+    </head>
+
+    <referenceBlock name="content">
+        <block class="Robin\Bai1\Block\Weather" name="robin_bai1" template="weather.phtml"></block>
+    </referenceBlock>
+</page>
