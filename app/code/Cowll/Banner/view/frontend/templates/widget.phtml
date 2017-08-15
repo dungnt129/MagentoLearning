@@ -1,5 +1,10 @@
-<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Cowll_Banner::css/jquery.bxslider.css') ?>"/>
+<?php if($this->getData('slide_type') == 'slick') :?>
+    <link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Cowll_Banner::css/slick.css') ?>"/>
+<?php else :?>
+    <link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Cowll_Banner::css/jquery.bxslider.css') ?>"/>
+<?php endif?>
 
+<div style="width: 60%;margin: 0 auto;float: left">
 <ul class="bxslider">
 <?php
     $data = $this->getData('banners');
@@ -7,7 +12,6 @@
     $auto = $this->getData('auto') ? "true" : "false";
     $pager = $this->getData('pager') ? "true" : "false";
     $speed = intval($this->getData('speed'));
-
     foreach ($data as $d) {
         ?>
         <li>
@@ -19,18 +23,28 @@
     }
 ?>
 </ul>
-
+</div>
 <script>
-    require(['jquery', 'bxslider'], function ($) {
+    <?php if($this->getData('slide_type') == 'slick') :?>
+    require(['jquery', 'slick'], function ($) {
         $(function () {
-            $('.bxslider').bxSlider({
-                mode: "<?php echo $mode ?>",
-                auto: <?php echo $auto ?>,
-                pager: <?php echo $pager ?>,
-                speed: <?php echo $speed ?>,
-                slideWidth: 500,
-                slideMargin: 10
+            $('.bxslider').slick({
+                speed: <?php echo $speed ?>
             });
         });
     });
+    <?php else :?>
+        require(['jquery', 'bxslider'], function ($) {
+            $(function () {
+                $('.bxslider').bxSlider({
+                    mode: "<?php echo $mode ?>",
+                    auto: true,
+                    pager: true,
+                    speed: <?php echo $speed ?>,
+                    slideWidth: 500,
+                    slideMargin: 10
+                });
+            });
+        });
+    <?php endif?>
 </script>

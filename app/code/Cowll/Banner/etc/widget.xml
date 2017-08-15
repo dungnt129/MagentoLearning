@@ -7,6 +7,19 @@
         <description translate="true">Display Banner</description>
 
         <parameters>
+            <parameter name="slide_type" xsi:type="select" required="true" visible="true">
+                <label translate="true">Display mode</label>
+                <description translate="true">Select mode for side</description>
+                <options>
+                    <option name="bxslider" value="bxslider" selected="true">
+                        <label translate="true">bxslider</label>
+                    </option>
+                    <option name="slick" value="slick">
+                        <label translate="true">slick</label>
+                    </option>
+                </options>
+            </parameter>
+
             <parameter name="mode" xsi:type="select" required="true" visible="true">
                 <label translate="true">Display mode</label>
                 <description translate="true">Select mode for side</description>
