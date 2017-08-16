@@ -28,18 +28,12 @@ class BannerWidget extends Template implements BlockInterface
         array $data = []
     ) {
         $this->bannerCollectionFactory = $bannerCollectionFactory;
-
-        $this->setTemplate('widget.phtml');
+        
         parent::__construct(
             $context,
             $data
         );
     }
-
-//    protected function _toHtml()
-//    {
-//        $this->setTemplate($this->getData('slide'));
-//    }
 
 
     protected function getPageSize()
