@@ -53,6 +53,17 @@ class UpgradeSchema implements \Magento\Framework\Setup\UpgradeSchemaInterface
             $setup->run("ALTER TABLE " . $tableName . " ADD COLUMN sort_order SMALLINT, ADD COLUMN status BOOLEAN;");
         }
 
+        // Tạo index kiểu FULLTEXT trên 2 cột là image và link
+        $connection->addIndex(
+            $tableName,
+            'search',
+            [
+                'image',
+                'link'
+            ],
+            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+        );
+
         $setup->endSetup();
     }
 }

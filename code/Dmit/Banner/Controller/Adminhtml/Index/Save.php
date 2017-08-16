@@ -65,8 +65,8 @@ class Save extends \Magento\Backend\App\Action
                 $data['id'] = null;
             }
 
-            if (empty($data['images'])) {
-                $data['images'] = null;
+            if (empty($data['image'])) {
+                $data['image'] = null;
             }
 
             /** @var \Magento\Cms\Model\Page $model */
@@ -76,6 +76,8 @@ class Save extends \Magento\Backend\App\Action
             if ($id) {
                 $model->load($id);
             }
+
+            $data['image'] = $data['images'][0]['name'];
 
 //            echo '<pre>';var_dump($data['images']); echo '</pre>'; die;
             $model->setData($data);
