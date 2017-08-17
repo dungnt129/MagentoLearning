@@ -4,10 +4,10 @@
  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Cms\Controller\Adminhtml\Page;
+namespace Robin\Banner\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
-use Magento\Cms\Model\Page;
+use Robin\Banner\Model\Banner;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 
@@ -18,7 +18,7 @@ class Save extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Magento_Cms::save';
+    const ADMIN_RESOURCE = 'Robin_Banner::save';
 
     /**
      * @var PostDataProcessor
@@ -57,49 +57,46 @@ class Save extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            $data = $this->dataProcessor->filter($data);
-            if (isset($data['is_active']) && $data['is_active'] === 'true') {
-                $data['is_active'] = Page::STATUS_ENABLED;
-            }
-            if (empty($data['page_id'])) {
-                $data['page_id'] = null;
+            if (empty($data['id'])) {
+                $data['id'] = null;
             }
 
-            /** @var \Magento\Cms\Model\Page $model */
-            $model = $this->_objectManager->create('Magento\Cms\Model\Page');
+            if (empty($data['images'])) {
+                $data['images'] = null;
+            }
 
-            $id = $this->getRequest()->getParam('page_id');
+            /** @var \Robin\Banner\Model\Page $model */
+            $model = $this->_objectManager->create('Robin\Banner\Model\Banner');
+
+            $id = $this->getRequest()->getParam('id');
             if ($id) {
                 $model->load($id);
             }
 
+            $data['image'] = $data['images'][0]['name'];
+
             $model->setData($data);
 
-            $this->_eventManager->dispatch(
-                'cms_page_prepare_save',
-                ['page' => $model, 'request' => $this->getRequest()]
-            );
-
-            if (!$this->dataProcessor->validate($data)) {
-                return $resultRedirect->setPath('*/*/edit', ['page_id' => $model->getId(), '_current' => true]);
+            if (!$this->dataProcessor->validateRequireEntry($data)) {
+                return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
             }
 
             try {
                 $model->save();
-                $this->messageManager->addSuccess(__('You saved the page.'));
-                $this->dataPersistor->clear('cms_page');
+                $this->messageManager->addSuccess(__('You saved the banner.'));
+                $this->dataPersistor->clear('banner');
                 if ($this->getRequest()->getParam('back')) {
-                    return $resultRedirect->setPath('*/*/edit', ['page_id' => $model->getId(), '_current' => true]);
+                    return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Something went wrong while saving the page.'));
+                $this->messageManager->addException($e, __('Something went wrong while saving the banner.'));
             }
 
-            $this->dataPersistor->set('cms_page', $data);
-            return $resultRedirect->setPath('*/*/edit', ['page_id' => $this->getRequest()->getParam('page_id')]);
+            $this->dataPersistor->set('banner', $data);
+            return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
         }
         return $resultRedirect->setPath('*/*/');
     }
