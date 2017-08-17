@@ -1,0 +1,12 @@
+@dmit-icons-admin__font-name-path: '@{baseDir}fonts/Dmit/icomoon';     /* Đường dẫn đến file fonts (không có đuôi) */
+@dmit-icons-admin__font-name : 'Dmit';     /* Font name tự đặt */
+.lib-font-face(
+  @family-name:@dmit-icons-admin__font-name,
+  @font-path: @dmit-icons-admin__font-name-path,
+  @font-weight: normal,
+  @font-style: normal
+);
+.admin__menu .item-banner-manager.parent.level-0 > a:before {     /* Chú ý item-banner-manager là class sinh ra dựa vào id module */
+  font-family: @dmit-icons-admin__font-name;
+  content: "\e927";     /* Mã của icon */
+}
