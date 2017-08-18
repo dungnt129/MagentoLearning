@@ -1,19 +1,11 @@
 <?php
-/**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-namespace Robin\Banner\Block\Adminhtml\Banner\Edit;
-
+namespace Robin\Banner\Block\Adminhtml\Index\Edit;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-/**
- * Class BackButton
- */
 class BackButton extends GenericButton implements ButtonProviderInterface
 {
-    /**
-     * @return array
+    /*
+     * Create Button
      */
     public function getButtonData()
     {
@@ -24,11 +16,8 @@ class BackButton extends GenericButton implements ButtonProviderInterface
             'sort_order' => 10
         ];
     }
-
     /**
-     * Get URL for back (reset) button
-     *
-     * @return string
+     * Get URL for Button
      */
     public function getBackUrl()
     {
