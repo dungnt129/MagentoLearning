@@ -7,8 +7,10 @@
 namespace Robin\Banner\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
+use Magento\Framework\Controller\Result\JsonFactory;
+use Robin\Banner\Model\BannerFactory;
 
-class Edit extends \Magento\Backend\App\Action
+class InlineEdit extends \Magento\Backend\App\Action
 {
     /**
      * Authorization level of a basic admin session
@@ -17,78 +19,45 @@ class Edit extends \Magento\Backend\App\Action
      */
     const ADMIN_RESOURCE = 'Robin_Banner::save';
 
-    /**
-     * Core registry
-     *
-     * @var \Magento\Framework\Registry
-     */
-    protected $_coreRegistry;
+    protected $jsonFactory;
+    protected $bannerFactory;
 
-    /**
-     * @var \Magento\Framework\View\Result\PageFactory
-     */
-    protected $resultPageFactory;
-
-    /**
-     * @param Action\Context $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-     * @param \Magento\Framework\Registry $registry
-     */
     public function __construct(
         Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Framework\Registry $registry
+        JsonFactory $jsonFactory,
+        BannerFactory $bannerFactory
     ) {
-        $this->resultPageFactory = $resultPageFactory;
-        $this->_coreRegistry = $registry;
+        $this->jsonFactory = $jsonFactory;
+        $this->bannerFactory = $bannerFactory;
         parent::__construct($context);
     }
 
-    /**
-     * Init actions
-     *
-     * @return \Magento\Backend\Model\View\Result\Page
-     */
-    protected function _initAction()
-    {
-        // load layout, set active menu and breadcrumbs
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Robin_Banner::banner_manager');
-        return $resultPage;
-    }
-
-    /**
-     * Edit CMS page
-     *
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
-     * @SuppressWarnings(PHPMD.NPathComplexity)
-     */
     public function execute()
     {
-        // 1. Get ID and create model
-        $id = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create('Robin\Banner\Model\Banner');
+        $resultJson = $this->jsonFactory->create();
+        $error = false;
+        $messages = [];
 
-        // 2. Initial checking
-        if ($id) {
-            $model->load($id);
-            if (!$model->getId()) {
-                $this->messageManager->addError(__('This banner no longer exists.'));
-                /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-                $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->setPath('*/*/');
+        //Get data
+        $postItem = $this->getRequest()->getParam('items', []);
+
+        foreach (array_keys($postItem) as $bannerId) {
+            try{
+                $banner = $this->bannerFactory->create();
+                $banner->load($bannerId);
+                $banner->setData($postItem[(string)$bannerId]);
+                $banner->save();
+            } catch (\Exception $e) {
+                $messages[] = __('Something went wrong');
+                $error = true;
             }
         }
 
-        $this->_coreRegistry->register('banner', $model);
+        return $resultJson->setData([
+            'messages' => $messages,
+            'error' => $error
+        ]);
 
-        // 5. Build edit form
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->_initAction();
-        $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getImage() : __('New Banner'));
 
-        return $resultPage;
     }
 }

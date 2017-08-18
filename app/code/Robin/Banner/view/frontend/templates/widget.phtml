@@ -1,0 +1,41 @@
+
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Robin_Banner::css/flexslider.css') ?>"/>
+
+<?php
+    $data = $this->getData('banners');
+    $mediaURL = $this->getData('mediaURL');
+    $auto  = $this->getData('auto');
+    $speed = $this->getData('speed');
+
+?>
+<div class="flexslider">
+    <ul class="slides">
+        <?php
+            foreach ($data as $dataElement) {
+        ?>
+                <li>
+                    <a href="<?php echo $dataElement['link'];?>">
+                        <img src="<?php echo $mediaURL . $dataElement['image'] ; ?>">
+                    </a>
+                </li>
+        <?php
+            }
+        ?>
+    </ul>
+</div>
+
+
+<script>
+    require(['jquery', 'flexslider'], function ($) {
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails",
+                slideshowSpeed: 2000,
+                minItems: 2,
+                maxItems: 4
+            });
+        });
+    })
+
+</script>

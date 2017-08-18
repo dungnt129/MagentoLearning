@@ -5,3 +5,36 @@
  * Date: 8/17/17
  * Time: 3:45 PM
  */
+namespace Robin\Banner\Setup;
+
+use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\DB\Ddl\Table;
+
+
+class UpgradeSchema implements \Magento\Framework\Setup\UpgradeSchemaInterface
+{
+
+    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $setup->startSetup();
+
+        $connection = $setup->getConnection();
+        $tableName = $setup->getTable('banner');
+
+        if ($connection->isTableExists($tableName) !== true) {
+            // Tạo index kiểu FULLTEXT trên 2 cột là image và link
+            $connection->addIndex(
+                $tableName,
+                'search',
+                [
+                    'image',
+                    'link'
+                ],
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+            );
+        }
+
+        $setup->endSetup();
+    }
+}
