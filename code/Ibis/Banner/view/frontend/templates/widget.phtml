@@ -1,0 +1,57 @@
+<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Ibis_Banner::css/jquery.bxslider.css') ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Ibis_Banner::css/flexslider.css') ?>"/>
+<?php
+    $data = $this->getData('banners');
+    $auto = $this->getData('auto') ? "true" : "false";
+    $pager = $this->getData('pager') ? "true" : "false";
+    $speed = intval($this->getData('speed'));
+    $number_image = intval($this->getData('number_image'));
+    $type_slide = intval($this->getData('type_slide'));
+?>
+<?php if ($type_slide == 1) { ?>
+    <ul class="bxslider">
+<?php } else { ?>
+    <div class="flexslider">
+        <ul class="slides">
+<?php } ?>
+    <?php
+
+    foreach ($data as $d) {
+        ?>
+        <li>
+            <a href="<?php echo $d['link'] ?>">
+                <img src="<?php echo $this->getData('mediaURL') . $d['image']; ?>"/>
+            </a>
+        </li>
+        <?php
+    }
+    ?>
+</ul>
+<?php if ($type_slide == 2) { ?>
+    </div>
+<?php } ?>
+
+<script>
+    <?php if ($type_slide == 1) { ?>
+        require(['jquery', 'bxslider'], function ($) {
+            $(function () {
+                $('.bxslider').bxSlider({
+                    auto: <?php echo $auto ?>,
+                    pager: <?php echo $pager ?>,
+                    speed: <?php echo $speed ?>
+                });
+            });
+        });
+    <?php } else { ?>
+        require(['jquery', 'flexslider'], function ($) {
+            $(function(){
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    start: function(slider){
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
+        });
+    <?php } ?>
+</script>

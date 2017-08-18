@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ibis_Banner::banner_manager" title="Banner Manager" module="Ibis_Banner" resource="Ibis_Banner::banner_manager"/>
+        <add id="Ibis_Banner::list_banner" title="List Banners" module="Ibis_Banner" action="banner" resource="Ibis_Banner::banner_manager" parent="Ibis_Banner::banner_manager"/>
+        <add id="Ibis_Banner::new_banner" title="New Banner" module="Ibis_Banner" action="banner/index/new" resource="Ibis_Banner::save" parent="Ibis_Banner::banner_manager"/>
+    </menu>
+</config>
