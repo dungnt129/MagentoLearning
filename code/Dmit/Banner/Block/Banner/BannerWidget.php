@@ -28,14 +28,13 @@ class BannerWidget extends Template implements BlockInterface
         array $data = []
     ) {
         $this->bannerCollectionFactory = $bannerCollectionFactory;
-        
+
         parent::__construct(
             $context,
             $data
         );
     }
-
-
+    
     protected function getPageSize()
     {
         return $this->hasData('banner_count') ? $this->getData('banner_count') : self::IMAGE_LIMIT;

@@ -1,33 +1,19 @@
 <?php
-/**
- *
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-namespace Dmit\Banner\Controller\Adminhtml\Index;
+
+namespace Robin\Banner\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
-use Dmit\Banner\Model\Banner;
+use Robin\Banner\Model\Banner;
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Exception\LocalizedException;
 
-class Save extends \Magento\Backend\App\Action
+class Save extends Action
 {
     /**
      * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Dmit_Banner::save';
+    const ADMIN_RESOURCE = 'Robin_Banner::save';
 
-    /**
-     * @var PostDataProcessor
-     */
     protected $dataProcessor;
-
-    /**
-     * @var DataPersistorInterface
-     */
     protected $dataPersistor;
 
     /**
@@ -39,52 +25,52 @@ class Save extends \Magento\Backend\App\Action
         Action\Context $context,
         PostDataProcessor $dataProcessor,
         DataPersistorInterface $dataPersistor
-    ) {
+    )
+    {
         $this->dataProcessor = $dataProcessor;
         $this->dataPersistor = $dataPersistor;
         parent::__construct($context);
     }
 
-    /**
-     * Save action
-     *
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
     public function execute()
     {
-        $data = $this->getRequest()->getPostValue();
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
+        $data = $this->getRequest()->getPostValue();
+
         if ($data) {
+            // Optimize data
             if (isset($data['status']) && $data['status'] === 'true') {
                 $data['status'] = Banner::STATUS_ENABLED;
             }
-
             if (empty($data['id'])) {
                 $data['id'] = null;
             }
-
-            if (empty($data['image'])) {
-                $data['image'] = null;
+            if (empty($data['images'])) {
+                $data['images'] = null;
+            } else {
+                if ($data['images'][0] && $data['images'][0]['name'])
+                    $data['image'] = $data['images'][0]['name'];
+                else
+                    $data['image'] = null;
             }
 
-            /** @var \Magento\Cms\Model\Page $model */
-            $model = $this->_objectManager->create('Dmit\Banner\Model\Banner');
-
+            // Init model and load by ID if exists
+            $model = $this->_objectManager->create('Robin\Banner\Model\Banner');
             $id = $this->getRequest()->getParam('id');
             if ($id) {
                 $model->load($id);
             }
 
-            $data['image'] = $data['images'][0]['name'];
-
-            $model->setData($data);
-
+            // Validate data
             if (!$this->dataProcessor->validateRequireEntry($data)) {
+                // Redirect to Edit page if has error
                 return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
             }
 
+            // Update model
+            $model->setData($data);
+
+            // Save data to database
             try {
                 $model->save();
                 $this->messageManager->addSuccess(__('You saved the image.'));
@@ -93,8 +79,6 @@ class Save extends \Magento\Backend\App\Action
                     return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
-            } catch (LocalizedException $e) {
-                $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
                 $this->messageManager->addException($e, __('Something went wrong while saving the image.'));
             }
@@ -102,6 +86,8 @@ class Save extends \Magento\Backend\App\Action
             $this->dataPersistor->set('banner', $data);
             return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
         }
+
+        // Redirect to List page
         return $resultRedirect->setPath('*/*/');
     }
 }
