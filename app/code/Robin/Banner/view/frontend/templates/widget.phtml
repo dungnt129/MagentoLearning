@@ -6,6 +6,8 @@
     $mediaURL = $this->getData('mediaURL');
     $auto  = $this->getData('auto');
     $speed = $this->getData('speed');
+    $typeOfSlider = $this->getData('typeOfSlider');
+    $maxNumberImages = $this->getData('maxNumberImages');
 
 ?>
 <div class="flexslider">
@@ -29,11 +31,11 @@
     require(['jquery', 'flexslider'], function ($) {
         $(window).load(function() {
             $('.flexslider').flexslider({
-                animation: "slide",
+                animation: <?php echo '"'. $typeOfSlider . '"';?>,
                 controlNav: "thumbnails",
                 slideshowSpeed: 2000,
                 minItems: 2,
-                maxItems: 4
+                maxItems: <?php echo $maxNumberImages;?>
             });
         });
     })

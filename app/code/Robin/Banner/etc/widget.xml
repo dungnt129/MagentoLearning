@@ -13,6 +13,20 @@
             <parameter name="speed" xsi:type="text" required="true" visible="true">
                 <label translate="true">Silde transition duration (in ms)</label>
             </parameter>
+            <parameter name="maxNumberImages" xsi:type="text" required="true" visible="true">
+                <label translate="true">Max image</label>
+            </parameter>
+            <parameter name="typeOfSlider" xsi:type="select" required="true" visible="true">
+                <label translate="true">Type of slider</label>
+                <options>
+                    <option name="slide" value="slide">
+                        <label translate="true">Slide animation</label>
+                    </option>
+                    <option name="fade" value="fade">
+                        <label translate="true">Fade animation</label>
+                    </option>
+                </options>
+            </parameter>
         </parameters>
         <containers>
             <container name="content">
