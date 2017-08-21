@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="header.container" htmlId="header" htmlClass="">
+            <referenceContainer name="header.panel.wrapper" htmlClass="header_top" />
+            <referenceContainer name="header-wrapper" htmlClass="header-middle" >
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <container name="header-logo" htmlTag="div" htmlClass="col-sm-4" />
+                        <container htmlTag="div" htmlClass="col-sm-8">
+                            <container name="header-top-menu" htmlTag="div" htmlClass="shop-menu pull-right"/>
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+            <referenceContainer name="page.top" htmlClass="header-bottom" htmlTag="div"/>
+        </referenceContainer>
+
+        <move element="page.top" destination="header.container" after="header-wrapper"/>
+        <move element="top.links" destination="header-top-menu" />
+        <move element="logo" destination="header-logo"/>
+        <referenceBlock name="report.bugs" remove="true" />
+    </body>
+</page>
