@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="header.container" htmlId ="header" htmlClass="">
+            <referenceContainer name="header.panel.wrapper" htmlClass="header_top">
+                <block class="Cowll\EShopper\Block\HeaderTop" name="cowll_headertop" template="Cowll_EShopper::header_top_block.phtml"/>
+            </referenceContainer>
+            <referenceContainer name="header-wrapper" htmlClass="header-middle">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <container htmlTag="div" htmlClass="col-sm-4">
+                            <container htmlTag="div" htmlClass="logo pull-left">
+                                <container htmlTag="div">
+                                    <!--<block class="Magento\Backend\Block\Page\Header" before="-">-->
+                                        <!--<arguments>-->
+                                            <!--<argument name="show_part" xsi:type="string">logo</argument>-->
+                                            <!--<argument name="edition" translate="true" xsi:type="string">Community Edition</argument>-->
+                                            <!--<argument name="logo_image_src" xsi:type="string">images/magento-icon.svg</argument>-->
+                                        <!--</arguments>-->
+                                    <!--</block>-->
+                                </container>
+                            </container>
+                            <container htmlTag="div" htmlClass="btn-group pull-right" >
+                                <block class="Cowll\EShopper\Block\LogoRight" name="cowll_logoright" template="Cowll_EShopper::header_logo_right_block.phtml"/>
+                            </container>
+                        </container>
+                        <container htmlTag="div" htmlClass="col-sm-8">
+                            <container name="header-shop-menu" htmlTag="div" htmlClass="shop-menu pull-right">
+                                <block class="Cowll\EShopper\Block\HeaderTopLinks" name="header.top.links" template="Cowll_EShopper::header_top_links_block.phtml"/>
+                            </container>
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+            <referenceContainer name="page.top" htmlClass="header-bottom" htmlTag="div">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <container htmlTag="div" htmlClass="col-sm-9">
+                            <block class="Cowll\EShopper\Block\HeaderMenuNav" name="cowll_navmenu" template="Cowll_EShopper::header_nav_menu_block.phtml"/>
+                        </container>
+                        <container htmlTag="div" htmlClass="col-sm-3" name="search_block">
+
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+        </referenceContainer>
+
+
+
+        <referenceContainer name="footer-container" htmlTag="div" htmlId="footer">
+            <container htmlTag="div" htmlClass="footer-top">
+                <block class="Cowll\EShopper\Block\FooterTop" name="footer_top" as="footer_top" template="footer_top_block.phtml"/>
+            </container>
+            <container htmlTag="div" htmlClass="footer-widget">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <block class="Cowll\EShopper\Block\FooterLinks" template="footer_links_block.phtml"/>
+                        <container htmlTag="div" name="div-subscribe" htmlClass="col-sm-3 col-sm-offset-1">
+                            <block class="Magento\Newsletter\Block\Subscribe"  template="subscribe.phtml"/>
+                        </container>
+                    </container>
+                </container>
+            </container>
+
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content" remove="true">
+                <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="switch/stores.phtml"/>
+                <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">footer links</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container htmlTag="div" htmlClass="footer-bottom">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <block class="Magento\Theme\Block\Html\Footer" template="html/copyright.phtml"/>
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+
+
+        <move element="page.top" destination="header.container" after="header-wrapper" />
+        <move element="top.links" destination="header-shop-menu" />
+        <move element="logo" destination="header-logo"/>
+        <move element="top.search" destination="search_block"/>
+
+
+        <referenceBlock name="top.links" remove="true">
+            <block class="Magento\Customer\Block\Account\Link" name="my-account-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Account</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Customer\Block\Account\RegisterLink" name="register-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+                   template="account/link/authorization.phtml"/>
+        </referenceBlock>
+
+        <referenceBlock name="register-link" remove="true"/>
+        <referenceBlock name="copyright" remove="true"/>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="header.panel" remove="true"/>
+        <referenceBlock remove="true" name="breadcrumbs" />
+
+        <referenceBlock remove="true"  name="navigation.sections" />
+
+        <!--<referenceBlock name="requirejs-config" remove="true"/>-->
+        <!--<referenceBlock name="translate-config" remove="true"/>-->
+        <!--<referenceBlock name="translate" remove="true"/>-->
+        <!--<referenceBlock name="global_notices" remove="true"/>-->
+    </body>
+</page>

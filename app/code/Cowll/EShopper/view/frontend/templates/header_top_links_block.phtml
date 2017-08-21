@@ -1,0 +1,7 @@
+<ul class="nav navbar-nav">
+    <li><a href="<?php echo $this->getUrl('customer/account') ?>"><i class="fa fa-user"></i> Account</a></li>
+    <li><a href="<?php echo $this->getUrl('wishlist') ?>"><i class="fa fa-star"></i> Wishlist</a></li>
+    <li><a href="<?php echo $this->getUrl('checkout', ['_secure' => true]);?>"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+    <li><a href="<?php echo $this->getUrl('checkout/cart', ['_secure' => true]);?>"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+    <li><a href="<?php echo $this->getUrl('customer/account/login') ?>"><i class="fa fa-lock"></i> Login</a></li>
+</ul>
