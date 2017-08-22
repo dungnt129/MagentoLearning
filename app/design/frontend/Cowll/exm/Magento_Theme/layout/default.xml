@@ -18,13 +18,12 @@
                         <container htmlTag="div" htmlClass="col-sm-4">
                             <container htmlTag="div" htmlClass="logo pull-left">
                                 <container htmlTag="div">
-                                    <!--<block class="Magento\Backend\Block\Page\Header" before="-">-->
-                                        <!--<arguments>-->
-                                            <!--<argument name="show_part" xsi:type="string">logo</argument>-->
-                                            <!--<argument name="edition" translate="true" xsi:type="string">Community Edition</argument>-->
-                                            <!--<argument name="logo_image_src" xsi:type="string">images/magento-icon.svg</argument>-->
-                                        <!--</arguments>-->
-                                    <!--</block>-->
+                                    <block class="Cowll\EShopper\Block\HeaderLogo" template="Cowll_EShopper::header_logo_block.phtml">
+                                        <arguments>
+                                            <argument name="logo_img_width" xsi:type="number">139</argument>
+                                            <argument name="logo_img_height" xsi:type="number">39</argument>
+                                        </arguments>
+                                    </block>
                                 </container>
                             </container>
                             <container htmlTag="div" htmlClass="btn-group pull-right" >
@@ -53,7 +52,9 @@
             </referenceContainer>
         </referenceContainer>
 
-
+        <referenceContainer name="sidebar.main" as="sidebar_main" label="Sidebar Main">
+            <!--<block class="Cowll\EShopper\Block\CategoryList" name="cowll_categories" template="Cowll_EShopper::categories_sitebar_block.phtml"/>-->
+        </referenceContainer>
 
         <referenceContainer name="footer-container" htmlTag="div" htmlId="footer">
             <container htmlTag="div" htmlClass="footer-top">
