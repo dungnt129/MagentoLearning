@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dmit" translate="label">
+            <label>Dmit</label>
+        </tab>
+        <section id="social" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Social</label>
+            <tab>dmit</tab>
+            <resource>Magento_Cms::save</resource>
+            <group id="social_config" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social Configuration</label>
+                <field id="twitter" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twitter</label>
+                    <comment>Left blank if you don't have a Twitter page</comment>
+                </field>
+                <field id="facebook" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook</label>
+                    <comment>Left blank if you don't have a Facebook page</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
