@@ -2,4 +2,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Trymsunsoan\Hello\Api\HelloInterface"
                 type="Trymsunsoan\Hello\Model\Hello" />
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="exampleSayHello" xsi:type="object">Trymsunsoan\Hello\Console\Sayhello</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

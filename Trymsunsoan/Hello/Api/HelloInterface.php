@@ -11,4 +11,6 @@ interface HelloInterface
      * @return string Greeting message with users name.
      */
     public function name($name);
+    public function getProduct();
+    public function sum( $nums );
 }
