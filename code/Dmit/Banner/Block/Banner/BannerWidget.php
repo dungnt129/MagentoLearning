@@ -20,19 +20,18 @@ class BannerWidget extends Template implements BlockInterface
 {
     const IMAGE_LIMIT = 20;
     protected $bannerCollectionFactory;
+    protected $_resource;
 
     public function __construct(
         Template\Context $context,
         \Dmit\Banner\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory,
-
+        \Magento\Framework\App\ResourceConnection $Resource,
         array $data = []
     ) {
         $this->bannerCollectionFactory = $bannerCollectionFactory;
+        $this->_resource = $Resource;
 
-        parent::__construct(
-            $context,
-            $data
-        );
+        parent::__construct($context, $data);
     }
     
     protected function getPageSize()
@@ -42,6 +41,26 @@ class BannerWidget extends Template implements BlockInterface
 
     protected function _beforeToHtml()
     {
+//        $categoryTable = $this->_resource->getTableName('banner_category');
+//        $joinCollection = $this->bannerCollectionFactory->create();
+//        $joinCollection
+//            ->getSelect()
+//            ->join(
+//                ['cat' => $categoryTable],
+//                "main_table.cat_id = cat.id",
+//                [
+//                    'category_id' => 'cat.id',
+//                    'category_name' => 'cat.name',
+//                    'banner_id'   => 'main_table.id',
+//                    'banner_image' => 'main_table.image',
+//                    'banner_link' => 'main_table.link'
+//                ]
+//            )
+//            ->where("main_table.status = 1");
+//
+//        echo($joinCollection->getSelect());
+//        die;
+
         // Init collecttion
         $collection = $this->bannerCollectionFactory->create();
         // Get data
@@ -55,5 +74,22 @@ class BannerWidget extends Template implements BlockInterface
         
         return parent::_beforeToHtml();
     }
+
+    /*protected function _prepareLayout()
+    {
+        $text = $this->getJoinData();
+        $this->setText($text);
+    }
+
+    public function getJoinData(){
+        $collection = $this->bannerCollectionFactory->create()->getCollection();
+        $second_table_name = $this->_resource->getTableName('banner_category');
+
+        $collection->getSelect()->joinLeft(array('second' => $second_table_name),
+            'main_table.cat_id = second.id');
+        echo $collection->getSelect()->__toString();
+        exit();
+
+    }*/
 
 }

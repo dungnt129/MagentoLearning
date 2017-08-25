@@ -8,6 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
    <update handle="default_head_blocks" />
     <body>
+        <!--Header-->
         <referenceContainer name="header.container" htmlId="header" htmlClass="">
             <referenceContainer name="header.panel.wrapper" htmlTag="div" htmlClass="header_top">
                 <block class="Dmit\Eshoper\Block\HeaderTop" name="dmit_headertop" template="Dmit_Eshoper::header_top_block.phtml"/>
@@ -35,6 +36,9 @@
                 </container>
             </referenceContainer>
         </referenceContainer>
+        <!--End header-->
+
+
         <referenceContainer name="main">
             <referenceContainer name="content.top">
                 <container htmlTag="section" htmlId="slider">
@@ -68,7 +72,7 @@
 
         <referenceContainer name="footer-container" htmlId="footer" htmlClass="">
             <container name="footer_top" htmlTag="div" htmlClass="footer-top">
-                <block class="Magento\Framework\View\Element\Template" name="content_category_tab" template="Dmit_Eshoper::footer_top.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="content_category_tab" template="Dmit_Eshoper::footer_widget.phtml" />
             </container>
             <container name="footer_widget" htmlTag="div" htmlClass="footer-widget">
                 <container name="footer_top_container" htmlTag="div" htmlClass="container">
