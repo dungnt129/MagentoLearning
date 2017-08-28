@@ -8,7 +8,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-//use Magento\Framework\Registry;
 
 class DeleteBanner extends Command
 {
@@ -39,10 +38,6 @@ class DeleteBanner extends Command
      */
     protected $bannerCollectionFactory;
 
-    /**
-     * @var \Magento\Framework\Registry
-     */
-    protected $registry;
     protected $logger;
     /**
      * @param ModuleListInterface $moduleList
@@ -51,13 +46,12 @@ class DeleteBanner extends Command
         Banner $banner,
         CollectionFactory $bannerCollectionFactory,
         \Psr\Log\LoggerInterface $logger
-//        Registry $registry
     )
     {
         $this->banner = $banner;
         $this->bannerCollectionFactory = $bannerCollectionFactory;
         $this->logger = $logger;
-//        $this->registry = $registry;
+
         parent::__construct();
     }
 
@@ -65,17 +59,18 @@ class DeleteBanner extends Command
     {
         $this->setName('banner:delete');
         $this->setDescription('Delete banner command');
+        $this->addArgument(
+            self::BANNER_ARGUMENT,   // name
+            InputArgument::OPTIONAL, // mode
+            'Banner id'              // brief
+        );
         $this->addOption(
             self::ALLOW_ALL,            // name
             '-a',                       // shortcut
             InputOption::VALUE_NONE,    // mode
             'Allow delete all banner'   // brief
         );
-        $this->addArgument(
-            self::BANNER_ARGUMENT,   // name
-            InputArgument::OPTIONAL, // mode
-            'Banner id'              // brief
-        );
+
 
 //        $this->setName('example:DeleteBanner')
 //            ->setDescription('Delete banner command')
@@ -105,13 +100,11 @@ class DeleteBanner extends Command
             $allowAll = $input->getOption(self::ALLOW_ALL);
             if (is_null($bannerId)) {
                 if ($allowAll) {
-//                $this->registry->register('isSecureArea','true');         //create secure area to delete Banners
                     $bannerAllColl = $this->bannerCollectionFactory->create();  //Get banner Collection
                     foreach ($bannerAllColl as $bannerCollData) {
                         $bannerCollData->delete();                             //Delete banner
                     }
                     $this->logger->info('Delete all banner success');
-//                $this->registry->unregister('isSecureArea');              //unset secure area
                     $output->writeln('<info>All banners are deleted.</info>'); //Displaying output on terminal
                 } else {
                     throw new \InvalidArgumentException('Argument ' . self::BANNER_ARGUMENT . ' is missing.');
@@ -123,10 +116,8 @@ class DeleteBanner extends Command
                 if(empty($bannerColl) || !$bannerColl->getId()){
                     $output->writeln('<info>Banner with id ' . $bannerId . ' does not exist.</info>');
                 }else{
-//                $this->registry->register('isSecureArea','true');         //create secure area to delete banner
                     $bannerColl->delete();                                    //Delete banner
                     $this->logger->info('Delete banner with id ' . $bannerId . ' is deleted');
-//                $this->registry->unregister('isSecureArea');              //unset secure area
                     $output->writeln('<info>Banner with id ' . $bannerId . ' is deleted.</info>');
                 }
             }
@@ -135,7 +126,7 @@ class DeleteBanner extends Command
             $this->logger->error($e->getMessage());
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             $output->writeln('<error>Please disable maintenance mode after you resolved above issues</error>');
-            // we must have an exit code higher than zero to indicate something was wrong
+
             return \Magento\Framework\Console\Cli::RETURN_FAILURE;
         }
     }
