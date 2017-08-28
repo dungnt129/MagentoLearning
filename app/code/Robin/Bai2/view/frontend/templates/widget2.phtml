@@ -1,0 +1,35 @@
+<h4>Slider 2 FlexSlider</h4>
+
+<?php
+
+$speed = $this->getData('speed');
+$auto = $this->getData('auto');
+$mediaUrl = $this->getData('mediaUrl');
+$banners = $this->getData('banners');
+
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getViewFileUrl('Robin_Bai2::css/flexslider.css') ?>"/>
+
+<div class="flexslider">
+<ul class="slides">
+    <?php
+    foreach ($banners as $banner)
+    {
+        $image = $banner['image'];
+        ?>
+        <li><img src="<?= $mediaUrl.$image; ?>" /></li>
+        <?php
+    }
+    ?>
+</ul>
+</div>
+<script>
+    require(['jquery','Robin_Bai2/js/jquery.flexslider'],function($) {
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide"
+            });
+        });
+    });
+</script>

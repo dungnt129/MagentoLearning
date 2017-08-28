@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <!--Phan header cua trang-->
+        <!--Trung Anh-->
+        <referenceContainer name="header.container">
+            <!--Phan header Co chua login register-->
+            <referenceContainer name="header.panel.wrapper">
+                <referenceContainer name="header.panel">
+                    <referenceBlock name="top.links">
+                        <referenceBlock name="register-link" before="-">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">ログイン</argument>
+                                <argument name="class" xsi:type="string">btnauthen</argument>
+                            </arguments>
+                        </referenceBlock>
+
+
+                        <referenceBlock name="authorization-link" after="register-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">新規メンバー登録</argument>
+                                <argument name="class" xsi:type="string">btnauthen</argument>
+                            </arguments>
+                        </referenceBlock>
+
+                        <block class="Robin\Aeon\Block\HeaderText" template="Robin_Aeon::header_text.phtml">
+                        </block>
+
+                    </referenceBlock>
+                    <block class="Robin\Aeon\Block\HeaderVoice" template="Robin_Aeon::header_voice.phtml">
+                    </block>
+                    <container htmlClass="search_bar" htmlTag="div">
+                        <container htmlClass="search_bar1" htmlTag="div">
+                        </container>
+                    </container>
+                </referenceContainer>
+            </referenceContainer>
+            <!--End phan header chua login register-->
+
+            <!--Phan header chua Logo-->
+            <referenceContainer name="header-wrapper">
+                <referenceBlock name="logo">
+                    <arguments>
+                        <argument name="logo_img_width" xsi:type="number">211</argument>
+                    </arguments>
+                </referenceBlock>
+                <block class="Robin\Aeon\Block\HeaderSlogan" template="Robin_Aeon::header_slogan.phtml" />
+            </referenceContainer>
+            <!--End phan header chua logo-->
+
+            <!--Phan searchbar va gio hang-->
+            <container htmlClass="pc2015-global-navigation clearfix" htmlTag="div" after="header-wrapper">
+                <container htmlClass="pc2015-left" htmlTag="div">
+                    <block class="Robin\Aeon\Block\HeaderLeft" template="Robin_Aeon::header_left.phtml"></block>
+                </container>
+                <container name="head-center" htmlClass="pc2015-center" htmlTag="div">
+                    <block class="Robin\Aeon\Block\HeaderBar" template="Robin_Aeon::header_bar.phtml"></block>
+                </container>
+                <container name="head_right" htmlClass="pc2015-right clearfix" htmlTag="div">
+                    <block class="Robin\Aeon\Block\HeaderRight" template="Robin_Aeon::header_right.phtml"></block>
+                    <referenceBlock name="minicart" template="Robin_Aeon::minicart.phtml"></referenceBlock>
+                </container>
+                <!--<block class="Magento\Framework\View\Element\Template" name="my.top.search" as="topSearch" template="Robin_Aeon::mini_search.phtml" />-->
+            </container>
+            <!--End phan search bar va gio hang-->
+        </referenceContainer>
+        <!--End phan header-->
+
+
+        <referenceContainer name="report.bugs" remove="true" />
+        <referenceBlock remove="true" name="breadcrumbs" />
+        <referenceBlock remove="true"  name="navigation.sections" />
+        <!--<referenceBlock remove="true"  name="header.links" />-->
+        <referenceBlock name="wish-list-link" remove="true" />
+        <referenceBlock name="my-account-link" remove="true" />
+        <referenceBlock name="skip_to_content" remove="true" />
+        <referenceBlock name="header" remove="true" />
+
+        <referenceBlock name="compare-products-link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="sidebar.additional" remove="true" />
+        <referenceBlock name="catalog.compare.link" remove="true" />
+
+        <referenceBlock name="top.search" remove="true" />
+
+        <!--<move element="minicart" destination="head_right" />-->
+
+    </body>
+</page>

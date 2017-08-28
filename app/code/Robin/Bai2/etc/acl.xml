@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::Banner_manager" title="Save Banner">
+                        <resource id="Robin_Bai2::save" title="Save Page" translate="Save Image" sortOrder="10" />
+                        <resource id="Robin_Bai2::page_delete" title="Delete Page" translate="Delete Image" sortOrder="20" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

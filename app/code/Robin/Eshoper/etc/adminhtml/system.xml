@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="robin" translate="label">
+            <label>Robin</label>
+        </tab>
+        <section id="social" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="social_config" translate="label" type="text" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social</label>
+                <field id="facebook" translate="label" type="text" sortOrder="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Facebook</label>
+                    <comment>Comment Facebook</comment>
+                </field>
+                <field id="google" translate="label" type="text" sortOrder="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Google+</label>
+                    <comment>Comment GG</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,74 @@
+@charset "Shift_JIS";
+/* ------------------------------------------------------------
+	z_menteAS
+------------------------------------------------------------ */
+
+.conbox img{
+	border:0px;
+}
+
+.conbox{
+	overflow:hidden;
+	width:100%;
+	margin:30px auto 0 auto;
+}
+
+#wfooter-area{
+	clear:both;
+	overflow:hidden;
+}
+
+#wfooter-area img{
+	float:right;
+}
+
+.conbox ul{
+}
+
+.conbox li{
+	margin-bottom:20px;
+}
+
+.conbox p{
+	padding-top:0;
+	margin-bottom:50px;
+}
+
+
+.mente{
+	margin:0px 10px;
+	overflow:hidden;
+}
+
+
+.mente .left{
+	background:url(../img/img04.gif) right 8px no-repeat;
+	float:left;
+}
+
+.mente .right{
+	float:right;
+}
+
+.mente .right a{
+	display:block;
+	margin-top:67px;
+}
+
+
+.mt30{
+	margin-top:30px;
+}
+
+.top_lead h1 {
+	font-size: large;
+	font-weight: bold;
+	margin: 30px 0;
+	width: 100%;
+}
+
+.top_lead p {
+	font-weight: bold;
+	margin: 0 0 10px;
+	width: 100%;
+}

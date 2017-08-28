@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <referenceContainer name="header.container" htmlId="header" htmlClass="">
+        <referenceContainer name="header.panel.wrapper" htmlId="" htmlClass="header_top">
+            <block class="Robin\Aeon\Block\HeaderTop" name="robin_headertop" template="Robin_Aeon::header_top_block.phtml" />
+        </referenceContainer>
+        <referenceContainer name="page.top" htmlId="" htmlClass="header_bottom" htmlTag="div"></referenceContainer>
+    </referenceContainer>
+</page>

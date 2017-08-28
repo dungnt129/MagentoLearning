@@ -1,0 +1,635 @@
+@charset "Shift_JIS";
+
+/* --------------------------------------------------------------------
+	フリーページ　共通
+--------------------------------------------------------------------- */
+div.freepage_ {
+}
+div.freepage_narrow_ {
+	padding: 0 60px;
+}
+div.freepage_ .box_ {
+	margin-bottom: 20px;
+	padding: 0 20px;
+	overflow: hidden;
+	clear: both;
+}
+div.freepage_ .common_headline2_ {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+/* --------------------------------------------------------------------
+	フリーページ　会社概要
+--------------------------------------------------------------------- */
+#company {
+}
+#company table {
+	margin: 0 auto;
+	width: 80%;
+	border: 1px solid #AFAFAF;
+}
+#company table th {
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #AFAFAF;
+}
+#company table td {
+	vertical-align: top;
+	border: 1px solid #AFAFAF;
+}
+#company ul {
+	padding-top: 10px;
+}
+#company ul li {
+	padding-left: 12px;
+	background: url(../../images/usr/blk-arrow-fter.png) 5px 5px no-repeat;
+}
+
+/* --------------------------------------------------------------------
+	フリーページ　プライバシーポリシー
+--------------------------------------------------------------------- */
+#privacy {
+}
+#privacy p {
+}
+#privacy ol {
+	padding: 10px 0;
+}
+#privacy ol li {
+	padding: 2px 0;
+}
+#privacy .contact_ {
+	margin: 10px 0;
+	padding: 10px;
+	background: #F2F2F2;
+	border: 1px solid #CCC;
+}
+#privacy .contact_ h3 {
+	padding: 0 0 10px 12px;
+	font-weight: bold;
+	background: url(../../images/usr/blk-arrow-fter.png) 5px 5px no-repeat;
+}
+#privacy .contact_ p {
+	padding-left: 20px;
+}
+#privacy .contact_ a {
+	text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------
+	フリーページ　出店希望申請
+--------------------------------------------------------------------- */
+#shop_appli {
+}
+#shop_appli h1 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 840px;
+}
+#shop_appli .inner_ {
+	margin: 0 auto 43px;
+	padding: 40px 50px 0;
+	background: #f8f8f8;
+	width: 780px;
+	overflow: hidden;
+	line-height: 1.7;
+}
+#shop_appli .left_ {
+	float: left;
+}
+#shop_appli .right_ {
+	float: right;
+}
+#shop_appli .box_ {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+}
+/* box1 */
+#shop_appli #box1 {
+	margin-bottom: 3px;
+}
+#shop_appli #box1 .left_ {
+	width: 504px;
+}
+#shop_appli #box1 .right_ {
+	width: 248px;
+}
+#shop_appli #box1 h2 {
+	margin-bottom: 23px;
+	padding: 0 0 8px;
+	background: url(../../images/usr/free/shop_title01.png) 3px 0 no-repeat;
+	text-indent: -9999px;
+	height: 19px;
+	width: 100%;
+	border-bottom: 1px solid #565555;
+}
+/* box2 */
+#shop_appli #box2 {
+	margin-bottom: 18px;
+}
+#shop_appli #box2 .left_ {
+	width: 228px;
+}
+#shop_appli #box2 .right_ {
+	width: 526px;
+}
+#shop_appli #box2 h2 {
+	margin-bottom: 23px;
+	padding: 30px 0 8px;
+	background: url(../../images/usr/free/shop_title02.png) 3px 30px no-repeat;
+	text-indent: -9999px;
+	height: 19px;
+	width: 100%;
+	border-bottom: 1px solid #565555;
+}
+#shop_appli #box2 .msg_ {
+	margin-top: 5px;
+	background: url(../../images/usr/free/shop_msg01.png) no-repeat;
+	width: 520px;
+	height: 93px;
+	text-indent: -9999px;
+}
+/* box3 */
+#shop_appli #box3 {
+	margin-bottom: 38px;
+}
+#shop_appli #box3 div {
+	border-left: 1px solid #0568a6;
+	border-right: 1px solid #0568a6;
+	border-bottom: 1px solid #0568a6;
+	height: 134px;
+	background: #fff url(../../images/usr/free/shop_msg02.png) 24px 12px no-repeat;
+	position: relative;
+}
+#shop_appli #box3 div .msg_ {
+	text-indent: -9999px;
+}
+#shop_appli #box3 .btn_ {
+	position: absolute;
+	bottom: 17px;
+	right: 20px;
+}
+/* box4 */
+#shop_appli #box4 {
+}
+#shop_appli #box4 h2 {
+	margin-bottom: 23px;
+	padding: 0 0 8px;
+	background: url(../../images/usr/free/shop_title04.png) 3px 0 no-repeat;
+	text-indent: -9999px;
+	height: 19px;
+	width: 100%;
+	border-bottom: 1px solid #565555;
+}
+#shop_appli #box4 ul {
+	padding-bottom: 19px;
+	overflow: hidden;
+}
+#shop_appli #box4 ul li {
+	float: left;
+	display: block;
+	width: 130px;
+	height: 131px;
+	text-indent: -9999px;
+}
+#shop_appli #box4 ul li#f_step1 {
+	background: url(../../images/usr/free/shop_step1.png) no-repeat;
+	width: 131px;
+}
+#shop_appli #box4 ul li#f_step2 {
+	background: url(../../images/usr/free/shop_step2.png) no-repeat;
+}
+#shop_appli #box4 ul li#f_step3 {
+	background: url(../../images/usr/free/shop_step3.png) no-repeat;
+}
+#shop_appli #box4 ul li#f_step4 {
+	background: url(../../images/usr/free/shop_step4.png) no-repeat;
+}
+#shop_appli #box4 ul li#f_step5 {
+	background: url(../../images/usr/free/shop_step5.png) no-repeat;
+}
+#shop_appli #box4 ul li#f_step6 {
+	background: url(../../images/usr/free/shop_step6.png) no-repeat;
+	width: 123px;
+}
+
+/* --------------------------------------------------------------------
+	フリーページ　仕入会員登録について
+--------------------------------------------------------------------- */
+#member_regist {
+}
+#member_regist h1 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 840px;
+}
+#member_regist .inner_ {
+	margin: 0 auto 43px;
+	padding: 40px 50px 0;
+	background: #f8f8f8;
+	width: 780px;
+	overflow: hidden;
+	line-height: 1.7;
+}
+#member_regist .box_ {
+	padding: 0;
+}
+#member_regist .msg_ {
+	margin-bottom: 23px;
+	padding: 0 0 8px;
+	background: url(../../images/usr/free/member_h1.png) 3px 0 no-repeat;
+	text-indent: -9999px;
+	height: 19px;
+	width: 100%;
+	border-bottom: 1px dotted #989898;
+}
+#member_regist #top_comment {
+	margin-bottom: 50px;
+}
+#member_regist .inner_ .box_ h2 {
+	margin-bottom: 19px;
+	padding: 0 0 8px;
+	background: url(../../images/usr/free/member_title.png) 3px 0 no-repeat;
+	text-indent: -9999px;
+	height: 19px;
+	width: 100%;
+	border-bottom: 1px solid #565555;
+}
+#member_regist ul {
+	overflow: hidden;
+}
+#member_regist ul.stepList_ li {
+	padding-bottom: 17px;
+	float: left;
+	display: block;
+	width: 130px;
+	height: 131px;
+	text-indent: -9999px;
+}
+#member_regist ul.stepList_ li#f_step1 {
+	background: url(../../images/usr/free/member_step1.png) no-repeat;
+	width: 131px;
+}
+#member_regist ul.stepList_ li#f_step2 {
+	background: url(../../images/usr/free/member_step2.png) no-repeat;
+}
+#member_regist ul.stepList_ li#f_step3 {
+	background: url(../../images/usr/free/member_step3.png) no-repeat;
+}
+#member_regist ul.stepList_ li#f_step4 {
+	background: url(../../images/usr/free/member_step4.png) no-repeat;
+}
+#member_regist ul.stepList_ li#f_step5 {
+	background: url(../../images/usr/free/member_step5.png) no-repeat;
+}
+#member_regist ul.stepList_ li#f_step6 {
+	background: url(../../images/usr/free/member_step6.png) no-repeat;
+	width: 123px;
+}
+#member_regist div.item_ {
+	margin: 10px 0 0;
+	padding: 10px;
+	border: 1px solid #e3e3e3;
+	background: #FFF;
+	width: 510px;
+}
+#member_regist div.item_ ul li {
+	display: block;
+	float: left;
+	width: 49%;
+}
+#member_regist .regist_comment_ {
+	margin: 0 auto;
+	padding-top: 10px;
+	width: 210px;
+	text-align: left;
+	font-size: 11px;
+	line-height: 1.4;
+}
+#member_regist #points {
+	padding: 29px 26px;
+	width: 664px;
+	height: 140px;
+	background: url(../../images/usr/free/member_points.png) no-repeat;
+	overflow: hidden;
+}
+#member_regist #points ul {
+	width: 671px;
+}
+#member_regist #points ul li {
+	padding: 0 7px 7px 0;
+	display: block;
+	float: left;
+}
+
+/* --------------------------------------------------------------------
+	フリーページ　eクレジット
+--------------------------------------------------------------------- */
+#e_credit {
+	margin: 40px 70px;
+	}
+#e_credit h1 {
+	margin: 0 20px 30px;
+}
+#e_credit div.box_ h2 {
+	margin-bottom: 18px;
+	}
+ul#credit_merit {
+	width: 790px;
+	height: 188px;
+	overflow: hidden;
+	}
+ul#credit_merit li {
+	float: left;
+	display: inline;
+	margin: 0 10px 10px 0;
+	}
+#e_credit .credit_flow_ {
+	margin: 0 0 5px;
+	padding: 0 0 30px;
+	background: url(../../images/usr/free/credit_arw2.gif) no-repeat 138px bottom;
+	overflow: hidden;
+	}
+#e_credit .box_ .noArrow_ {
+	padding-bottom: 0;
+	background: none;
+	}
+
+#e_credit .box_ .img_ {
+	margin-bottom: 20px;
+	}
+#e_credit .credit_flow_ h3 {
+	margin-bottom: 8px;
+	}
+#e_credit .credit_flow_ p,
+#e_credit .credit_flow_ dl,
+#e_credit .credit_flow_ ul {
+	margin: 0 22px 10px ;
+	}
+#e_credit .credit_flow_ dl dt {
+	margin: 10px 0 0;
+	font-weight: bold;
+	}
+#e_credit .box_ .small_ {
+	font-size: 10px;
+	}
+#e_credit table.creditTbl_ {
+	margin: 0 22px 20px;
+	border: 1px dotted #ccc;
+	width: 680px;
+	}
+#e_credit table.creditTbl_ td {
+	padding: 10px 30px;
+	text-align: center;
+	vertical-align: middle;
+	}
+#e_credit table.creditTbl_ td.leftTd_ {
+	padding-top: 25px;
+	border-right: 1px dotted #ccc;
+	background: url(../../images/usr/free/credit_arw1.gif) no-repeat center bottom;
+	vertical-align: top;
+	}
+#e_credit table.creditTbl_ td img {
+	margin: 0 auto;
+	display: block;
+	}
+#e_credit table.creditTbl_ td strong {
+	margin: 0 auto;
+	padding: 0 0 35px;
+	background: url(../../images/usr/free/credit_arw2.gif) no-repeat center bottom;
+	color: #c80505;
+	width: 250px;
+	display: block;
+	text-align: center;
+	}
+#e_credit table.creditTbl_ td p {
+	text-align: left;
+	}
+
+#e_credit #credit_address {
+	padding: 10px;
+	width: 270px;
+	background: #eff8ff;
+	border: 1px solid #ccc;
+	}
+
+#e_credit table.credit_documents_ {
+	margin: 20px 20px 10px;
+	border: 1px solid #666;
+	}
+#e_credit table.credit_documents_ th,
+#e_credit table.credit_documents_ td {
+	padding: 15px;
+	vertical-align: top;
+	border: 1px solid #666;
+}
+#e_credit table.credit_documents_ th {
+	font-weight: bold;
+	background: #f8f8f8;
+	width: 90px;
+	}
+#e_credit .credit_documents_ caption span {
+	font-weight: bold;
+	font-size: 14px;
+	}
+#e_credit table.credit_documents_ td dl {
+	margin: 0;
+	padding: 0;
+	}
+#e_credit table.credit_documents_ td dl dt {
+	margin: 0 0 10px;
+	font-weight: bold;
+	}
+#e_credit table.credit_documents_ td dl dd {
+	padding-left: 1em;
+	text-indent: -1em;
+	}
+
+
+/* --------------------------------------------------------------------
+	フリーページ　限度額アップ資料請求
+--------------------------------------------------------------------- */
+
+#e_credit_limited div#e_credit_limited_maincolum {
+	width: 800px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#e_credit_limited h1.e_credit_limited_headline {
+    background: url(../../images/usr/blk-arrow-grey.png) no-repeat 0 0;
+    font-size: 13px;
+    font-weight: bold;
+    height: 35px;
+    margin-bottom: 10px;
+    padding: 17px 0 0 38px;
+}
+
+#e_credit_limited p#e_credit_limited_headline_subtxt {
+	padding: 0 0 20px 3em;
+}
+
+#e_credit_limited h2 {
+	margin-bottom: 18px;
+}
+
+#e_credit_limited dl.e_credit_limited_personcompany {
+	margin-bottom: 15px;
+}
+
+#e_credit_limited dl.e_credit_limited_personcompany dt {
+	margin: 0 0 10px 2em;
+}
+
+#e_credit_limited dl.e_credit_limited_personcompany dd {
+	display: inline;
+}
+
+#e_credit_limited dl.e_credit_limited_personcompany dd.dd_first{
+	padding-left: 4em;
+}
+
+#e_credit_limited table.e_credit_limited_tbl {
+    border: 1px solid #666666;
+	margin: 0 auto;
+}
+
+#e_credit_limited table.e_credit_limited_tbl td,
+#e_credit_limited table.e_credit_limited_tbl th {
+    border: 1px solid #666666;
+    padding: 15px;
+}
+	
+#e_credit_limited table.e_credit_limited_tbl th {
+	background: none repeat scroll 0 0 #F8F8F8;
+    font-weight: bold;
+    width: 50px;
+	text-align: center;
+}
+
+#e_credit_limited table.e_credit_limited_tbl td {
+	vertical-align: top;
+	text-indent: -1em;
+}
+
+#e_credit_limited table.e_credit_limited_tbl td#person1 {
+	padding-left: 2em;
+}
+
+#e_credit_limited table.e_credit_limited_tbl td dl dd {
+	line-height: 1.7;
+	padding-left: 1em;	
+}
+
+#e_credit_limited table.e_credit_limited_tbl td dl dt{
+	margin-bottom: 0.5em;
+}
+
+#e_credit_limited table.e_credit_limited_tbl td dl {
+	padding-left: 1em;
+}
+
+#e_credit_limited p.e_credit_limited_tblsubtxt {
+    color: #C80505;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+
+#e_credit_limited ul#e_credit_limited_list {
+	margin-top: 20px;
+}
+#e_credit_limited ul#e_credit_limited_list li{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/* --------------------------------------------------------------------
+	フリーページ　ご利用ガイド
+--------------------------------------------------------------------- */
+#guide {
+}
+#guide h1 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 840px;
+}
+#guide h2 {
+	margin-bottom: 19px;
+	padding: 0 0 8px 20px;
+	background: url(../../images/usr/free/h2_back.png) 3px 2px no-repeat;
+	height: 19px;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #565555;
+}
+#guide h3 {
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 13px;
+	color: #126091;
+	border-bottom: 1px dotted #126091;
+	width: 100%;
+}
+#guide strong {
+	font-weight: normal;
+	color: #d50808;
+}
+#guide ul li {
+	padding-left: 15px;
+	background: url(../../images/usr/free/arrow_s.png) 7px 7px no-repeat;
+}
+#guide .inner_ {
+	margin: 0 auto 43px;
+	padding: 40px 50px 0;
+	background: #f8f8f8;
+	width: 780px;
+	overflow: hidden;
+	line-height: 1.7;
+}
+#guide .index_ {
+	padding-left: 20px;
+	float: left;
+	width: 250px;
+}
+#guide .index_ li {
+	padding-left: 20px;
+	background: url(../../images/usr/free/arrow.png) 0 3px no-repeat;
+	list-style-type: none;
+}
+#guide .index_ li ul li {
+	padding-left: 10px;
+	background: url(../../images/usr/free/arrow_s.png) 0 7px no-repeat;
+}
+#guide .attention_ {
+	margin-bottom: 20px;
+	border: 1px solid #cccccc;
+	padding: 10px;
+	background: #ffffff;
+}
+#guide .attention_ .ttl_ {
+	font-weight: bold;
+	font-size: 13px;
+	color: #d50808;
+}
+#guide dl dt {
+	padding-left: 10px;
+	background: url(../../images/usr/free/arrow_s.png) 4px 7px no-repeat;
+	font-weight: bold;
+}
+#guide dl dd {
+	padding: 0 0 10px 20px;
+}
+
+/* はじめての方へ */
+ul#firstnav {
+	text-align: center;
+	margin-bottom: 40px;
+}
+ul#firstnav li {
+	margin: 0 20px;
+	display: inline;
+}

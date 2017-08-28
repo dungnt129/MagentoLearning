@@ -1,0 +1,183 @@
+@charset "Shift_JIS";
+
+/* --------------------------------------------------------------------
+	カテゴリ一覧　ピックアップ
+--------------------------------------------------------------------- */
+div.CategoryStyleP_ {
+	width:103%;
+	overflow: hidden;
+}
+div.CategoryStyleP_Line_ {
+	padding-bottom: 10px;
+	width: 100%;
+	overflow: hidden;
+}
+div.CategoryStyleP_Item_ {
+	margin-right: 11px;
+	float: left;
+	display: inline;
+	width: 363px;
+	border: 1px solid #AFAFAF;
+}
+div.CategoryStyleP_Item_ h3.name_ {
+	margin: 9px 9px 7px;
+	font-weight: bold;
+}
+div.CategoryStyleP_Item_ div.comment_ {
+	margin: 0 9px 9px;
+	padding-top: 9px;
+	border-top: 1px dotted #000;
+}
+div.CategoryStyleP_Item_ .img_ {
+	padding: 0 9px 5px;
+}
+/* --------------------------------------------------------------------
+	カテゴリ一覧　孫カテゴリ
+--------------------------------------------------------------------- */
+div.CategoryStyleG_ {
+	width:100%;
+	overflow: hidden;
+}
+div.CategoryStyleG_Line_ {
+	margin-bottom: 10px;
+    overflow: hidden;
+    width: 103%;
+}
+div.CategoryStyleG_Item_ {
+	border: 1px solid #AFAFAF;
+    display: inline;
+    float: left;
+    margin-right: 11px;
+    overflow: hidden;
+    padding: 0 0 20px;
+    width: 175px;
+}
+div.CategoryStyleG_Item_ h3.name_ {
+	border-bottom: 1px dotted #000000;
+    /*font-size: 14px;*/
+	font-size: 11px;
+    font-weight: bold;
+    margin: 9px 9px 3px;
+    padding-bottom: 5px;
+}
+div.CategoryStyleG_Item_ .comment_ {
+	margin: 0 9px;
+}
+div.CategoryStyleG_Item_ div.comment_ img {
+	margin: 0 0 10px 0;
+}
+div.CategoryStyleG_ ul {
+	margin: 10px 9px 0 9px;
+    padding: 0;
+}
+div.CategoryStyleG_ ul li {
+	padding-right: 4px;
+	display: block;
+	float: left;
+	background: url(../img/usr/devide-line.png) center right no-repeat;
+	font-size: 9px;
+	white-space: nowrap;
+}
+/* --------------------------------------------------------------------
+	カテゴリ一覧　一覧
+--------------------------------------------------------------------- */
+div.CategoryStyleL_ {
+	width:100%;
+	border:none;
+}
+div.CategoryStyleL_ span.name_ {
+	margin:4px;
+	font-weight:bold;
+	white-space: nowrap;
+}
+/* --------------------------------------------------------------------
+	カテゴリ一覧　サムネイル
+--------------------------------------------------------------------- */
+div.CategoryStyleT_ {
+	width:103%;
+	overflow: hidden;
+}
+div.CategoryStyleT_Line_ {
+	padding-bottom: 10px;
+	width:100%;
+	overflow: hidden;
+}
+div.CategoryStyleT_Item_ {
+	margin-right: 10px;
+	float: left;
+	display: inline;
+	width: 238px;
+	overflow: hidden;
+	border: 1px solid #AFAFAF;
+}
+div.CategoryStyleT_Item_ h3.name_ {
+	margin: 9px 9px 7px;
+	font-weight: bold;
+}
+div.CategoryStyleT_Item_ h3.img_ {
+	padding: 9px 9px 3px;
+	font-size: 5px;
+	border: none;
+}
+div.CategoryStyleT_Item_ .comment_ {
+	margin: 0 9px 9px;
+	padding-top: 9px;
+	border-top: 1px dotted #000;
+}
+/* --------------------------------------------------------------------
+	カテゴリ一覧　詳細
+--------------------------------------------------------------------- */
+div.CategoryStyleD_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.CategoryStyleD_Item_ {
+	margin-bottom: 10px;
+	overflow: hidden;
+	border: 1px solid #AFAFAF;
+}
+div.CategoryStyleD_Item_ h3 {
+	margin: 9px;
+	font-weight: bold;
+}
+div.CategoryStyleD_Item_ .comment_ {
+	margin-bottom: 9px;
+	margin-left: 9px;
+	margin-right: 9px;
+	padding-top: 9px;
+	border-top: 1px dotted #000;
+}
+
+/* --------------------------------------------------------------------
+	ジャンル一覧
+--------------------------------------------------------------------- */
+div.GenreStyle_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.GenreStyle_Line_ {
+	margin: 0 0 20px 0;
+	width: 100%;
+	overflow: hidden;
+}
+div.GenreStyle_Item_ {
+	margin: 0;
+	float: left;
+	display: inline;
+	width: 33%;
+}
+div.GenreStyle_Item_ h3.img_ {
+	padding: 0 10px 10px 10px;
+	font-size: 5px;
+	border: none;
+}
+div.GenreStyle_Item_ h3.name_ {
+	margin: 0 5px 10px 5px;
+	padding: 5px 10px 2px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+div.GenreStyle_Item_ div.comment_ {
+	margin: 0 10px;
+}

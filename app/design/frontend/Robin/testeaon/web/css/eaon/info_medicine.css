@@ -1,0 +1,37 @@
+@charset "Shift_JIS";
+
+/* --------------------------------------------------------------------
+	ˆã–ò•i”Ì”„‚ÉŠÖ‚·‚é‚²ˆÄ“à
+--------------------------------------------------------------------- */
+table.legalinfo {
+border-collapse: collapse;
+width: 100%;
+}
+
+table.legalinfo td.title {
+color: #515151;
+font-weight: bold;
+background-color: #E3DABA;
+}
+
+table.legalinfo td {
+color: black;
+font-size: 12px;
+line-height: 140%;
+background-color: #FCFCFA;
+padding: 10px;
+border: solid 1px #9EACB7;
+width: 520px;
+}
+
+table.legalinfo {
+border-collapse: collapse;
+}
+
+table.legalinfo td.datrl {
+color: #717171;
+font-weight: bold;
+background-color: #F6F1DE;
+width: 250px;
+}
+

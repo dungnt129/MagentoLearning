@@ -1,0 +1,618 @@
+@charset "UTF-8";
+
+/* --------------------------------------------------------------------
+	カート画面
+-------------------------------------------------------------------- */
+
+div.cartlist_ {
+}
+div.cartlist_ h1 {
+	margin-top: 30px;
+}
+div.cartlist_ .error_ {
+	margin-top: 1em;
+}
+div.order_flow_ {margin: 15px 0 25px;text-align: center;}
+div.order_flow_ ul {overflow: hidden;margin: 0 auto;width: 760px;height: 46px;}
+div.order_flow_ li {float: left;margin-right: 10px;width: 180px;height: 46px;background: url(../img/usr/btn/btn_orderflow.png) 0 0 no-repeat;}
+div.order_flow_ li span {display: block;padding-top: 46px;height: 0;}
+div.order_flow_ li.step1_ {background-position: 0 0;}
+div.order_flow_ li.step2_ {background-position: -200px 0;}
+div.order_flow_ li.step3_ {background-position: -400px 0;}
+div.order_flow_ li.step4_ {background-position: -600px 0;}
+div.order_flow_ li.step1_ span.current_ {background: url(../img/usr/btn/btn_orderflow.png) 0 -46px no-repeat;}
+div.order_flow_ li.step2_ span.current_ {background: url(../img/usr/btn/btn_orderflow.png) -200px -46px no-repeat;}
+div.order_flow_ li.step3_ span.current_ {background: url(../img/usr/btn/btn_orderflow.png) -400px -46px no-repeat;}
+div.order_flow_ li.step4_ span.current_ {background: url(../img/usr/btn/btn_orderflow.png) -600px -46px no-repeat;}
+
+div.order_flow_gift {margin: 15px 0 25px;text-align: center;}
+div.order_flow_gift ul {overflow: hidden;margin: 0 auto;width: 760px;height: 46px;}
+div.order_flow_gift li {float: left;margin-right: 20px;width: 240px;height: 46px;background: url(../img/usr/btn/btn_orderflow_gift.png) 0 0 no-repeat;}
+div.order_flow_gift li span {display: block;padding-top: 46px;height: 0;}
+div.order_flow_gift li.step1_ {background-position: 0 0;}
+div.order_flow_gift li.step2_ {background-position: -250px 0;}
+div.order_flow_gift li.step3_ {margin-right: 0;background-position: -500px 0;}
+div.order_flow_gift li.step1_ span.current_ {background: url(../img/usr/btn/btn_orderflow_gift.png) 0 -46px no-repeat;}
+div.order_flow_gift li.step2_ span.current_ {background: url(../img/usr/btn/btn_orderflow_gift.png) -250px -46px no-repeat;}
+div.order_flow_gift li.step3_ span.current_ {background: url(../img/usr/btn/btn_orderflow_gift.png) -500px -46px no-repeat;}
+
+div.netsuper_ {
+	overflow: hidden;
+	padding: 15px 10px 10px;
+	border: 2px solid #b1227a;
+}
+div.netsuper_drug_ {
+	overflow: hidden;
+	padding: 15px 10px 10px;
+	border: 2px solid #2357aa;
+}
+div.aeonshop_ {
+	overflow: hidden;
+	margin-top: 20px;
+	padding: 15px 10px 10px;
+	border: 2px solid #f1a61d;
+}
+h2.name_netsuper_ {
+	padding-bottom: .8em;
+	border-bottom: 2px solid #b1227a;
+	color: #b1227a;
+	font-size: 18px;
+	font-weight: bold;
+}
+h2.name_netsuper_drug_ {
+	padding-bottom: .8em;
+	border-bottom: 2px solid #2357aa;
+	color: #2357aa;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+h2.name_netsuper_ a,
+h2.name_netsuper_drug_ a {
+	padding-bottom: .8em;
+	color: #b1227a;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+h2.name_netsuper_,
+h2.name_netsuper_drug_{
+	margin-bottom:5px;
+}
+h2.name_aeonshop_ {
+	padding-bottom: .8em;
+	border-bottom: 2px solid #f1a61d;
+	color: #f1a61d;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom:5px;
+}
+
+h2.name_aeonshop_  a {
+	padding-bottom: .8em;
+	/*color: #b0237b;*/
+	color: #F1A61D;
+	font-size: 18px;
+	font-weight: bold;
+}
+table.cartlist_ {
+	margin: 0 auto 10px;
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+table.cartlist_ th,
+table.cartlist_ td {
+	border: 1px solid #ffffff;
+}
+
+table.cartlist_ td.icon_ {
+	border-left: #f3f3f3;
+	height:40px;
+	width:40px;
+	padding:5px;
+}
+
+table.cartlist_ th.left_,
+table.cartlist_ td.left_ {
+	border-left: none;
+	border-right: hidden;
+}
+table.cartlist_ th.right_,
+table.cartlist_ td.right_ {
+	border-right: none;
+}
+table.cartlist_ th {
+	padding: 0 10px;
+	background: url(../img/usr/bg/bg_tableth.png) 0 0 repeat-x;
+	border-top: none;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 30px;
+	text-align: center;
+}
+.aeonshop_inner_ table.cartlist_ th {
+	background: url(../img/usr/bg/bg_tableth_as.png) 0 0 repeat-x;
+}
+.netsuper_drug_inner_ table.cartlist_ th {
+	background: url(../img/usr/bg/bg_tableth_drug.png) 0 0 repeat-x;
+}
+table.cartlist_ td {
+	background-color: #f3f3f3;
+	font-weight: normal;
+}
+table.cartlist_ td.img_ {
+	width: 50px;
+}
+table.cartlist_ td.img_ img {
+	width: 50px;
+}
+table.cartlist_ td.name_ {
+	color: #dd0000;
+}
+table.cartlist_ td.name_ a,
+table.cartlist_ td.price_ p.price_ {
+	color: #666666;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.5;
+}
+table.cartlist_ td.price_ p.price_ {
+	text-align: right;
+}
+table.cartlist_ td.money_ {
+	white-space:nowrap;
+	text-align:right;
+}
+table.cartlist_ td.qty_ {
+	width: 60px;
+	white-space: nowrap;
+	text-align: center;
+}
+table.cartlist_ td.button_ {
+	text-align: center;
+	width: 80px;
+}
+table.cartlist_ div.revocation_ {
+	background: url(../img/usr/btn/btn_revocation_on.png) 0 0 no-repeat;
+}
+table.cartlist_ div.revocation_ input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+div.recalculation_ {
+	background: url(../img/usr/btn/btn_recalculation_on.png) 0 0 no-repeat;
+}
+div.recalculation_ input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+table.cartlist_ td.total_ {
+	text-align:right;
+}
+table.cartlist_ .qty_ input {
+	padding:4px 2px;
+	text-align:center;
+	float:left;
+}
+table.cartlist_ .yoyaku td {
+	background-color: #e9f8f2;
+}
+table.cartlist_ .gift td {
+	background-color: #f9f6e8;
+}
+table.cartlist_ .gift td a,
+table.cartlist_ .gift td.price_ .price_{
+	color:#a18229;
+}
+
+table.totalamount_ {
+	float: right;
+	background-color: #f0e7f0;
+}
+.aeonshop_inner_ table.totalamount_ {
+	background-color: #f0efe7;
+}
+
+table.totalamount_ th,
+table.totalamount_ td {
+	padding: 15px;
+	vertical-align: top;
+}
+table.totalamount_ td.recalculation_ {
+	width: 110px;
+	font-size: 10px;
+}
+table.totalamount_ div.recalculation_ {
+	margin: 0 auto;
+	width: 80px;
+}
+table.totalamount_ td.recalculation_ input {
+	margin-bottom: 5px;
+	
+}
+table.totalamount_ td.total_,
+table.totalamount_ td.price_ {
+	color: #dd0000;
+	font-size: 16px;
+	font-weight: bold;
+}
+table.totalamount_ td.price_ {
+	text-align: right;
+}
+table.totalamount_ td.postage_comment_ {
+	padding-top: 0;
+	text-align: right;
+}
+table.totalamount_ td.postage_comment_ span.price_ {
+	display: block;
+	padding: 10px;
+	background: #ffffff;
+	color: #b0237b;
+	font-size: 12px;
+}
+input.calc_ {
+	width:0px;
+	height:0px;
+}
+div.col1_ div.goods_ {
+	margin-top: 20px;
+}
+
+div.note_ {
+	padding: 15px;
+	background: url(../img/usr/bg/bg_note.png) 0 0;
+	border: 1px dashed #dddddd;
+}
+div.note_ h2 {
+	margin-bottom: .8em;
+	color: #b0237b;
+	font-size: 16px;
+}
+div.note_ li {
+	margin-top: 1em;
+	margin-left: 1em;
+	text-indent: -1em;
+}
+div.note_ li:first-child {
+	margin-top: 0;
+}
+div.topayment_ {
+	margin-bottom: 50px;
+	background: url(../img/usr/btn/btn_topayment_on.png) center center no-repeat;
+}
+div.topayment_ input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+/* --------------------------------------------------------------------
+	メールニュース
+-------------------------------------------------------------------- */
+div.mail_ {
+}
+div.mail_ .agreebody_ {
+	margin: 10px 0 20px 0;
+	width: 100%;
+}
+div.mail_ table {
+	width: 100%;
+}
+div.mail_ table th {
+	width: 25%;
+}
+div.mail_ div.mailnewstitle_ {
+}
+
+/* --------------------------------------------------------------------
+	お友達に紹介
+-------------------------------------------------------------------- */
+div.intro_ {
+	padding: 0 60px;
+}
+div.intro_ .mail_ {
+	padding: 0;
+}
+div.intro_ table {
+	width: 100%;
+}
+div.intro_ table.intro_address_ th {
+	width: 8em;
+	vertical-align: top;
+}
+div.intro_ .name_ input{
+	margin: 0 5px 0 5px;
+}
+div.intro_ span.mail_ {
+	padding-left: 20px;
+}
+div.intro_ .mail_ input{
+	margin: 0 0 0 5px;
+}
+
+div.intro_box_ {
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+div.intro_ div.intro_box_ div.name_ {
+	margin-right: 20px;
+	float: left;
+}
+div.intro_ div.intro_box_ div.mail_ {
+	float: left;
+}
+/* --------------------------------------------------------------------
+	トピックス
+-------------------------------------------------------------------- */
+/* トピック詳細 */
+div.topic_ {
+}
+h2.topic_title_ {
+	margin-bottom: 10px;
+	padding: 8px 8px 8px 20px;
+	font-size: 14px;
+	font-weight: bold;
+	border: 1px solid #CCC;
+	background: url(../img/usr/common_h2.png) 0 0 no-repeat;
+}
+div.topic_ div.comment_ {
+}
+div.topic_ div.contents_ {
+}
+/* トピック一覧 */
+div.topiclist_ {
+	margin: 0 0 10px 0;
+}
+div.topiclist_ .topiclist_head_ {
+	padding: 20px 20px 0 20px;
+	width: 560px;
+	height: 32px;
+	overflow: hidden;
+	background: url(../img/usr/topiclist_head.png) center top no-repeat;
+}
+div.topiclist_ .topiclist_head_ h2 {
+	float: left;
+	display: inline;
+	font-size: 16px;
+	font-weight: bold;
+}
+div.topiclist_ .topiclist_head_ .rss_ {
+	float: right;
+	display: inline;
+	text-align: right;
+}
+div.topiclist_ .topiclist_body_ {
+	padding: 0 20px 20px 20px;
+	background: url(../img/usr/topiclist_body.png) center bottom no-repeat;
+}
+div.topiclist_ div.topiclist_ ul.topicline_ {
+	margin: 0;
+	padding: 0;
+}
+div.topiclist_ ul.topicline_ li {
+	padding: 5px 5px 5px 15px;
+	background: url(../img/usr/topiclist.png) 5px 9px no-repeat;
+	border-bottom: 1px dotted #CCC;
+}
+div.topiclist_ ul.topicline_ li.img_ {
+	padding: 5px 0;
+	background: none;
+}
+
+/* --------------------------------------------------------------------
+	アンケート
+-------------------------------------------------------------------- */
+
+/* 入力画面 */
+div.questionnaire_ {
+}
+div.questionnaire_box_ {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #CCC;
+}
+div.questionnaire_box_ div.desc_ {
+	margin-bottom: 10px;
+	padding: 0 0 10px 10px;
+	border-bottom: 1px dotted #CCC;
+}
+div.questionnaire_box_ table {
+	width: 100%;
+}
+div.questionnaire_box_ table.formdetail_ th {
+	width: 16em;
+}
+div.questionnaire_box_ div.questionnaire_box_content_ {
+	padding: 0 10px;
+}
+/**/
+
+/* 確認画面 */
+table.questionnaire_confirm_ {
+	width: 100%;
+}
+table.questionnaire_confirm_ th {
+	width: 16em;
+}
+/**/
+
+/* --------------------------------------------------------------------
+	カタログ
+-------------------------------------------------------------------- */
+/* カタログ一覧 */
+.catalog_cart_ {
+	margin-bottom: 10px;
+	text-align: center;
+}
+.catalog_frame_ {
+	width: 100%;
+}
+.catalog_frame_ td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	vertical-align: top;
+	border-bottom: 1px dotted #CCC;
+}
+.catalog_frame_ td.img_ {
+	padding-right: 10px;
+}
+.catalog_frame_ td.desc_ div.name_ {
+	margin-bottom: 10px;
+	padding: 5px;
+	background: #F0F0F0;
+}
+.catalog_frame_ td.desc_ div.name_ .name1_ {
+	font-size: 14px;
+	font-weight: bold;
+}
+.catalog_frame_ td.desc_ div.comment_ {
+	margin: 0 0 10px 10px;
+}
+.catalog_frame_ td.desc_ div.limit_ {
+	margin: 0 0 10px 10px;
+}
+
+/* カタログ利用規約 */
+div.customer_ .catalog_agreebody_ {
+	margin: 0 0 10px 0;
+	width: 100%;
+}
+/**/
+
+/* カタログ請求確認 */
+dl.catalogconfirm_ {
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+dl.catalogconfirm_ dt {
+	padding: 5px;
+	float: left;
+	font-weight: bold;
+}
+dl.catalogconfirm_ dd {
+	padding: 5px 5px 5px 8em;
+	border-bottom: 1px dotted #CCC;
+}
+
+/* 追加  ----------------------------------------------------------- */
+div.gift_ {
+	overflow: hidden;
+	margin-top: 20px;
+	padding: 15px 10px 10px;
+	border: 2px solid #b0237b;
+}
+h2.name_gift_ {
+	padding-bottom: .8em;
+	border-bottom: 2px solid #b0237b;
+	color: #b0237b;
+	font-size: 18px;
+	font-weight: bold;
+}
+table.cartlist_ .qty_ table {
+	border:none;
+	border-collapse:collapse;
+	height:auto;
+}
+table.cartlist_ .qty_ table td{
+	padding:0 2px 0 0;
+	border:none;
+	border-collapse:collapse;
+	margin:0;
+	height:auto;
+	line-height:1.1;
+}
+.carousel_box{
+	/*width:750px;*/
+	/*width:100%;*/
+	width:645px;
+	overflow:hidden;
+	margin:auto;
+}
+
+.carousel_box ul{
+	width:760px;
+}
+
+
+.carousel_box ul li{
+	padding-right:15px;
+	width:99px;
+	float:left;
+}
+
+.carousel_box ul li a{
+	display:block;
+	line-height:1.4;
+}
+
+.carousel_box ul li img{
+	display:block;
+	margin-bottom:3px;
+}
+
+.carousel_box p{
+	margin:0 !important;
+}
+
+.carousel_box .jcarousel-skin-tango{
+	/*width:750px;*/
+	width:100%;
+	}
+
+.carousel_box .jcarousel-skin-tango .jcarousel-container-horizontal {
+	/*width:750px;*/
+	width:100%;
+}
+
+.carousel_box .jcarousel-skin-tango .jcarousel-clip-horizontal {
+	position:relative;
+	padding:0 45px;
+	/*width:750px;*/
+	height:170px;
+	overflow:hidden;
+}
+
+.carousel_box .jcarousel-skin-tango .jcarousel-next-horizontal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 150px;
+    cursor: pointer;
+	z-index:20;
+    background:url(../img/sys/bt_carousel_r.png) 0 0 no-repeat;
+}
+
+.carousel_box .jcarousel-skin-tango .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 150px;
+    cursor: pointer;
+    background:#fff url(../img/sys/bt_carousel_l.png) 0 0 no-repeat;
+}
+
+
+.itemhistory_headline2_ {
+    background: url("../img/usr/headline/bg_headline2_itemhistory.png") no-repeat scroll center bottom transparent;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding: 0 0 10px;
+}
+
+.iconyoyaku,
+.icongift{
+	margin-left:40px;
+}
+
+#eventcontainer_ .common_headline1_ { /* イベントページの場合 */
+	width: 100%;
+}

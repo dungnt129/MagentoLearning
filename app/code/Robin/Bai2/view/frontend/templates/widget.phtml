@@ -1,0 +1,33 @@
+<h4>Slider 1 Boxlider</h4>
+
+<?php
+
+$speed = $this->getData('speed');
+$auto = $this->getData('auto');
+$mediaUrl = $this->getData('mediaUrl');
+$banners = $this->getData('banners');
+
+
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getViewFileUrl('Robin_Bai2::css/jquery.bxslider.min.css') ?>"/>
+
+<ul class="bxslider">
+    <?php
+    foreach ($banners as $banner)
+    {
+        $image = $banner['image'];
+        ?>
+        <li><img src="<?= $mediaUrl.$image; ?>" /></li>
+        <?php
+    }
+    ?>
+</ul>
+
+<script>
+    require(['jquery','Robin_Bai2/js/jquery.bxslider.min'],function($) {
+        $(document).ready(function () {
+            $('.bxslider').bxSlider();
+        });
+    });
+</script>

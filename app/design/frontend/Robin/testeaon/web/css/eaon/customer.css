@@ -1,0 +1,579 @@
+@charset "UTF-8";
+/* --------------------------------------------------------------------
+	ログインフォーム
+--------------------------------------------------------------------- */
+div.login_ {
+}
+div.login_ div.loginform_ {
+	width:600px;
+	margin:10px auto 20px;
+	padding:10px;
+	text-align:left;
+	border-bottom:1px dotted #CCC;
+}
+div.login_ div.loginform_ .form_text_ {
+	margin-bottom: 10px;
+}
+div.login_ div.inputimage_ {
+	margin:8px auto;
+	text-align:center;
+}
+div.login_ div.askpass_ {
+	margin:5px auto;
+	text-align:center;
+}
+div.login_ div.entry_ {
+	margin:2px auto;
+	text-align:center;
+	font-size:10px
+}
+div.login_ table.loginform_ {
+	margin:auto;
+	text-align:center;
+}
+div.login_ table.loginform_ th {
+	padding: 2px;
+	text-align: right;
+	font-weight: bold;
+}
+div.login_ table.loginform_ td {
+	padding: 2px;
+	text-align: left;
+}
+div.login_ table.loginform_ td input.login_uid_ {
+	width: 300px;
+}
+div.login_ table.loginform_ td input.login_pwd_ {
+	width: 300px;
+}
+div.login_ table.loginform_ td input.login_uid_mail_ {
+	width: 300px;
+}
+/* --------------------------------------------------------------------
+	パスワードを忘れた方
+--------------------------------------------------------------------- */
+table.askpass_ {
+	margin-bottom: 10px;
+}
+table.askpass_ th {
+	width: 16em;
+}
+/* --------------------------------------------------------------------
+	マイページ・会員情報
+-------------------------------------------------------------------- */
+div.customer_ {
+}
+div.customer_ table {
+	width: 100%;
+}
+div.customer_ table.customer_, 
+div.customer_ table.customerconfirm_ {
+	margin-bottom: 20px;
+}
+div.customer_ table.customer_ 
+th, div.customer_ table.customerconfirm_ th {
+	width: 25%;
+}
+
+/* --------------------------------------------------------------------
+	新規会員登録
+-------------------------------------------------------------------- */
+div.customer_ .agreebody_ {
+	margin: 20px 0;
+	width: 100%;
+}
+/* --------------------------------------------------------------------
+	マイページ　トップ
+-------------------------------------------------------------------- */
+div.customer_status_ {
+	margin: 0 0 20px 0;
+	padding: 0 10px 10px 10px;
+	border-bottom: 1px dotted #CCC;
+}
+.loginname_ {
+	font-weight: bold;
+}
+.mypoint_ {
+}
+p.recommend_ {
+	margin-bottom: 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+div.mymenu_ {
+	overflow: hidden;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	
+}
+div.mymenu_ h2,
+div.mymenu_ dt {
+	font-size: 14px;
+	font-weight: bold;
+}
+div.mymenu_ h2 {
+	margin: 1px;
+	padding: 0 20px;
+	height: 35px;
+	background: url(../img/usr/headline/bg_headline2_mymenu.png) 0 0 repeat-x;
+	line-height: 35px;
+}
+div.mymenu_ dl {
+	overflow: hidden;
+	padding:  0 20px;
+	width: 100%;
+}
+div.mymenu_ dl.memo_ {
+	border-bottom: 1px dashed #ccc;
+}
+div.mymenu_ dl.entry_ {
+	border-bottom: 1px dashed #ccc;
+}
+div.mymenu_ dl.logout_ {
+
+}
+div.mymenu_ dt {
+	margin: 20px 0;
+}
+div.mymenu_ dd.w160_ {
+	float: left;
+	margin-right: 20px;
+	width: 160px;
+}
+div.mymenu_ dd.description_ {
+	margin-bottom: 10px;
+}
+div.mymenu_ div.btn_ {
+	margin-bottom: 10px;
+}
+div.mymenu_item_ {
+	margin-bottom: 10px;
+	padding: 0 0 10px 0;
+}
+div.mymenu_item_ .img_ {
+	margin: 0 10px 0 10px;
+	float: left;
+	display: inline;
+	width: 60px;
+}
+div.mymenu_item_ .desc_ {
+	margin: 0 10px 0 0;
+	float: left;
+	display: inline;
+	width: 750px;
+}
+div.mymenu_item_ h2 {
+	margin: 0 0 10px 0;
+	padding: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #CCC;
+}
+div.mymenu_item_ ul {
+	margin: 0 0 0 10px;
+}
+div.mymenu_item_ ul li {
+	margin-left: 2em;
+	list-style: square;
+}
+/* ボタン関係*/
+div.btn_memo_,
+div.btn_history_,
+div.btn_point_,
+div.btn_customer_,
+div.btn_destination_,
+div.btn_loguot_ {
+	overflow: hidden;
+	width: 160px;
+	height: 30px;
+}
+div.btn_memo_ a,
+div.btn_history_ a,
+div.btn_point_ a,
+div.btn_customer_ a,
+div.btn_destination_ a,
+div.btn_loguot_ a {
+	padding-top: 30px;
+	width: 160px;
+}
+div.btn_memo_ a {
+	background-position: 0 -36px;
+}
+div.btn_history_ a {
+	background-position: -160px -36px;
+}
+div.btn_point_ a {
+	background-position: -320px -36px;
+}
+div.btn_customer_ a {
+	background-position: -480px -36px;
+}
+div.btn_destination_ a {
+	background-position: -640px -36px;
+}
+div.btn_mailmag_info_{
+	margin-bottom:10px;
+	}
+div.btn_mailmag_info_ a {
+	width:160px;
+	height:30px;
+	display:block;
+	background-image:url(../img/usr/btn/btn_mailmag_info.png);
+}
+div.btn_mailmag_info_ a:hover {
+	background-image:url(../img/usr/btn/btn_mailmag_info_on.png);
+}
+div.btn_loguot_ a {
+	background-position: -800px -36px;
+}
+div.btn_memo_ a:hover {
+	background-position: 0 -66px;
+}
+div.btn_history_ a:hover {
+	background-position: -160px -66px;
+}
+div.btn_point_ a:hover {
+	background-position: -320px -66px;
+}
+div.btn_customer_ a:hover {
+	background-position: -480px -66px;
+}
+div.btn_destination_ a:hover {
+	background-position: -640px -66px;
+}
+div.btn_loguot_ a:hover {
+	background-position: -800px -66px;
+}
+/* --------------------------------------------------------------------
+	マイページ　購入履歴
+-------------------------------------------------------------------- */
+div.customer_ .method_addr_ {
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+div.customer_ .destgoodslist_ {
+	margin-bottom: 20px;
+}
+table.history_ {
+	margin-bottom: 20px;
+}
+table.history_ th {
+	font-weight: bold;
+}
+table.history_ td.order_dt_ {
+	white-space: nowrap;
+}
+table.history_ td.order_detail_ ul {
+	margin-bottom: 5px;
+}
+table.history_ td.order_detail_ ul li {
+	margin-left: 2em;
+	list-style: square;
+}
+table.history_ td.order_detail_ p.order_again_ {
+	padding: 5px;
+	text-align: right;
+	font-weight: bold;
+}
+table.history_ td.total_ {
+	text-align: center;
+	font-size: 14px;
+}
+ul.historydetail_ {
+	margin: 10px auto;
+	width: 18em;
+}
+ul.historydetail_ li {
+	margin-left: 2em;
+	font-weight: bold;
+	list-style: square;
+}
+/* --------------------------------------------------------------------
+	マイページ　カード情報確認
+-------------------------------------------------------------------- */
+div.cardedit_ {
+}
+div.cardedit_ table th {
+	width: 16em;
+}
+/* 現在の登録内容 */
+div.cardedit_info_ {
+	margin-bottom: 20px;
+}
+/**/
+td.card_ label {
+	margin: 0 20px 0 5px;
+}
+/* --------------------------------------------------------------------
+	マイページ　メールアドレス変更
+-------------------------------------------------------------------- */
+table.mailchange_ {
+	margin-bottom: 10px;
+}
+table.mailchange_ th {
+	width: 16em;
+}
+/* --------------------------------------------------------------------
+	マイページ　ID変更
+-------------------------------------------------------------------- */
+table.idchange_ {
+	margin-bottom: 10px;
+}
+table.idchange_ th {
+	width: 16em;
+}
+/* --------------------------------------------------------------------
+	マイページ　パスワード変更
+-------------------------------------------------------------------- */
+table.passchange_ {
+	margin-bottom: 10px;
+}
+table.passchange_ th {
+	width: 16em;
+}
+/* --------------------------------------------------------------------
+	マイページ　お気に入り
+-------------------------------------------------------------------- */
+div.customer_ .bookmark_frame_ {
+	border-top: 1px dotted #CCC;
+	margin-bottom: 10px;
+}
+div.customer_ div.bookmark_item_ {
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px dotted #CCC;
+}
+div.bookmark_item_ div.cartgoods_ {
+	padding: 10px;
+	float: left;
+	display: inline;
+	width: 15px;
+}
+div.bookmark_item_ div.img_ {
+	padding: 10px 10px 10px 0;
+	float: left;
+	display: inherit;
+	width: 100px;
+	overflow: hidden;
+}
+div.bookmark_item_ div.img_ img {
+}
+div.bookmark_item_ div.desc_ {
+	padding: 10px 0;
+	float: left;
+	display: inline;
+	width: 600px;
+}
+div.bookmark_item_ div.name_ {
+	margin-bottom: 5px;
+}
+div.bookmark_item_ div.spec_ {
+	margin-bottom: 5px;
+}
+div.bookmark_item_ .edit_memo_ {
+	margin-top: 5px;
+	font-weight: bold;
+}
+div.bookmark_item_ .memo_ {
+	padding: 5px;
+	border: 1px solid #CCC;
+	background: #F8F8F8;
+}
+div.bookmark_item_ div.del_ {
+	padding: 10px;
+	float: right;
+	display: inline;
+	width: 60px;
+}
+div.bookmark_buy_ {
+	margin-bottom: 20px;
+}
+/* --------------------------------------------------------------------
+	マイページ　お問い合わせ
+-------------------------------------------------------------------- */
+div.contact_ {
+}
+div.contact_ table {
+	width: 100%;
+}
+/* new お問合せフォーム */
+div.contact_ table.contact_ th {
+	width: 16em;
+}
+div.contact_ table.contact_ td {
+}
+div.contact_ div.contact_reform_ {
+	margin:auto;
+	text-align:center;
+}
+/* --------------------------------------------------------------------
+	マイページ　お問い合わせ履歴
+-------------------------------------------------------------------- */
+/* お問合せ履歴 */
+div.contact_ ul.contactlist_ {
+}
+div.contact_ ul.contactlist_ li {
+	padding: 10px;
+	border-bottom: 1px dotted #CCC;
+}
+div.contact_ table.detaillistline_ {
+	border: dotted 1px;
+	margin:2px auto;
+}
+/* お問合せ詳細 */
+.contactdetail_title_ {
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: 14px;
+	border-bottom: 1px dotted #CCC;
+	border-top: 1px dotted #CCC;
+}
+.contactdetail_title_ .subject_ {
+	margin-left: 20px;
+	font-weight: bold;
+}
+.contactdetail_title_ .id_ {
+	margin-left: 10px;
+	font-size: 10px;
+}
+/* スレッド */
+div.contactlist_ {
+	margin-bottom: 20px;
+}
+div.contactlist_ .contactlist_order_id_ {
+}
+div.contactlist_ .contactlist_goods_ {
+	margin: 0 0 0 20px;
+}
+div.contactlist_line_ {
+	margin-top: 10px;
+	width: 100%;
+	overflow: hidden;
+	border: 1px solid #CCC;
+}
+div.contactlist_line_ .contactlist_head_ {
+	width: 100%;
+	overflow: hidden;
+	background: #F0F0F0;
+	border-bottom: 1px solid #CCC;
+}
+div.contactlist_line_ .contactlist_head_ .name_ {
+	padding: 5px;
+	float: left;
+	display: inline;
+	font-weight: bold;
+	width: 40%;
+}
+div.contactlist_line_ .contactlist_head_ .updt_ {
+	padding: 5px;
+	float: right;
+	display: inline;
+	text-align: right;
+	width: 40%;
+}
+div.contactlist_line_ .comment_ {
+	padding: 10px;
+}
+/* --------------------------------------------------------------------
+	マイページ　退会
+-------------------------------------------------------------------- */
+table.withdrawal_ {
+	margin-bottom: 10px;
+}
+table.withdrawal_ th {
+	width: 16em;
+}
+
+/* --------------------------------------------------------------------
+	マイページ　クーポン一覧
+-------------------------------------------------------------------- */
+table.coupon_list_ {
+	margin-bottom: 20px;
+}
+table.coupon_list_ th {
+	font-weight: bold;
+	text-aligin: center;
+}
+table.coupon_list_ td.coupon_code_ {
+	white-space: nowrap;
+}
+table.coupon_list_ td.coupon_price_ {
+	text-align: right;
+	white-space: nowrap;
+}
+table.coupon_list_ td.coupon_name_ {
+	text-align: left;
+}
+table.coupon_list_ td.coupon_dt_ {
+	text-align: left;
+	white-space: nowrap;
+}
+table.coupon_list_ td.coupon_target_ {
+	text-align: left;
+}
+
+div.history_confirmation_ h2 {
+    height: 30px;
+    margin-bottom: 0;
+}
+
+.box.log_menu .history_btn_{
+    max-width: 100%;
+    width: 100%;
+	margin-bottom:5px;
+	margin-top:5px;
+	height:100%;
+}
+
+.box.log_menu .history_btn_ td{
+	margin:5px;
+}
+
+.box.log_menu .history_btn_ .history_btn_main_{
+    width: 500px;
+
+}
+
+.box.log_menu .history_btn_ .history_btn_left_,
+.box.log_menu .history_btn_ .history_btn_right_ {
+	 margin:5px;
+}
+
+.box.log_menu .history_order_id_ {
+    max-width: 100%;
+    width: 100%;
+	margin-top:10px;
+}
+
+.history_order_id_ p {
+	font-size:14px;
+	font-weight:bold;
+}
+
+.box.log_menu .history_btn_ .history_btn_txt_{
+	border-bottom: medium none;
+	padding-bottom:10px;
+	height:20px;
+}
+
+.box.log_menu .history_btn_ .history_left_{
+	height:170px;
+}
+
+.box.log_menu .history_btn_ .history_right_{
+	height:170px;
+}
+
+.box.log_menu .history_btn_ .history_right_inner_  a{
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+.box.log_menu .history_btn_ .history_right_inner_  a:hover{
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+.history_btn_tablet_ {
+	font-size: 16px;
+}

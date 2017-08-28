@@ -1,0 +1,168 @@
+@charset "Shift_JIS";
+
+/* --------------------------------------------------------------------
+	カスタマーレビュー一覧
+--------------------------------------------------------------------- */
+/* レビュー情報 */
+div.review_intro_ {
+	margin-bottom: 15px;
+	width: 100%;
+	overflow: hidden;
+}
+div.review_info_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.review_count_summary_ {
+	float: left;
+	display: inline;
+	width: 300px;
+}
+div.review_count_summary_ dl.review_score_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.review_count_summary_ dl.review_score_ dt, div.review_count_summary_ dl.review_count_ dt {
+	float: left;
+	display: inline;
+	width: 75px;
+}
+div.review_count_summary_ dl.review_count_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.review_desc_ {
+	float: right;
+	display: inline;
+	width: 390px;
+}
+div.review_desc_ p {
+	color: #959595;
+}
+.btn_review_ a {
+	text-decoration: underline;
+}
+.btn_review_ a:hover {
+	text-decoration: none;
+}
+
+.review_pagenav_ {
+	margin: 0 0 10px 0;
+	clear: both;
+	background: #F0F0F0;
+	padding: 5px;
+}
+/**/
+/* ページ切換 */
+div#page_changer_top {
+}
+div#page_changer_top .pager_ref_ {
+	margin: 2px 5px;
+	color: #003780;
+	text-decoration: underline;
+	font-weight: bold;
+	white-space: nowrap;
+}
+div#page_changer_top .pager_now_ {
+	margin: 2px 5px;
+	color:#CC0000;
+	font-weight: bold;
+	white-space: nowrap;
+}
+/**/
+/* レビュー記事 */
+.review_line_ {
+	margin-bottom: 9px;
+	padding: 19px;
+	overflow: hidden;
+	border: 1px solid #afafaf;
+}
+.review_line_title_ {
+	margin: 0 0 10px 0;
+	padding: 5px 7px;
+	background: #eee;
+}
+div.review_line_summary_ {
+	margin-bottom: 10px;
+}
+div.review_line_summary_ dl.review_line_name_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.review_line_summary_ dl.review_line_name_ dt, div.review_line_summary_ dl.review_line_score_ dt {
+	float: left;
+	display: inline;
+	width: 100px;
+}
+div.review_line_summary_ dl.review_line_score_ {
+	width: 100%;
+	overflow: hidden;
+}
+.review_line_comment_ {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	color: #959595;
+	min-height: 50px;
+	border-bottom: 1px dotted #afafaf;
+}
+.moderate_vote_ {
+	padding: 5px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+.moderate_info1_ {
+	margin-top: 10px;
+}
+.moderate_info2_ {
+	margin-top: 10px;
+}
+.moderate_info2_ span {
+	cursor:pointer;
+	text-decoration:underline!important;
+}
+.mode_select_line_ {
+	cursor: pointer;
+}
+#review_form {
+	margin-bottom: 20px;
+	text-align: right;
+}
+
+/**/
+/* --------------------------------------------------------------------
+	カスタマーレビュー投稿画面
+--------------------------------------------------------------------- */
+/* 入力画面 */
+div.review_ {
+	padding:0;
+	margin-top: 10px;
+}
+.review_table_ {
+	margin: 20px 0;
+	border-collapse: collapse;
+	width:100%;
+}
+.review_table_ th {
+	font-weight: bold;
+	white-space: nowrap;
+	vertical-align: top;
+}
+.review_submit_ {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	border-bottom: 1px dotted #CCC;
+}
+.review_backbutton_ {
+	padding: 20px 0;
+	text-align:center;
+}
+span.title_ {
+	float: left;
+}
+/**/
+/* 確認画面 */
+div.confirm_layer_frame_ {
+	margin-top: 20px;
+}
+/**/

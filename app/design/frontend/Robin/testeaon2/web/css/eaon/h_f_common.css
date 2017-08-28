@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+body{margin:0;padding:0;}/*bodyの基本余白に関してはサイトの設定に依存します。問題無ければこれをそのまま適用してください。*/
+
+/* -----------------------------------------------------
+	PC Header Footer
+----------------------------------------------------- */
+
+/*  Header Base Style
+--------------------------------------- */
+#header{
+margin:0;
+padding:0;
+line-height:1.6;
+color:#1f1f1f;
+font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',Meiryo,'メイリオ','ＭＳ Ｐゴシック',sans-serif;
+font-size:12px;
+min-height:35px;
+background:#ededed url(../../images/square/pc/com_bg_01.gif) repeat-x left top;
+}
+
+#header h1{
+margin:0;
+padding:0;
+line-height:1.3;
+font-size:100%;
+}
+
+
+#header ul,
+#header ol{
+margin:0;
+padding:0;
+list-style:none;
+}
+
+#header img{
+margin:0;
+padding:0;
+border:0;
+vertical-align:bottom;
+}
+
+#header fieldset{
+margin:0;
+padding:0;
+border:0 none;
+}
+
+#header input,
+#header select{
+margin:0;
+padding:0;
+vertical-align:middle;
+}
+
+#header legend{
+margin:0;
+padding:0;
+display:none;
+}
+
+#header label{
+margin:0;
+padding:0;
+cursor:pointer;
+}
+
+#header p{
+margin:0;
+padding:0;
+}
+
+/*  Header
+--------------------------------------- */
+
+#header .inner{
+margin:0 auto;
+width:1000px;
+}
+
+#header #site-logo{
+float:left;
+line-height:0;
+font-size:0;
+}
+
+#header #site-search ul{
+float:left;
+width:675px;
+margin-top:9px;
+text-align:right;
+}
+
+#header #site-search ul li{
+display:inline;
+}
+
+#header #site-search ul li input{
+margin:0 5px 0 20px;
+}
+
+#header #site-search fieldset{
+margin-top:7px;
+float:right;
+}
+
+#header #site-search .text{
+padding:0 5px 0 3px;
+padding:3px 5px 0 3px\9;
+border:1px solid #990066;
+float:left;
+width:124px;
+height:19px;
+height:16px\9;
+background-color:#fff;
+font-size:12px;
+}
+
+#header #site-search .text:not(:target){
+padding:0 5px 0 3px;
+height:19px;
+}
+
+#header input.on,
+#header textarea.on {
+color: #404040 !important;
+}
+
+
+
+/*  Footer Base Style
+--------------------------------------- */
+#footer{
+line-height:1.6;
+font-size:12px;
+clear:both;
+border-top:1px solid #ededed;
+}
+
+#footer p{margin:0;padding:0;}
+
+#footer img{
+margin:0;
+padding:0;
+border:0;
+vertical-align:bottom;
+}
+
+/*  Footer
+--------------------------------------- */
+
+#footer .inner{
+clear:both;
+margin:0 auto;
+width:1000px;
+zoom:1;
+}
+
+#footer #list-group-company{
+float:left;
+padding-top:11px;
+}
+
+#footer #footer-logo{
+float:right;
+padding-top:8px;
+}
+
+
+/*  Float Clearing
+--------------------------------------- */
+#header:after,
+#footer:after,
+#footer .inner:after{
+display:block;
+clear:both;
+height:0;
+visibility:hidden;
+content:".";
+}
+

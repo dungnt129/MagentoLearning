@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="banner_listing_data_source" xsi:type="string">Robin\Bai2\Model\ResourceModel\Banner\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Robin\Bai2\Model\ResourceModel\Banner\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">banner</argument>
+            <argument name="resourceModel" xsi:type="string">Robin\Bai2\Model\ResourceModel\Banner</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Robin\Bai2\BannerImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">banner/tmp/images</argument>
+            <argument name="basePath" xsi:type="string">banner/images</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Robin\Bai2\Controller\Adminhtml\Banner\Image\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Robin\Bai2\BannerImageUpload</argument>
+        </arguments>
+    </type>
+</config>

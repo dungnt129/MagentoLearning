@@ -1,0 +1,991 @@
+@charset "UTF-8";
+
+/* --------------------------------------------------------------------
+	ご注文方法の指定
+
+
+
+
+
+-------------------------------------------------------------------- */
+
+div.order_ {
+}
+
+div.order_ .error_ {
+	margin-top: 1em;
+}
+
+div.order_ h1 {
+	margin-top: 30px;
+}
+
+/* ご注文主（ログイン時） */
+div.method_host_ {
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #CCC;
+}
+div.method_host_ div.host_info_ {
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+div.method_host_ .host_name_ {
+}
+div.method_host_ address {
+}
+table.method_host_ {
+	margin-bottom: 20px;
+	width: 100%;
+}
+tr#host_mail input,
+tr#host_cmail input,
+tr#host_addr input,
+tr#host_addr2 input,
+tr#host_addr3 input,
+tr#host_comp input,
+tr#host_dept input {
+	width: 300px;
+}
+
+/**/
+/* 送り主（ログイン時） */
+div.method_sender_ {
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #CCC;
+}
+div.method_sender_ div.sender_info_ {
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+div.sender_change_ {
+	padding: 10px;
+	margin: 0 0 10px 0;
+	background: #F8F8F8;
+	border: 1px solid #CCC;
+}
+div.method_sender_ table.method_ {
+}
+table.method_sender_ {
+	margin-bottom: 20px;
+	width: 100%;
+}
+tr#sender_addr input,
+tr#sender_addr2 input,
+tr#sender_addr3 input,
+tr#sender_comp input,
+tr#sender_dept input {
+	width: 300px;
+}
+/**/
+
+/* 宛て先（ログイン時） */
+div.method_address_ {
+	margin-bottom: 20px;
+	border-bottom: 1px dotted #CCC;
+}
+div.addresslist_ {
+	margin-bottom: 20px;
+}
+div.address_item_ {
+	padding: 10px;
+	border-bottom: 1px dotted #CCC;
+	width: 820px;
+	overflow: hidden;
+}
+div.address_item_ address {
+	margin-left: 20px;
+	float: left;
+	display: inline;
+	width: 640px;
+}
+div.address_item_ .address_change_ {
+	float: right;
+	display: inline;
+	text-align: right;
+	width: 150px;
+}
+div.address_bottom_ {
+	padding: 10px 0 0 0;
+	text-align: right;
+}
+div.address_bottom_ img {
+}
+
+table.destgoodslist_ {
+	margin-bottom: 20px;
+}
+/**/
+
+/**/
+
+/* 配送方法 */
+div.method_box_ {
+	margin-bottom: 20px;
+}
+div.method_box_ h3 {
+	margin: 0 0 10px 0;
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+div.method_box_ div.method_box_content_ {
+	padding-left: 10px;
+}
+/**/
+/* 配送希望日時指定 */
+#method_date dl {
+	margin: 0 0 10px 0;
+}
+#method_date dl dt {
+	float: left;
+	display: inline;
+	font-weight: bold;
+}
+#method_date dl dd {
+	margin-left: 8em;
+}
+/**/
+/* ポイント */
+.currentpoint_ {
+	margin-bottom: 10px;
+}
+div.point_use_ {
+	margin-bottom: 10px;
+	padding: 10px;
+	background: #F8F8F8;
+	border: 1px solid #CCC;
+}
+/**/
+
+/* --------------------------------------------------------------------
+	ご注文内容の確認
+
+
+
+
+
+-------------------------------------------------------------------- */
+div.spandual_ {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px dotted #CCC;
+}
+div.spandual_ table {
+	width: 100%;
+}
+div.spandual_ .leftfloat_ {
+	width: 500px;
+}
+div.spandual_ .rightfloat_ {
+	width: 320px;
+}
+div.spandual_ .rightfloat_ table.formdetail_ {
+	width: 100%;
+}
+table.estimate_.sales_ th,
+table.estimate_method_ th {
+	width: 12em;
+}
+table.estimate_.sales_ td,
+table.estimate_method_ td {
+	text-align: right;
+}
+table.host_ {
+	margin-bottom: 20px;
+}
+div.order_ .method_addr_ {
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+
+table.card_,
+table.convinience_{
+	width: 100%;
+}
+table.card_ label {
+	margin: 0 20px 0 5px;
+}
+table.convinience_ th {
+	width: 16em;
+}
+
+/* お支払い方法 */
+div.order_ table.estimate_method_ {
+	width:250px;
+}
+div.order_ table.estimate_method_ th {
+	width:50%;
+	text-align:left;
+}
+div.order_ table.estimate_method_ td {
+	width:50%;
+	text-align:right;
+}
+div.order_ table.method_gift_ {
+	border:none;
+}
+div.order_ table.method_gift_ td {
+	border:none;
+}
+div.order_ table.goodslist_ {
+	text-align:left;
+}
+
+/* お届け先 */
+div.order_ table.dest_ {
+	width:100%;
+}
+div.order_ table.destgoodslist_ {
+	width:100%;
+}
+div.order_ table.destgoodslist_ td.method_qty_ {
+	text-align: centerシーサイド
+
+
+
+
+
+}
+div.order_ table.card_ th {
+	text-align:left;
+}
+div.order_ table.card_ td {
+	text-align:left;
+}
+
+/* order method.aspx */
+div.order_ table.method_ {
+	width: 100%;
+}
+
+/*配送先*/
+div.order_ .method_method_ {
+	text-align:left;
+}
+/* order order.aspx */
+div.order_ table.order_ {
+	width: 100%;
+	margin: 0 auto 20px auto;
+}
+div.order_ table.order_ th {
+	width: 25%;
+}
+
+
+/* カードで支払う */
+div.order_ table.formdetailcard_ {
+	margin-bottom: 20px;
+}
+div.order_ table.formdetailcard_ th {
+	width: 12em;
+}
+
+/*  */
+
+div.confirmation_ h1 {
+	margin-bottom: 0;
+}
+div.confirmation_ h2 {
+	margin-top: 20px;
+	margin-bottom: 0;
+	height: 30px;
+	font-size: 16px;
+	line-height: 32px;
+}
+div.confirmation_ p.lh30_ {line-height: 30px;}
+div.confirmation_ div.wrap_ {
+	padding: 11px 10px 10px;
+	background-color: #f3f3f3;
+}
+div.confirmation_ div.wrap_gift_ {clear: both;}
+div.confirmation_ div.wrap_gift_ .margin10_ {overflow: hidden;margin: 10px;background-color: #e1dcc7;}
+div.confirmation_ td.ta_left_ {
+	text-align: left;
+}
+div.confirmation_ td.ta_center_,
+div.confirmation_ .tableC_ td.ta_center_ {
+	text-align: center;
+}
+div.confirmation_ td.ta_right_ {
+	text-align: right;
+}
+
+div.confirmation_ .tableB_ .bl_none_,
+div.confirmation_ .tableD_ .bl_none_ {
+	border-left: none;
+}
+div.confirmation_ .tableB_ .br_none_,
+div.confirmation_ .tableD_ .br_none_ {
+	border-right: none;
+}
+div.confirmation_ th.w50_ {
+	width: 50px;
+}
+div.confirmation_ th.w70_ {
+	width: 70px;
+}
+div.confirmation_ th.w120_ {
+	width: 120px;
+}
+
+/* tableA_ */
+div.confirmation_ .tableA_ th,
+div.confirmation_ .tableA_ td {
+	padding: 5px 10px 5px 11px;
+}
+div.confirmation_ .tableA_ th {
+	padding-left: 0;
+	width: 120px;
+	font-weight: bold;
+}
+div.confirmation_ .tableA_ td {
+	padding-right: 0;
+}
+
+/* tableA_tablet_ */
+div.confirmation_ .tableA_tablet_ th,
+div.confirmation_ .tableA_tablet_ td {
+	padding: 5px 10px 5px 11px;
+	font-size: 24px;
+}
+div.confirmation_ .tableA_tablet_ th {
+	padding-left: 0;
+	width: 180px;
+	font-weight: bold;
+	font-size: 24px;
+}
+div.confirmation_ .tableA_tablet_ td {
+	padding-right: 0;
+	font-size: 24px;
+}
+
+/* tableB_ */
+div.confirmation_ .tableB_ {
+	width: 100%;
+	border-collapse: collapse;
+}
+div.confirmation_ .tableB_ th,
+div.confirmation_ .tableB_ td {
+	padding: 10px 15px;
+	border: 1px solid #f3f3f3;
+}
+div.confirmation_ .tableB_ th {
+	background-color: #808090;
+	border-top: none;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: center;
+}
+div.confirmation_ .tableB_ td {
+	background-color: #ffffff;
+}
+div.confirmation_ .tableB_ td span {
+	font-weight: bold;
+}
+
+/* tableC_ */
+div.confirmation_ .tableC_ {
+	width: 100%;
+	border-collapse: collapse;
+}
+div.confirmation_ .tableC_ th,
+div.confirmation_ .tableC_ td {
+	padding: 10px 15px;
+	border: 1px solid #f3f3f3;
+}
+div.confirmation_ .tableC_ th {
+	background-color: #808090;
+	border-top: none;
+	color: #ffffff;
+	font-size: 14px;
+	text-align: center;
+}
+div.confirmation_ .tableC_ td {
+	background-color: #ffffff;
+	text-align: right;
+}
+div.confirmation_ .tableC_ tr > td:first-child {
+	text-align: left;
+}
+
+/* tableC_tablet_ */
+div.confirmation_ .tableC_tablet_ {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 24px;
+}
+div.confirmation_ .tableC_tablet_ th,
+div.confirmation_ .tableC_tablet_ td {
+	padding: 10px 15px;
+	border: 1px solid #f3f3f3;
+	font-size: 24px;
+}
+div.confirmation_ .tableC_tablet_ th {
+	background-color: #808090;
+	border-top: none;
+	color: #ffffff;
+	font-size: 24px;
+	text-align: center;
+}
+div.confirmation_ .tableC_tablet_ td {
+	background-color: #ffffff;
+	text-align: right;
+	font-size: 24px;
+}
+div.confirmation_ .tableC_tablet_ tr > td:first-child {
+	text-align: left;
+	font-size: 24px;
+}
+
+/* tableD_ */
+div.confirmation_ .tableD_ {
+	margin: 0 auto 10px;
+	width: 75%;
+	background-color: #f9dfef;
+}
+div.confirmation_ .tableD_ th,
+div.confirmation_ .tableD_ td {
+	padding: 5px 15px;
+	font-size: 14px;
+}
+div.confirmation_ .tableD_ th {
+	
+}
+div.confirmation_ .tableD_ td {
+	text-align: right;
+}
+div.confirmation_ .tableD_ tr.total_ th,
+div.confirmation_ .tableD_ tr.total_ td {
+	padding: 10px 15px;
+	border: 1px solid #bc96ae;
+	border-right: none;
+	border-left: none;
+	color: #dd0000;
+	font-size: 16px;
+	font-weight: bold;
+}
+div.confirmation_ .tableD_ tr.none_ th,
+div.confirmation_ .tableD_ tr.none_ td {
+	background-color: #f3f3f3;
+}
+div.confirmation_ .tableD_ tr.getpoint_ th,
+div.confirmation_ .tableD_ tr.getpoint_ td {
+	background-color: #e1dcc7;
+}
+
+/* tableD_tablet_ */
+div.confirmation_ .tableD_tablet_ {
+	margin: 0 auto 10px;
+	width: 85%;
+	background-color: #f9dfef;
+}
+div.confirmation_ .tableD_tablet_ th,
+div.confirmation_ .tableD_tablet_ td {
+	padding: 5px 15px;
+	font-size: 24px;
+}
+div.confirmation_ .tableD_tablet_ th {
+	
+}
+div.confirmation_ .tableD_tablet_ td {
+	text-align: right;
+}
+div.confirmation_ .tableD_tablet_ tr.total_ th,
+div.confirmation_ .tableD_tablet_ tr.total_ td {
+	padding: 10px 15px;
+	border: 1px solid #bc96ae;
+	border-right: none;
+	border-left: none;
+	color: #dd0000;
+	font-size: 24px;
+	font-weight: bold;
+}
+div.confirmation_ .tableD_ tr.none_ th,
+div.confirmation_ .tableD_ tr.none_ td {
+	background-color: #f3f3f3;
+}
+div.confirmation_ .tableD_ tr.getpoint_ th,
+div.confirmation_ .tableD_ tr.getpoint_ td {
+	background-color: #e1dcc7;
+}
+
+/* tableE_ */
+div.confirmation_ .tableE_ {
+	margin-top: 20px;
+	width: 100%;
+	border-collapse: collapse;
+}
+div.confirmation_ .tableE_ th,
+div.confirmation_ .tableE_ td {
+	padding: 10px 15px;
+	border: 1px solid #ffffff;
+	border-top: none;
+}
+div.confirmation_ .tableE_ th {
+	background-color: #cccccc;
+	border-left: none;
+	font-weight: bold;
+	width: 265px;
+
+}
+div.confirmation_ .tableE_ th span {
+	color: #b0237b;
+}
+div.confirmation_ .tableE_ td {
+	background-color: #f3f3f3;
+	border-right: none;
+}
+div.confirmation_ .tableE_ .tableA_ th,
+div.confirmation_ .tableE_ .tableA_ td {
+	padding: 5px;
+	padding-left: 0;
+	background-color: #f3f3f3;
+	border: none;
+}
+div.confirmation_ .tableE_ .tableA_ th {
+	width: 100px;
+}
+
+/* tableE_tablet_ */
+div.confirmation_ .tableE_tablet_ {
+	margin-top: 20px;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 24px;
+}
+div.confirmation_ .tableE_tablet_ th,
+div.confirmation_ .tableE_tablet_ td {
+	padding: 10px 15px;
+	border: 1px solid #ffffff;
+	border-top: none;
+	font-size: 24px;
+}
+div.confirmation_ .tableE_tablet_ th {
+	background-color: #cccccc;
+	border-left: none;
+	font-weight: bold;
+	width: 265px;
+	font-size: 24px;
+
+}
+div.confirmation_ .tableE_tablet_ th span {
+	color: #b0237b;
+	font-size: 24px;
+}
+div.confirmation_ .tableE_tablet_ td {
+	background-color: #f3f3f3;
+	border-right: none;
+	font-size: 24px;
+}
+div.confirmation_ .tableE_tablet_ .tableA_ th,
+div.confirmation_ .tableE_tablet_ .tableA_ td {
+	padding: 5px;
+	padding-left: 0;
+	background-color: #f3f3f3;
+	border: none;
+	font-size: 24px;
+}
+div.confirmation_ .tableE_tablet_ .tableA_ th {
+	width: 100px;
+	font-size: 24px;
+}
+
+/* tableF_ */
+div.confirmation_ .tableF_ th,
+div.confirmation_ .tableF_ td {
+	padding: 1px 10px 1px 11px;
+}
+div.confirmation_ .tableF_ th {
+	padding-left: 0;
+	width: 120px;
+	font-weight: bold;
+}
+div.confirmation_ .tableF_ td {
+	padding-right: 0;
+}
+div.confirmation_ .tableF_ th.padding-b15_ {
+	padding-left: 0;
+	padding-bottom:15px;
+	width: 120px;
+	font-weight: bold;
+}
+div.confirmation_ .tableF_ td.padding-b15_ {
+	padding-right: 0;
+	padding-bottom:15px;
+}
+
+/* tableA_tablet_ */
+div.confirmation_ .tableF_tablet_ th,
+div.confirmation_ .tableF_tablet_ td {
+	padding: 1px 10px 1px 11px;
+	font-size: 24px;
+}
+div.confirmation_ .tableF_tablet_ th {
+	padding-left: 0;
+	width: 180px;
+	font-weight: bold;
+	font-size: 24px;
+}
+div.confirmation_ .tableF_tablet_ td {
+	padding-right: 0;
+	font-size: 24px;
+}
+div.confirmation_ .tableF_tablet_ th.padding-b15_ {
+	padding-left: 0;
+	padding-bottom:15px;
+	width: 120px;
+	font-weight: bold;
+}
+div.confirmation_ .tableF_tablet_ td.padding-b15_ {
+	padding-right: 0;
+	padding-bottom:15px;
+}
+
+div.confirmation_ ul.purchase_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 350px;
+}
+div.confirmation_ ul.purchase_ li {
+	float: left;
+	margin-right: 30px;
+	width: 160px;
+	height: 30px;
+}
+div.confirmation_ ul.purchase_ li.purchase_ {
+	margin-right: 0;
+	background: url(../../images/usr/btn/btn_purchase_on.png) 0  0 no-repeat;
+}
+div.confirmation_ ul.purchase_ li.back_ a {
+	padding-top: 30px;
+	background-position: 0 -156px;
+}
+div.confirmation_ ul.purchase_ li.back_ a:hover {
+	background-position: 0 -186px;
+}
+div.confirmation_ ul.purchase_ li input {
+	display: block;
+	margin: 0;
+}
+
+div.confirmation_ ul.purchase_ li input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+div.confirmation_ ul.purchase_t_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 700px;
+}
+div.confirmation_ ul.purchase_t_ li {
+	float: left;
+	margin-right: 30px;
+	width: 220px;
+	height: 60px;
+}
+
+div.receipt_ ul.purchase_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 350px;
+}
+div.receipt_ ul.purchase_ li {
+	float: left;
+	margin-right: 30px;
+	width: 160px;
+	height: 30px;
+}
+div.receipt_ ul.purchase_ li.purchase_ {
+	margin-right: 0;
+	background: url(../../images/usr/btn/btn_purchase_on.png) 0  0 no-repeat;
+}
+div.receipt_ ul.purchase_ li.back_ a {
+	padding-top: 30px;
+	background-position: 0 -156px;
+}
+div.receipt_ ul.purchase_ li.back_ a:hover {
+	background-position: 0 -186px;
+}
+div.receipt_ ul.purchase_ li input {
+	display: block;
+	margin: 0;
+}
+
+div.receipt_ ul.purchase_ li input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+div.receipt_ ul.purchase_t_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 700px;
+}
+div.receipt_ ul.purchase_t_ li {
+	float: left;
+	margin-right: 30px;
+	width: 220px;
+	height: 60px;
+}
+
+
+
+/* --------------------------------------------------------------------
+	ご注文完了
+
+
+
+
+
+-------------------------------------------------------------------- */
+div.new_customer_ {
+	/*width: 700px;*/
+	margin:30px Auto Auto Auto;
+}
+
+/* --------------------------------------------------------------------
+	エラーメッセージ
+-------------------------------------------------------------------- */
+.tblerror_{
+    width:100%;
+    background:#FFD8D8;
+    color: #DD0000;
+    font-weight: bold;
+
+}
+.tblerror_ td{
+    background: none repeat scroll 0 0 #FFD8D8;
+    color: #DD0000;
+
+}
+
+.tblerror_ td#msg{
+	padding-top: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+}
+
+.tblerror_ td#title{
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 7px;
+	padding-left: 7px;
+}
+
+.guest_input input, 
+.guest_input textarea, 
+.guest_input select{
+	font-weight: normal;
+}
+p.lowest_price_cartcomment {
+	color: #DD0000;
+	font-weight: bold;
+	background: #FFD8D8;
+	padding: 7px 10px;
+}
+
+
+div.confirmation_ ul.purchase_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 350px;
+}
+div.confirmation_ ul.purchase_ li.purchase_t_ {
+	float: left;
+	margin-right: 30px;
+	width: 320px;
+	height: 60px;
+	margin-right: 0;
+	background: url(../../images/usr/btn/btn_next_t_on.png) 0  0 no-repeat;
+}
+
+div.confirmation_ ul.purchase_ li.purchase_t_ input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+div.receipt_ ul.purchase_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 350px;
+}
+div.receipt_ ul.purchase_ li.purchase_t_ {
+	float: left;
+	margin-right: 30px;
+	width: 320px;
+	height: 60px;
+	margin-right: 0;
+	background: url(../../images/usr/btn/btn_next_t_on.png) 0  0 no-repeat;
+}
+
+div.receipt_ ul.purchase_ li.purchase_t_ input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+p.info_l textarea{
+	width:99%;
+	resize:none;
+}
+
+
+/* --------------------------------------------------------------------
+	タブレット用
+-------------------------------------------------------------------- */
+.tablet_ div.method_box_ h3 {
+	margin: 0 0 10px 0;
+	padding: 5px 10px;
+	font-size: 24px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+
+.tablet_ div.confirmation_ h2 {
+	margin-top: 20px;
+	margin-bottom: 0;
+	height: 30px;
+	font-size: 24px;
+	line-height: 32px;
+}
+.tablet_ 
+{
+	font-size: 24px;
+	line-height: 150%;
+}
+
+.tablet_ #method_receipt .inner .addttl_ {
+	width:180px;
+}
+
+.counselingtablet_ {
+	font-size: 24px;
+	line-height: 150%;
+}
+
+.tablet_ .tablet_order_change{
+	float:right;
+	color:#DD0000;
+	background: none repeat scroll 0 0 #FFD8D8;
+	padding:10px
+}
+
+.tablet_ div.confirmation_ ul.order_change_btn li.topayment_ {
+    float: left;
+    height: 30px;
+    margin-right: 30px;
+    width: 320px;
+}
+
+.tablet_ div.confirmation_ ul.order_change_btn {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 720px;
+}
+
+.tablet_ .submit_ ul.order_change_btn li.topayment_ img {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.tablet_ div.confirmation_ ul.order_change_btn_est li.topayment_ {
+    float: left;
+    height: 60px;
+    margin-right: 5px;
+    width: 320px;
+}
+
+.tablet_ div.confirmation_ ul.order_change_btn_est li.topayment1_ {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 210px;
+}
+
+.tablet_ div.confirmation_ ul.order_change_btn_est {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 975px;
+}
+
+.tablet_ .submit_ ul.order_change_btn_est li.topayment_ img {
+    margin: 0;
+    vertical-align: middle;
+}
+
+div.confirmation_ ul.order_change_btn_est li.back_ a,
+div.confirmation_ ul.tablet_btn_est li.back_ a {
+    background-position: 0 0;
+    padding-top: 0px;
+}
+
+div.confirmation_ ul.order_change_btn_est li.back_ a:hover, 
+div.confirmation_ ul.tablet_btn_est li.back_ a:hover {
+	background-position: 0 0;
+}
+div.confirmation_ ul.order_change_btn_est li{
+    float: left;
+    height: 39px;
+    margin-right: 5px;
+    width: 210px;
+}
+
+div.confirmation_ ul.order_change_btn_est li,
+div.confirmation_ ul.tablet_btn_est li {
+    float: left;
+    height: 60px;
+    margin-right: 5px;
+    width: 320px;
+}
+
+div.confirmation_ ul.order_change_btn_est li.purchase_, 
+div.confirmation_ ul.tablet_btn_est li.purchase_ {
+    background: url("../../images/usr/btn/btn_purchase_on_t.png") no-repeat scroll 0 0 transparent;
+    margin-right: 0;
+}
+
+div.confirmation_ ul.tablet_btn_est li.purchase_b_ {
+    background: url("../../images/usr/btn/btn_purchase_on_t.png") no-repeat scroll 0 0 transparent;
+    margin-right: 0;
+}
+
+div.confirmation_ ul.order_change_btn_est li.topayment_, 
+div.confirmation_ ul.tablet_btn_est li.topayment_ {
+  background-image: url("../../images/usr/btn/btn_tochange_t.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 60px;
+    width: 320px;
+}
+
+
+.tablet_ div.confirmation_ ul.tablet_btn_est {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 650px;
+}
+
+
+div.confirmation_ th.w150_ {
+	width: 150px;
+}
+
+div.confirmation_ ul.purchase_ li.change_t_ {
+    background: url("../../images/usr/btn/btn_change_on_t.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 60px;
+    margin-right: 0;
+    width: 320px;
+}
+
+.estimate_comment_ {
+	word-break:break-all;
+	word-wrap:break-word;
+}

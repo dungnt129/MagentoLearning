@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/bootstrap.css" />
+        <css src="css/fontawesome.css" />
+        <css src="css/eaon/style.css" />
+        <css src="css/eaon/info_medicine.css" />
+        <css src="css/eaon/core.css" />
+        <css src="css/eaon/skin.css" />
+        <css src="css/eaon/s_mr.css" />
+        <css src="css/eaon/jquery.alerts.css" />
+        <css src="css/eaon/exbutton.css" />
+        <css src="css/eaon/z_menteAS.css" />
+        <css src="css/eaon/z_menteNS.css" />
+    </head>
+</page>

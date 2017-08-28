@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="header.container" htmlId="header" htmlClass="">
+            <referenceContainer name="header.panel.wrapper" htmlId="" htmlClass="header_top">
+                <block class="Robin\Eshoper\Block\HeaderTop" name="robin_headertop" template="Robin_Eshoper::header_top_block.phtml" />
+            </referenceContainer>
+            <referenceContainer name="header-wrapper" htmlId="" htmlClass="header_middle">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <container htmlTag="div" htmlClass="col-sm-4"></container>
+                        <container htmlTag="div" htmlClass="col-sm-8">
+                            <container name="shop-header-menu" htmlTag="div" htmlClass="shop-menu pull-right" />
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+            <referenceContainer name="page.top" htmlId="" htmlClass="header_bottom" htmlTag="div"></referenceContainer>
+        </referenceContainer>
+        <move element="page.top" destination="header.container" after="header-wrapper" />
+        <move element="top.links" destination="shop-header-menu" />
+        <referenceContainer name="report.bugs" remove="true" />
+    </body>
+</page>

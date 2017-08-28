@@ -1,0 +1,321 @@
+@charset "UTF-8";
+/* CSS Document */
+
+ .pc5-spot-menu{
+	z-index:99999;
+	margin:auto;
+	width:100%;
+	position: fixed;
+	display:none;
+	top:50px;
+	}
+ .pc5-spot-menu .pc5-spot-button-close{
+	margin:auto;
+	width:750px;
+	text-align:right;
+}
+ .pc5-spot-button-close-img{
+    cursor: pointer;
+}
+ .pc5-spot-menu .spot_center{
+	margin:auto;
+	margin-top:-20px;
+	width:654px;
+	background: #f3f1e4;
+	padding:28px;
+	border: solid 6px #975656;
+
+	}
+
+
+ .pc5-spot-menu  .spot_center .ttlarea{
+	margin:auto;
+	width:634px;
+	font-size:28px;
+	font-weight:bold;
+	line-height:140%;
+	color:#8b5326;
+	text-align:center;
+	background: #ffffff url(../img/usr/modal/bg_modal.jpg) ;
+	padding:10px;
+	border:solid 1px #e2ae89;
+
+}
+
+ .pc5-spot-menu  .spot_center .m-main{
+	margin:auto ;
+	width:654px;
+	height:314px;
+	padding:26px 0 0 0;
+	}
+ .pc5-spot-menu .spot_center .m-main .window1 {
+	margin:auto;
+	float : left;
+	width:314px;
+	height:274px;
+	text-align:center;
+	background: transparent url(../img/usr/modal/bg_window.png) no-repeat;
+	padding:20px 0;
+	}
+
+ .modal1_img	{
+	margin:20px 0 ;
+	width:288px;
+	height:223px;
+	background:url(../img/usr/modal/img_modal_1.png) ;
+	border:none;
+}
+ .pc5-spot-menu .spot_center .m-main .window2 {
+	margin:0 0 0 26px;
+	float : left;
+	width:314px;
+	height:274px;
+	background: transparent url(../img/usr/modal/bg_window.png) no-repeat;
+	padding:20px 0  ;
+	text-align:center;
+	}
+ .pc5-spot-menu .spot_center .m-main .window2 .box1 {
+	margin:auto;
+	width:254px;
+	height:20px;
+	background: transparent;
+	padding:10px 0 5px 0;
+	}
+ .pc5-spot-menu .spot_center .m-main .window2 .box1 .box2 {
+	float:right;
+	width:55px;
+	background: transparent;
+	padding:0;
+	}
+ .pc5-spot-menu .spot_center .m-main .window2 .box1 .box3 {
+	float:right;
+	width:199px;
+	background: transparent;
+	padding:1px 0;
+	text-align:left;
+	}
+.w-ttl{
+	font-size:16px;
+	font-weight:bold;
+	color:#8b5326;
+	line-height:140%;
+
+}
+.w-txt{
+	font-size: 12px;
+	color:#000000;
+	line-height:120%;
+
+}
+ .pc5-spot-menu .spot_center .m-main .window2 .w-scroll1{
+	margin:auto;
+	width:284px;
+	height:130px;
+	border:solid 1px #555555;
+	overflow-y: scroll;
+
+}
+ .pc5-spot-menu .spot_center .m-main .window2 .w-scroll2{
+	margin:auto;
+	margin-top:8px;
+	width:274px;
+	height:40px;
+	border:solid 1px #555555;
+	padding:5px;
+	text-align:left;
+	overflow-y: scroll;
+
+}
+
+
+
+/*ショップのID*/
+#mainForm{
+}
+.shopinfo{
+	vertical-align: middle;
+	text-align:left;
+	width:263px;
+	margin:4px ;
+
+}
+
+.shopinfo .infobox{
+	float:left;
+	width:136px;
+	overflow:hidden;
+	zoom:1;;
+	line-height:100%;
+	font-size:9px;
+	margin-left:-20px;
+}
+
+#btn_spot{
+   background-color: #bb1b8a;
+   color: white;
+   border:none;
+   font-size:12px;
+   padding:5px 10px;
+   margin:5px 0 ;
+
+}
+#btn_prm-detail{
+   border: 1px solid #1F4677;
+   background-color: #4E80BC;
+   color: white;
+   border:none;
+   font-size:12px;
+   width:300px;
+   padding:5px 10px;
+   padding:8px 15px;
+}
+#btn_prm-regist{
+   -webkit-border-radius: 5px;/* for Safari and Chrome */
+   -moz-border-radius: 5px; /* for Firefox */
+   -o-border-radius: 5px; /* for opera */
+   border-radius: 5px;
+   border: 1px solid #A73F3C;
+   background-color: #C0504C;
+   color: white;
+   font-size:12px;
+   margin:5px;
+   padding:5px 15px;
+}
+#btn_prm-delive{
+   -webkit-border-radius: 5px;/* for Safari and Chrome */
+   -moz-border-radius: 5px; /* for Firefox */
+   -o-border-radius: 5px; /* for opera */
+   border-radius: 5px;
+   border: 1px solid #7B904F;
+   background-color: #9ABA58;
+   color: white;
+   font-size:12px;
+   margin: 5px;
+   padding:5px 15px;
+}
+#btn_prm-logout{
+   -webkit-border-radius: 5px;/* for Safari and Chrome */
+   -moz-border-radius: 5px; /* for Firefox */
+   -o-border-radius: 5px; /* for opera */
+   border-radius: 5px;
+   border: 1px solid #1F4677;
+   background-color: #4E80BC;
+   color: white;
+   font-size:12px;
+   margin: 5px;
+   padding:5px 15px;
+}
+
+
+.pc5-spot-prem{
+	z-index:99999;
+	margin:auto;
+	width:100%;
+	position: fixed;
+	display:none;
+	top:50px;
+}
+
+.pc5-spot-prem .pc5-spot-prem-btn-close{
+	margin:auto;
+	width:707px;
+	height:12px;
+	text-align:right;
+	cursor: pointer;
+}
+.pc5-spot-prem .spot_prm_center{
+	margin:auto;
+	margin-top:-20px;
+	width:654px;
+	background: #f3f1e4;
+	padding:28px 28px 36px;
+	border: solid 6px #975656;
+}
+
+ .pc5-spot-prem  .spot_prm_center .prm-top-area{
+	background: #ffffff url("../img/usr/modal/bg_modal.jpg") repeat scroll 0 0;
+	margin:auto;
+	margin-top:10px;
+	width:620px;
+	padding:5px;
+	border:solid 1px #F3AD8E;
+}
+
+ .pc5-spot-prem  .spot_prm_center .prm-top-area .prm-title{
+	margin:auto;
+	width:620px;
+	color:#8b5326;
+	font-size:26px;
+	font-weight:bold;
+	line-height:140%;
+	text-align:center;
+	padding:5px 0;
+}
+.pc5-spot-prem .spot_prm_center .prm-top-area .prm-overview{
+	margin:auto;
+	width:620px;
+	font-size:14px;
+	text-align:center;
+	padding:5px 0;
+}
+ .pc5-spot-prem  .spot_prm_center .prm-bg-wrapper{
+ 	background:url("../img/usr/modal/bg_window_prm.png") no-repeat scroll 0 0;
+	margin: 10px auto auto;
+	width: 629px;
+	height: 277px;
+}
+.pc5-spot-prem .spot_prm_center .prm-notice{
+	margin:3px auto 0;
+	width:584px;
+	height:76px;
+	border:solid 1px #aaa;
+	padding:5px;
+	text-align:left;
+	overflow-y: scroll;
+	background-color: #fff;
+	font-size: 12px;
+}
+.pc5-spot-prem .spot_prm_center .prm-kiyaku{
+	margin:auto;
+	width:620px;
+	height:50px;
+	border:solid 1px #555555;
+	padding:5px;
+	text-align:left;
+	overflow-y: scroll;
+}
+.pc5-spot-prem .spot_prm_center .prm-message{
+	margin:auto;
+	width:620px;
+	padding:100px 0;
+	font-size: 24px;
+    font-weight: bold;
+    line-height: 120%
+}
+ .pc5-spot-prem .spot_prm_center .prm-btn_list{
+	margin-top: 6px;
+}
+.pc5-spot-prem .spot_prm_center .prm-btn_list2 img{
+	margin:  0 5px;
+}
+
+ .pc5-spot-prem .spot_prm_center .prm-btn_list_upper img{
+	margin:2px 37px;
+}
+
+.pc5-spot-prem .spot_prm_center .prm-btn_list_upper{
+	width:100%;
+	text-align:center;
+	padding:14px 0 10px;
+}
+
+
+label, input[type='checkbox'], input[type="button"], button[type="submit"] {
+    cursor: pointer;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
