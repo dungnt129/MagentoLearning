@@ -1746,8 +1746,8 @@ table.pc2015-delivery-charge td strong {
 .pc2015-side {
   float: left;
   text-align: left;
-  width: 226px;
-  padding-left: 30px;
+  /*width: 226px;*/
+  /*padding-left: 30px;*/
   position: relative;
 }
 

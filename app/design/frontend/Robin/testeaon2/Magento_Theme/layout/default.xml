@@ -73,9 +73,20 @@
         <!--End phan header-->
 
 
+        <!--Main Content-->
+        <referenceContainer name="main.content">
+            <block class="Robin\Aeon\Block\SideBanner" template="Robin_Aeon::side_banner.phtml" />
+        </referenceContainer>
+        <!--End main content-->
+
+
         <!--SideBar-->
         <referenceContainer name="sidebar.additional">
-            <block class="Robin\Aeon\Block\TopMenuLeft" template="Robin_Aeon::top_menu.phtml" />
+            <container htmlClass="pc2015-side pc2015-side-with-banner-lower" htmlTag="div">
+                <block class="Robin\Aeon\Block\TopMenuLeft" template="Robin_Aeon::top_menu.phtml" />
+                <block class="Robin\Aeon\Block\SideDelivery" template="Robin_Aeon::side_delivery.phtml" />
+                <block class="Robin\Aeon\Block\SideBanner" template="Robin_Aeon::side_banner.phtml" />
+            </container>
         </referenceContainer>
         <!--End side bar-->
 

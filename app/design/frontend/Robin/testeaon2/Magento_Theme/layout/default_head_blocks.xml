@@ -15,6 +15,7 @@
         <css src="css/eaon/info_medicine.css" />
         <css src="css/eaon/core.css" />
         <css src="css/eaon/skin.css" />
+        <css src="css/eaon/shop.css" />
         <css src="css/eaon/s_mr.css" />
         <css src="css/eaon/jquery.alerts.css" />
         <css src="css/eaon/exbutton.css" />

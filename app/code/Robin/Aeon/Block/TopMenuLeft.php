@@ -4,17 +4,17 @@
  * See COPYING.txt for license details.
  */
 namespace Robin\Aeon\Block;
-
+//
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\Data\TreeFactory;
 use Magento\Framework\Data\Tree\Node;
 use Magento\Framework\Data\Tree\NodeFactory;
-use Magento\Theme\Block\Html\Topmenu;
+
 /**
  * Html page top menu block
  */
-class TopMenuLeft extends Topmenu
+class TopMenuLeft extends \Magento\Theme\Block\Html\Topmenu
 {
 
 }
