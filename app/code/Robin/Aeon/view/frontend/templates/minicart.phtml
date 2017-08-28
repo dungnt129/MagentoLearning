@@ -12,8 +12,13 @@
 <div data-block="minicart" class="minicart-wrapper">
     <a class="pc2015-designed pc2015-button-cart action showcart" href="<?php /* @escapeNotVerified */ echo $block->getShoppingCartUrl(); ?>" title="レジに進む"
        data-bind="scope: 'minicart_content'">
-        <span class="text"><?php /* @escapeNotVerified */ echo __('My Cart'); ?></span>
-        <span class="counter qty empty"
+            <span id="global_totalprice">
+                <span class="pc2015-button-cart-title-1"><?php /* @escapeNotVerified */ echo __('合計0点'); ?></span>
+                <span class="pc2015-button-cart-title-2">(税込)</span>
+<!--                <span class="pc2015-button-cart-num">0円</span>-->
+            </span>
+<!--        <span class="text">--><?php ///* @escapeNotVerified */ echo __('My Cart'); ?><!--</span>-->
+        <span class="counter qty empty pc2015-button-cart-num"
               data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
             <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
             <span class="counter-label">

@@ -67,11 +67,30 @@
                     <block class="Robin\Aeon\Block\HeaderRight" template="Robin_Aeon::header_right.phtml"></block>
                     <referenceBlock name="minicart" template="Robin_Aeon::minicart.phtml"></referenceBlock>
                 </container>
-                <!--<block class="Magento\Framework\View\Element\Template" name="my.top.search" as="topSearch" template="Robin_Aeon::mini_search.phtml" />-->
             </container>
             <!--End phan search bar va gio hang-->
         </referenceContainer>
         <!--End phan header-->
+
+
+        <!--<container name="div.sidebar.main" htmlTag="div" htmlClass="sidebar sidebar-main" after="main">-->
+            <!--<container name="sidebar.main" as="sidebar_main" label="Sidebar Main">-->
+                <!--&lt;!&ndash;<block class="Robin\Aeon\Block\HeaderBar" template="Robin_Aeon::test.phtml"></block>&ndash;&gt;-->
+            <!--</container>-->
+        <!--</container>-->
+
+        <!--<container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">-->
+        <referenceContainer name="sidebar.main">
+            <block htmlId="xxxxx" class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav.aside" template="html/topmenu-aside.phtml" ttl="3600" before="-"/>
+        </referenceContainer>
+        <!--<referenceBlock name="catalog.topnav" remove="true" />-->
+        <!--</container>-->
+
+        <!--Phan footer-->
+        <referenceContainer name="footer-container">
+            <block class="Robin\Aeon\Block\Footer" htmlId="xxxxxx" template="Robin_Aeon::footer.phtml"></block>
+        </referenceContainer>
+        <!--End phan footer-->
 
 
         <referenceContainer name="report.bugs" remove="true" />
@@ -90,7 +109,9 @@
 
         <referenceBlock name="top.search" remove="true" />
 
-        <!--<move element="minicart" destination="head_right" />-->
+        <referenceBlock name="footer" remove="true" />
+
+        <move element="minicart" destination="head_right" />
 
     </body>
 </page>

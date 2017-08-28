@@ -685,13 +685,13 @@ table.pc2015-delivery-charge td strong {
   cursor: default;
   background-position: left -100px;
 }
-.pc2015-global-navigation > div.pc2015-right > a.pc2015-button-cart {
+.pc2015-button-cart {
   width: 171px;
   background-image: url(../../images/header/cart.png);
   position: relative;
   text-decoration: none;
 }
-.pc2015-global-navigation > div.pc2015-right > a.pc2015-button-cart > span {
+.pc2015-button-cart > span {
   position: absolute;
   left: 0;
   right: 0;
@@ -701,13 +701,13 @@ table.pc2015-delivery-charge td strong {
   font-size: 14px;
   font-weight: bolder;
 }
-.pc2015-global-navigation > div.pc2015-right > a.pc2015-button-cart span.pc2015-button-cart-title-1 {
+.pc2015-button-cart span.pc2015-button-cart-title-1 {
   font-size: 11px;
 }
-.pc2015-global-navigation > div.pc2015-right > a.pc2015-button-cart span.pc2015-button-cart-title-2 {
+.pc2015-button-cart span.pc2015-button-cart-title-2 {
   font-size: 11px;
 }
-.pc2015-global-navigation > div.pc2015-right > a.pc2015-button-cart span.pc2015-button-cart-num {
+.pc2015-button-cart span.pc2015-button-cart-num {
   font-size: 15px;
   margin-left: 6px;
 }
