@@ -17,8 +17,8 @@ interface HelloInterface
     */
     public function getProduct();
 
-    /*
-     * @return string
-     * */
+    /**
+     *@return integer
+     */
     public function sum( $nums );
 }

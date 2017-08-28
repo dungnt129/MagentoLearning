@@ -8,9 +8,9 @@
         </resources>
     </route>
 
-    <!-- Example: curl http://mydomain.com/rest/V1/hello/getprotduct -->
-    <route url="/V1/hello/name/:name" method="GET">
-        <service class="Trymsunsoan\Hello\Api\HelloInterface" method="getprotduct"/>
+    <!-- Example: curl http://mydomain.com/rest/V1/hello/getproduct -->
+    <route url="/V1/hello/getProduct" method="GET">
+        <service class="Trymsunsoan\Hello\Api\HelloInterface" method="getProduct"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>
