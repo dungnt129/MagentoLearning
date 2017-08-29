@@ -74,8 +74,8 @@
 
 
         <!--Main Content-->
-        <referenceContainer name="main.content">
-            <block class="Robin\Aeon\Block\SideBanner" template="Robin_Aeon::side_banner.phtml" />
+        <referenceContainer name="main">
+            <block class="Robin\Aeon\Block\MainSlider" template="Robin_Aeon::main_slider.phtml" />
         </referenceContainer>
         <!--End main content-->
 
