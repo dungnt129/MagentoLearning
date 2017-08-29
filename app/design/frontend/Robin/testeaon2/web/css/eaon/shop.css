@@ -280,10 +280,11 @@
 .pc2015-main-slider .pc2015-main-slider-header li.pc2015-active a {
   background: url(../../images/shop/slider/header-current.png) no-repeat center top;
 }
+
 .pc2015-main-slider .pc2015-main-slider-body {
   padding-top: 44px;
   width: 766px;
-  height: 199px;
+  height: 243px;
   overflow: hidden;
   position: relative;
   background-image: url(../../images/shop/slider/header_gray.png);
@@ -342,19 +343,19 @@
   height: 99px;
 }
 .pc2015-main-ads .pc2015-ad-pos-1-1 {
-  left: 20px;
+  left: 0px;
   top: 0px;
 }
 .pc2015-main-ads .pc2015-ad-pos-2-1 {
-  left: 301px;
+  left: 280px;
   top: 0px;
 }
 .pc2015-main-ads .pc2015-ad-pos-1-2 {
-  left: 20px;
+  left: 0px;
   top: 101px;
 }
 .pc2015-main-ads .pc2015-ad-pos-2-2 {
-  left: 301px;
+  left: 280px;
   top: 101px;
 }
 

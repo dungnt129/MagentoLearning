@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="Robin_Aeon_Banner" class="Robin\Aeon\Block\ListProduct\BannerWidget">
+        <label translate="true">XXX</label>
+        <description translate="true">San pham</description>
+        <parameters>
+
+            <parameter name="auto" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Auto</label>
+            </parameter>
+            <parameter name="speed" xsi:type="text" required="true" visible="true">
+                <label translate="true">Speed</label>
+                <value>200</value>
+            </parameter>
+            <parameter name="slide" xsi:type="select" visible="true">
+                <label translate="true">Slide</label>
+                <options>
+                    <option name="temp1" value="1" selected="true">
+                        <label translate="true">Kiểu slide 1</label>
+                    </option>
+                    <option name="temp2" value="2">
+                        <label translate="true">Kiểu slide 2</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="content">
+                <template name="grid" value="default" />
+            </container>
+            <container name="content.top">
+                <template name="grid" value="default" />
+            </container>
+            <container name="content.bottom">
+                <template name="grid" value="default" />
+            </container>
+        </containers>
+    </widget>
+</widgets>

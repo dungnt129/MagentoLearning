@@ -75,7 +75,8 @@
 
         <!--Main Content-->
         <referenceContainer name="main">
-            <block class="Robin\Aeon\Block\MainSlider" template="Robin_Aeon::main_slider.phtml" />
+            <block class="Robin\Aeon\Block\MainSlider" template="Robin_Aeon::main_slider.phtml" before="-" />
+            <block class="Robin\Aeon\Block\MainInfo"  template="Robin_Aeon::main_info.phtml"></block>
         </referenceContainer>
         <!--End main content-->
 
@@ -93,7 +94,7 @@
 
         <!--Phan footer-->
         <referenceContainer name="footer-container">
-            <block class="Robin\Aeon\Block\Footer" htmlId="xxxxxx" template="Robin_Aeon::footer.phtml"></block>
+            <block class="Robin\Aeon\Block\Footer" template="Robin_Aeon::footer.phtml"></block>
         </referenceContainer>
         <!--End phan footer-->
 

@@ -6,7 +6,7 @@
 
 // @codingStandardsIgnoreFile
 
-namespace Robin\Bai2\Block\Banner;
+namespace Robin\Aeon\Block\ListProduct;
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\UrlInterface;
@@ -18,60 +18,32 @@ use Magento\Widget\Block\BlockInterface;
  * Class ProductsList
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class BannerWidget extends Template implements BlockInterface
+class BannerWidget extends \Magento\CatalogWidget\Block\Product\ProductsList
 {
 
-    /**
-     * @param \Magento\Catalog\Block\Product\Context $context
-     * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
-     * @param \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility
-     * @param \Magento\Framework\App\Http\Context $httpContext
-     * @param \Magento\Rule\Model\Condition\Sql\Builder $sqlBuilder
-     * @param \Magento\CatalogWidget\Model\Rule $rule
-     * @param \Magento\Widget\Helper\Conditions $conditionsHelper
-     * @param array $data
-     */
+    public function createCollection()
+    {
+        /** @var $collection \Magento\Catalog\Model\ResourceModel\Product\Collection */
+        $collection = $this->productCollectionFactory->create();
+        $collection->addAttributeToSelect('*');
+        $collection->addCategoriesFilter(array('in' => 41));
+        $collection->setVisibility($this->catalogProductVisibility->getVisibleInCatalogIds());
 
-    protected $dulieu;
+        $collection = $this->_addProductAttributesAndPrices($collection)
+            ->addStoreFilter()
+            ->setPageSize($this->getPageSize())
+            ->setCurPage($this->getRequest()->getParam($this->getData('page_var_name'), 1));
 
-    public function __construct(
-        Template\Context $context,
-        \Robin\Bai2\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory,
-        array $data = []
-    ) {
-        $this->bannerCollectionFactory = $bannerCollectionFactory;
-        parent::__construct(
-            $context,
-            $data
-        );
+        $conditions = $this->getConditions();
+        $conditions->collectValidatedAttributes($collection);
+        $this->sqlBuilder->attachConditionToCollection($collection, $conditions);
+
+        return $collection;
     }
-
-    /**
-     * {@inheritdoc}
-     */
 
     protected function _beforeToHtml()
     {
-        $collection = $this->bannerCollectionFactory->create();
-        $dulieu = $collection->addFilter('status',['eq' => true])->getData();
-        $this->setData('banners',$dulieu);
-        $this->setData('mediaUrl',$this->_storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA).'banner/images/');
-
-
-        $slider_style =$this->getData('slide');
-        if($slider_style == 1) {
-            $this->setTemplate('widget.phtml');
-        }else
-        {
-            $this->setTemplate('widget2.phtml');
-        }
+        $this->setTemplate('product_list.phtml');
         return parent::_beforeToHtml();
     }
-
-    /**
-     * Prepare and return product collection
-     *
-     * @return \Magento\Catalog\Model\ResourceModel\Product\Collection
-     */
-
 }
