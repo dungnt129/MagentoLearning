@@ -9,13 +9,13 @@ $brands     = $block->getBrands();
 ?>
 
 <!--<h3>--><?php //echo __('Categories'); ?><!--</h3>-->
-<ul class="o-list">
-
+<ul class="o-list" id="parent_nav">
     <?php
     // Loop through categories
     foreach ( $categories as $category ) :
         ?>
         <li class="level0<?php echo($block->isActive($category) ? ' active' : ''); ?>">
+            <div class="bg-nav"></div>
             <a href="<?php echo $block->getCategoryUrl($category); ?>" title="<?php echo $category->getName(); ?>" class="<?php echo($block->isActive($category) ? ' active' : ''); ?>">
                 <?php echo $category->getName(); ?>
             </a>
