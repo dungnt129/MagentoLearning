@@ -749,11 +749,18 @@
   text-align: center;
   padding-left: 18px;
 }
-.pc2015-item .pc2015-item-cart {
+.pc2015-item-cart {
   display: block;
-  background-image: url(../../images/shop/cart-171x40.png);
+  background-image: url(../../images/shop/cart-171x40.png) !important;
   width: 171px;
-  padding-top: 40px;
+  background-color: inherit !important;
+  border: none !important;
+  color: transparent !important;
+  /*padding-top: 40px;*/
+  height: 40px;
+}
+.pc2015-item-cart span:hover{
+  color: transparent !important;
 }
 .pc2015-item .pc2015-item-end {
   display: block;

@@ -18,15 +18,13 @@ use Magento\Widget\Block\BlockInterface;
  * Class ProductsList
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class BannerWidget extends \Magento\CatalogWidget\Block\Product\ProductsList
+class ListProductWidget extends \Magento\CatalogWidget\Block\Product\ProductsList
 {
 
     public function createCollection()
     {
         /** @var $collection \Magento\Catalog\Model\ResourceModel\Product\Collection */
         $collection = $this->productCollectionFactory->create();
-        $collection->addAttributeToSelect('*');
-        $collection->addCategoriesFilter(array('in' => 41));
         $collection->setVisibility($this->catalogProductVisibility->getVisibleInCatalogIds());
 
         $collection = $this->_addProductAttributesAndPrices($collection)
