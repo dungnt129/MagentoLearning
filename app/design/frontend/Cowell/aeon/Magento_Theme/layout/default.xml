@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <!--Phan header cua trang-->
+        <!--Trung Anh-->
+        <referenceContainer name="header.container">
+            <!--Phan header Co chua login register-->
+            <referenceContainer name="header.panel.wrapper">
+                <referenceContainer name="header.panel">
+                    <referenceBlock name="top.links">
+                        <referenceBlock name="register-link" before="-">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">ログイン</argument>
+                                <argument name="class" xsi:type="string">btnauthen</argument>
+                            </arguments>
+                        </referenceBlock>
+
+
+                        <referenceBlock name="authorization-link" after="register-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">新規メンバー登録</argument>
+                                <argument name="class" xsi:type="string">btnauthen</argument>
+                            </arguments>
+                        </referenceBlock>
+
+                        <block class="Cowell\Aeon\Block\HeaderText" template="Cowell_Aeon::header_text.phtml">
+                        </block>
+
+                    </referenceBlock>
+                    <block class="Cowell\Aeon\Block\HeaderVoice" template="Cowell_Aeon::header_voice.phtml">
+                    </block>
+                    <container htmlClass="search_bar" htmlTag="div">
+                        <container htmlClass="search_bar1" htmlTag="div">
+                        </container>
+                    </container>
+                </referenceContainer>
+            </referenceContainer>
+            <!--End phan header chua login register-->
+
+            <!--Phan header chua Logo-->
+            <referenceContainer name="header-wrapper">
+                <referenceBlock name="logo">
+                    <arguments>
+                        <argument name="logo_img_width" xsi:type="number">211</argument>
+                    </arguments>
+                </referenceBlock>
+                <block class="Cowell\Aeon\Block\HeaderSlogan" template="Cowell_Aeon::header_slogan.phtml" />
+            </referenceContainer>
+            <!--End phan header chua logo-->
+
+            <!--Phan searchbar va gio hang-->
+            <container htmlClass="pc2015-global-navigation clearfix" htmlTag="div" after="header-wrapper">
+                <container htmlClass="pc2015-left" htmlTag="div">
+                    <block class="Cowell\Aeon\Block\HeaderLeft" template="Cowell_Aeon::header_left.phtml"></block>
+                </container>
+                <container name="head-center" htmlClass="pc2015-center" htmlTag="div">
+                    <block class="Cowell\Aeon\Block\HeaderBar" template="Cowell_Aeon::header_bar.phtml"></block>
+                </container>
+                <container name="head_right" htmlClass="pc2015-right clearfix" htmlTag="div">
+                    <block class="Cowell\Aeon\Block\HeaderRight" template="Cowell_Aeon::header_right.phtml"></block>
+                    <referenceBlock name="minicart" template="Cowell_Aeon::minicart.phtml"></referenceBlock>
+                </container>
+            </container>
+            <!--End phan search bar va gio hang-->
+        </referenceContainer>
+        <!--End phan header-->
+
+
+        <!--Main Content-->
+        <referenceContainer name="main">
+            <block class="Cowell\Aeon\Block\MainSlider" template="Cowell_Aeon::main_slider.phtml" before="-" />
+            <block class="Cowell\Aeon\Block\MainInfo"  template="Cowell_Aeon::main_info.phtml"></block>
+        </referenceContainer>
+        <!--End main content-->
+
+
+        <!--SideBar-->
+        <referenceContainer name="sidebar.additional">
+            <container htmlClass="pc2015-side pc2015-side-with-banner-lower" htmlTag="div">
+                <!--<block class="Cowell\Aeon\Block\TopMenuLeft" template="Cowell_Aeon::top_menu.phtml" />-->
+                <block class="Cowell\Aeon\Block\SideDelivery" template="Cowell_Aeon::side_delivery.phtml" />
+                <block class="Cowell\Aeon\Block\SideBanner" template="Cowell_Aeon::side_banner.phtml" />
+            </container>
+        </referenceContainer>
+        <!--End side bar-->
+
+
+        <!--Phan footer-->
+        <referenceContainer name="footer-container">
+            <block class="Cowell\Aeon\Block\Footer" template="Cowell_Aeon::footer.phtml"></block>
+        </referenceContainer>
+        <!--End phan footer-->
+
+
+        <referenceContainer name="report.bugs" remove="true" />
+        <referenceBlock remove="true" name="breadcrumbs" />
+        <referenceBlock remove="true"  name="navigation.sections" />
+        <!--<referenceBlock remove="true"  name="header.links" />-->
+        <referenceBlock name="wish-list-link" remove="true" />
+        <referenceBlock name="my-account-link" remove="true" />
+        <referenceBlock name="skip_to_content" remove="true" />
+        <referenceBlock name="header" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+
+        <referenceBlock name="compare-products-link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalog.compare.link" remove="true" />
+
+        <referenceBlock name="top.search" remove="true" />
+
+        <referenceBlock name="footer" remove="true" />
+
+        <move element="minicart" destination="head_right" />
+
+    </body>
+</page>

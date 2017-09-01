@@ -49,12 +49,6 @@ class InstallData implements InstallDataInterface
             ]
         );
 
-        $attribute = $categorySetup->getEavConfig()->getAttribute('category', 'new_attribute');
-        $attribute->addData([
-        'attribute_set_id' => 1,
-        'attribute_group_id' => 1
-    ]);
-        $attribute->save();
         $installer->endSetup();
     }
 }

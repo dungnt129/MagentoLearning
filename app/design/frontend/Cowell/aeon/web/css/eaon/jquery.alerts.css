@@ -1,0 +1,104 @@
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #f9f9f9;
+	border: solid 10px #b1227a;
+	color: #000000;
+}
+_{
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    min-width: 300px; /* Dialog will be no smaller than this */
+    max-width: 480px; /* Dialog will wrap after this width */
+    background: #F3F4F6;
+    border: solid 1px #DCDDDD;
+    color: #000000;
+}
+
+#popup_title {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+	color: #333333;
+	background: url(../../images/usr/hr/hr_dotted.png) left bottom repeat-x;
+	cursor: default;
+	padding: 0 5px .8em;
+	margin: 0em;
+}
+
+#popup_content {
+	margin: 0em;
+	padding: 1em 5px;
+	text-align: left;
+}
+
+#popup_content.alert {
+	background-image: url(images/info.gif);
+}
+
+#popup_content.confirm {
+	/* background-image: url(images/important.gif); */
+}
+
+#popup_content.prompt {
+	background-image: url(images/help.gif);
+}
+
+#popup_message {
+	font-size: 14px;
+	line-height: 1.5;
+	text-align: left;
+}
+
+#popup_message p {
+	margin: 1em 0 0 .95em;
+	text-indent: -.95em;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 3em 0 0;
+}
+
+#popup_panel ul.license_ {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 350px;
+}
+
+#popup_panel ul.license_ li {
+	float: left;
+	margin-right: 30px;
+	width: 160px;
+	height: 30px;
+	display: block;
+}
+
+#popup_panel ul.license_ li.cancel_ {
+	background: url(../../images/usr/btn/btn_cancel_on.png) 0 0 no-repeat;
+}
+
+#popup_panel ul.license_ li.ok_ {
+	margin-right: 0;
+	background: url(../../images/usr/btn/btn_ok_on.png) 0 0 no-repeat;
+}
+
+#popup_panel ul.license_ li input {
+	display: block;
+}
+
+#popup_panel ul.license_ li input:hover {
+	filter: alpha(opacity=0);
+	-ms-filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+#popup_panel input {
+	outline: none;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
