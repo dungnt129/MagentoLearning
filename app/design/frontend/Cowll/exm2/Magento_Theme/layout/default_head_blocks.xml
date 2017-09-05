@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/bootstrap.css"/>
+        <css src="css/font-awesome.css"/>
+        <css src="css/prettyPhoto.css"/>
+        <css src="css/price-range.css"/>
+        <css src="css/animate.css"/>
+        <css src="css/main.css"/>
+        <css src="css/responsive.css"/>
+
+
+
+        <link src="js/jquery.js"/>
+        <link src="js/bootstrap.min.js"/>
+        <link src="js/jquery.scrollUp.min.js"/>
+        <link src="js/price-range.js"/>
+        <link src="js/jquery.prettyPhoto.js"/>
+        <link src="js/main.js"/>
+    </head>
+</page>

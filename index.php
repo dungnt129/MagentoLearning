@@ -32,8 +32,28 @@ try {
 HTML;
     exit(1);
 }
-
+//-----------------------------
 $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
+//switch ($_SERVER['HTTP_HOST']) {
+//    case 'exm.local':
+//        $mageRunCode = 'base';
+//        $mageRunType = 'website';
+//        break;
+//    case 'exm1.dev':
+//        $mageRunCode = 'exm1';
+//        $mageRunType = 'website';
+//        break;
+//    default :
+//        $mageRunCode = 'base';
+//        $mageRunType = 'website';
+//        break;
+//}
+//$params = $_SERVER;
+//$params[\Magento\Store\Model\StoreManager::PARAM_RUN_CODE] = $mageRunCode;
+//$params[\Magento\Store\Model\StoreManager::PARAM_RUN_TYPE] = $mageRunType;
+//$bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $params);
+//-------------------------------
+
 /** @var \Magento\Framework\App\Http $app */
 $app = $bootstrap->createApplication('Magento\Framework\App\Http');
 $bootstrap->run($app);

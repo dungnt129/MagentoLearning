@@ -1,0 +1,42 @@
+<?php
+    $data = $this->getData('banners');
+?>
+<div class="pc2015-main-ads">
+    <?php foreach ($data as $d) : ?>
+        <a href="<?php echo $d['link'] ?>" class="pc2015-ad pc2015-for-member pc2015-ad-279x99 pc2015-ad-pos-1-1" target="_blank">
+            <img width="279" height="99" alt="" src="<?php echo $this->getData('mediaURL') . $d['image']; ?>"/>
+        </a>
+    <?php endforeach;?>
+    <div style="left:585px;position: absolute;">
+        <!-- SMARTtag start-->
+        <script language="JavaScript">
+            var CM8Server='web-jp.ad-v.jp';
+            var CM8Cat='tokyo.nerima';
+        </script>
+        <script language="JavaScript" src="https://web-jp.ad-v.jp/adam/cm8adam_1_call.js"></script><script type="text/javascript" src="https://web-jp.ad-v.jp/adam/detect?cat=tokyo.nerima&amp;page=8453814436336162&amp;serial=1000:1:A&amp;&amp;LOC=https://www.aeonnetshop.com/shop/category/category.aspx\qcategory=01050000805860&amp;WIDTH=1366&amp;HEIGHT=662&amp;WIDTH_RANGE=WR_E&amp;DATE=01170831&amp;HOUR=15&amp;RES=RS27&amp;ORD=365391782293943&amp;req=fr&amp;&amp;"></script>
+        <!-- SMARTtag end-->
+
+        <!-- PLACEHOLDERtag start-->
+        <script language="JavaScript">CM8ShowAd('rectangle_banner')</script>
+        <div id="CM8_FORMAT_rectangle_banner" style="display:none">
+        </div>
+        <span id="CM8CSE_ACDD8E5DC8E9">
+            <span id="CM8BWE_ACDD8E5DC8E9">
+                <div>
+<!--                    <a href="--><?php //echo $imageLeft['link'] ?><!--" target="_blank">-->
+<!--                        <img src="--><?php //echo $this->getData('mediaURL') . $imageLeft['image']; ?><!--"/>-->
+<!--                    </a>-->
+                </div>
+                <br>
+                <script type="text/javascript" src="https://i.ad-v.jp/adam/CM8Function.js"></script>
+                <script id="WaitForScInner" type="text/javascript" src="https://i.ad-v.jp/adam/CM8Function.js"></script>
+                <div id="CM8CST_11726350713223987" style="display:none"></div>
+            </span><!-- CM8BWE_ACDD8E5DC8E9 -->
+        </span><!-- CM8CSE_ACDD8E5DC8E9 -->
+        <noscript>
+            &lt;a href='tokyo.nerima' target='_blank'&gt;
+            &lt;img src='tokyo.nerima' border='0'&gt;&lt;/a&gt;
+        </noscript>
+        <!-- PLACEHOLDERtag end-->
+    </div>
+</div>

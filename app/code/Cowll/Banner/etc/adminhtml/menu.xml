@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Cowll_Banner::banner_manager" title="Banner Manager 1" module="Cowll_Banner" resource="Cowll_Banner::banner_manager"/>
+        <add id="Cowll_Banner::list_banner" title="List Banners 1" module="Cowll_Banner" action="banner" resource="Cowll_Banner::banner_manager" parent="Cowll_Banner::banner_manager"/>
+        <add id="Cowll_Banner::new_banner" title="New Banner 1" module="Cowll_Banner" action="banner/index/new" resource="Cowll_Banner::save" parent="Cowll_Banner::banner_manager"/>
+    </menu>
+</config>

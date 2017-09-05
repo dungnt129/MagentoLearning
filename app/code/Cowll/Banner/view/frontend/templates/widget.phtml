@@ -1,0 +1,55 @@
+<?php if($this->getData('slide_type') == 'slick') :?>
+    <link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Cowll_Banner::css/slick.css') ?>"/>
+<?php else :?>
+    <link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('Cowll_Banner::css/jquery.bxslider.css') ?>"/>
+<?php endif?>
+<section id="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="bxslider">
+                    <?php
+                    $data = $this->getData('banners');
+                    $mode = $this->getData('mode');
+                    $auto = $this->getData('auto') ? "true" : "false";
+                    $pager = $this->getData('pager') ? "true" : "false";
+                    $speed = intval($this->getData('speed'));
+                    foreach ($data as $d) {
+                        ?>
+                        <li>
+                            <a href="<?php echo $d['link'] ?>">
+                                <img src="<?php echo $this->getData('mediaURL') . $d['image']; ?>"/>
+                            </a>
+                        </li>
+                        <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    <?php if($this->getData('slide_type') == 'slick') :?>
+    require(['jquery', 'slick'], function ($) {
+        $(function () {
+            $('.bxslider').slick({
+                speed: <?php echo $speed ?>
+            });
+        });
+    });
+    <?php else :?>
+        require(['jquery', 'bxslider'], function ($) {
+            $(function () {
+                $('.bxslider').bxSlider({
+                    mode: "<?php echo $mode ?>",
+                    auto: true,
+                    pager: true,
+                    speed: <?php echo $speed ?>,
+                    slideWidth: 800,
+                    slideMargin: 10
+                });
+            });
+        });
+    <?php endif?>
+</script>

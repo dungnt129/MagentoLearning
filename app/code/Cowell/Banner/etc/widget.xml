@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="cowell_banner_manager" class="Cowell\Banner\Block\Banner\BannerWidget">
+        <label translate="true">Banner Widget</label>
+        <description translate="true">Display Banner</description>
+        <parameters>
+            <parameter name="position" xsi:type="select" visible="true" source_model="Cowell\Banner\Model\Banner\Source\Type">
+                <label translate="true">Banner position</label>
+            </parameter>
+            <parameter name="number_image" xsi:type="text" visible="true">
+                <label translate="true">Number images</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
