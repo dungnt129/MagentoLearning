@@ -12,6 +12,8 @@ class UpgradeSchema implements UpgradeSchemaInterface
     {
         $setup->startSetup();
 
+        $setup->getConnection()->dropTable($setup->getTable('banner'));
+
         $conn = $setup->getConnection();
 
         $check_exiist = $conn->isTableExists("banner");
