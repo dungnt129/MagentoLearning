@@ -1,0 +1,19 @@
+<div class="pc2015-lower temp-upper">
+    <dl>
+        <dt>注目ワード</dt>
+        <dd>
+            <ul>
+                <?php
+                if( $block->getData( 'keywords' ) ){
+                    $topkeyswords = $block->getData( 'keywords' );
+                    foreach( $topkeyswords as $keyword )
+                    {
+                        $url = '/catalogsearch/result/?q='.preg_replace( '/\s/', '+', $keyword['query_text']  ) ;
+                        echo '<a href="'.$url.'" class="pc2015-for-member"><li>&nbsp;'.$keyword['query_text'].'</li></a>';
+                    }
+                }
+                ?>
+            </ul>
+        </dd>
+    </dl>
+</div>

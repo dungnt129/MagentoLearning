@@ -1,0 +1,51 @@
+
+    <style>
+        #suggest {
+            position: absolute;
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCFF;
+            font-size: 100%;
+            width: 450px;
+            margin-left: 150px;
+            z-index: 50;
+            margin-top: -11px;
+        }
+        #suggest div {
+            display: block;
+            width: 450px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        #suggest div.select{ /* キー上下で選択した場合のスタイル */
+            color: #FFFFFF;
+            background-color: #3366FF;
+        }
+        #suggest div.over{ /* マウスオーバ時のスタイル */
+            background-color: #99CCFF;
+        }
+    </style>
+
+<!--    <div class="pc2015-upper temp-upper">-->
+<!--<!--        <form action="#" method="get" class="sn_" name="frmSearch" onsubmit="return send();">-->
+<!--            <ul>-->
+<!--                <li class="sn_search_">-->
+<!--                    <select class="pc2015-select-category pc2015-need-login" name="m_tree">-->
+<!--                        <option value="">すべてのカテゴリ</option><option value="50;1;おすすめ・特集・トップバリュ,01050000805860">おすすめ・特集・トップバリュ</option><option value="56;31;食品,01050000805860">食品</option><option value="57;32;お菓子・アイス・デザート,01050000805860">お菓子・アイス・デザート</option><option value="58;33;水・飲料・お酒,01050000805860">水・飲料・お酒</option><option value="53;34;日用品・ホーム＆キッチン,01050000805860">日用品・ホーム＆キッチン</option><option value="05;35;お薬・健康・美容・介護,01050000805860">お薬・健康・美容・介護</option><option value="54;36;ベビー・キッズ,01050000805860">ベビー・キッズ</option><option value="55;37;肌着・衣料・服飾雑貨,01050000805860">肌着・衣料・服飾雑貨</option><option value="60;39;イオンのレシピ,01050000805860">イオンのレシピ</option><option value="62;40;ヘルス&amp;ウェルネス,01050000805860">ヘルス&amp;ウェルネス</option><option value="09;41;予約商品,01050000805860">予約商品</option></select>-->
+<!--                    -->
+<!---->
+                    <?php echo $this->getLayout()->createBlock('Magento\Framework\View\Element\Template')->setTemplate('Cowell_Aeon::mini_search.phtml')->tohtml(); ?>
+<!--                    <div><input class="searchwords_" maxlength="200" type="text" name="keyword" id="keyword" autocomplete="off" placeholder="キーワードを入力して下さい。" onfocus="focusAdd_keyword();" onblur="blurAdd_keyword();" style="color: rgb(144, 144, 144);"></div>-->
+
+<!--                    <input class="hidden" type="hidden" name="search_price1" value="">-->
+<!--                    <input class="hidden" type="hidden" name="search_price2" value="">-->
+<!--                    <input class="hidden" type="hidden" name="search.x" value="0">-->
+<!---->
+<!--                    <input class="hidden" type="hidden" name="shop" value="01050000805860">-->
+<!--                    <span><input type="image" onclick="void(this.form.submit());return false" src="--><?php //echo $block->getViewFileUrl('images/header/search.png'); ?><!--" name="search" alt="検索"></span>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </form>-->
+<!--    </div>-->
+
+    <div id="suggest" style="display:none;"></div>
+

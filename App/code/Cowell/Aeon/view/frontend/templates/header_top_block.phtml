@@ -1,0 +1,56 @@
+<div class="pc2015-header">
+    <div class="pc2015-overlay"></div>
+    <div class="pc2015-extra-navigation clearfix">
+
+        <?php
+        echo $this->getLayout()
+            ->createBlock("Magento\Customer\Block\Account\AuthorizationLink")
+            ->setTemplate("Cowell_Aeon::login.phtml")
+            ->toHtml();
+        ?>
+
+<!--        <form name="frmMemChange" method="post" action="https://member.aeonsquare.net/pc/memberAddInput.do">-->
+            <input type="hidden" name="screen_site_no" value="K`p,w;d{vg(x+MyJA|,">
+
+            <input type="hidden" name="redirect_url" value="https://www.aeonnetshop.com/shop/netsuper/shopchoice.aspx?update=on">
+            <input type="hidden" name="redirect_button_title" value="おうちでイオンに戻る">
+
+            <input type="hidden" name="cancel_url" value="https://www.aeonnetshop.com/shop/">
+            <input type="hidden" name="cancel_button_title" value="キャンセル">
+            <input type="hidden" name="last_name" value="">
+            <input type="hidden" name="first_name" value="">
+            <input type="hidden" name="last_name_kana" value="">
+            <input type="hidden" name="first_name_kana" value="">
+            <input type="hidden" name="nickname" value="">
+            <input type="hidden" name="email_address" value="">
+            <input type="hidden" name="mobile_email_address" value="">
+            <input type="hidden" name="zip_code" value="">
+            <input type="hidden" name="address1" value="">
+            <input type="hidden" name="address2" value="">
+            <input type="hidden" name="address3" value="">
+            <input type="hidden" name="address4" value="">
+            <input type="hidden" name="tel" value="">
+            <input type="hidden" name="tel2" value="">
+            <input type="hidden" name="company_code" value="104000000000000000000000000000">
+            <input type="hidden" name="light_member_promotion_flag" value="0">
+
+
+            <?php
+            echo $this->getLayout()
+                ->createBlock("Magento\Customer\Block\Account\RegisterLink")
+                ->setTemplate("Cowell_Aeon::register.phtml")
+                ->toHtml();
+            ?>
+<!--            <input type="image" alt="新規メンバー登録" src="--><?php //echo $block->getViewFileUrl('images/registration.png'); ?><!--" value="" name="">-->
+
+<!--            <a href="" onclick="document.frmMemChange.submit();return false;"></a>-->
+<!--            <a href="https://www.aeonnetshop.com/shop/pages/01050000805860/01010100_hajimete.aspx" target="_blank" id="sendbeginer">-->
+             <span class="pc2015-designed pc2015-guide">（初めてご利用の方）</span></a>
+<!--        </form>-->
+        <span style="float:right;padding:5px;"><a href="https://www.aeonnetshop.com/shop/genre/genrelist.aspx"><img style="margin:3px;vertical-align:top" src="<?php echo $block->getViewFileUrl('images/voice.png'); ?>" alt="テキスト商品検索"></a></span>
+    </div>
+</div>
+
+
+<?php //echo $this->getLayout()->createBlock('Cowell\Aeon\Block\HeaderTop')->setTemplate('Cowell_Aeon::header_top_block.phtml')->tohtml(); ?>
+
