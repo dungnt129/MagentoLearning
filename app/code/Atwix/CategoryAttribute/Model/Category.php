@@ -15,7 +15,7 @@ class Category extends \Magento\Catalog\Model\Category
      * @return string
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getcIonCategory($attributeCode = 'icon_category')
+    public function getcIonCategory($attributeCode = 'image_thumb')
     {
         $url = false;
         $image = $this->getData($attributeCode);

@@ -11,10 +11,10 @@ class DataProvider extends \Magento\Catalog\Model\Category\DataProvider
             unset($data['image_thumb']);
 
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $helper           	= $objectManager->get('\Atwix\CategoryAttribute\Helper\Data');
+//            $helper        = $objectManager->get('\[ Vendor ]\[ Module ]\Helper\Data');
 
             $data['image_thumb'][0]['name'] = $category->getData('image_thumb');
-            $data['image_thumb'][0]['url']  	= $helper->getCategoryThumbUrl($category);
+            $data['image_thumb'][0]['url']  = $category->getcIonCategory('image_thumb');//$helper->getCategoryThumbUrl($category);
         }
 
         return $data;

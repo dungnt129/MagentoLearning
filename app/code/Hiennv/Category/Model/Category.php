@@ -34,6 +34,25 @@ class Category extends \Magento\Catalog\Model\Category
         return $url;
     }
 
+    public function getImageThumb($attributeCode = 'image_thumb')
+    {
+        $url = false;
+        $image = $this->getData($attributeCode);
+        if ($image) {
+            if (is_string($image)) {
+                $url = $this->_storeManager->getStore()->getBaseUrl(
+                        \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
+                    ) . 'catalog/category/' . $image;
+            } else {
+                throw new \Magento\Framework\Exception\LocalizedException(
+                    __('Something went wrong while getting the image url.')
+                );
+            }
+        }
+
+        return $url;
+    }
+
     /*
      * Get backgound color
      *
@@ -47,4 +66,7 @@ class Category extends \Magento\Catalog\Model\Category
     public function getTestNew() {
         return $this->_getData('test_new');
     }
+//    public function getImageThumb() {
+//        return $this->_getData('image_thumb');
+//    }
 }

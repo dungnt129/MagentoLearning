@@ -16,6 +16,7 @@
                 <item name="jpeg" xsi:type="string">jpeg</item>
                 <item name="gif" xsi:type="string">gif</item>
                 <item name="png" xsi:type="string">png</item>
+                <item name="ico" xsi:type="string">ico</item>
             </argument>
         </arguments>
     </virtualType>
@@ -30,6 +31,7 @@
                 <item name="jpeg" xsi:type="string">jpeg</item>
                 <item name="gif" xsi:type="string">gif</item>
                 <item name="png" xsi:type="string">png</item>
+                <item name="ico" xsi:type="string">ico</item>
             </argument>
         </arguments>
     </virtualType>

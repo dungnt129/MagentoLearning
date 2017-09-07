@@ -76,8 +76,17 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
                 $html .= '</ul></li><li class="column"><ul>';
             }
 
+            $icon = $child->getDataByKey('image_thumb');
+            if($icon == '')
+            {
+                $icon = '';
+                $style = '';
+            }
+            else {
+                $style = 'style="background-image: url(' . $icon . ')"';
+            }
             $html .= '<li ' . $this->_getRenderedMenuItemAttributes($child) . '><div class="'.(($child->getDataByKey('color_bg')) ? $child->getDataByKey('color_bg'). ' parent_category' : 'pc5-nav-osusume pc5-nav-sm-' .($childLevel +1)).'">';
-            $html .= '<a href="' . (($childLevel == self::LEVER_0) ? 'javascript:void(0)' : $child->getUrl()) . '" ' . $outermostClassCode . 'class="'.(($childLevel == self::LEVER_0) ? 'pc5-nav-link' : 'pc5-nav-sm'.($childLevel +1).'-link').'" style="'.(($child->getDataByKey('icon_category')) ? 'background-image: url('.$child->getDataByKey('icon_category').')' : '').'">'
+            $html .= '<a '.$style.' href="' . (($childLevel == self::LEVER_0) ? 'javascript:void(0)' : $child->getUrl()) . '" ' . $outermostClassCode . 'class="'.(($childLevel == self::LEVER_0) ? 'pc5-nav-link' : 'pc5-nav-sm'.($childLevel +1).'-link').'" style="'.(($child->getDataByKey('icon_category')) ? 'background-image: url('.$child->getDataByKey('icon_category').')' : '').'">'
                 . $this->escapeHtml($child->getName())
                 . ((($childLevel != self::LEVER_0 && $child->hasChildren())) ? '<span class="'.(($childLevel != self::LEVER_0) ? 'pc5-nav-sm2-anchor' : '').'">▼</span>' : '') . '</a></div>' . $this->_addSubMenu(
                     $child,

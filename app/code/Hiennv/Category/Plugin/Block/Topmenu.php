@@ -153,6 +153,7 @@ class Topmenu
             'image_url' => $category->getImageUrl(),
             'icon_category' => $category->getcIonCategory(),
             'color_bg' => $category->getBackgroundColor(),
+            'image_thumb' => $category->getImageThumb(),
             'test_new' => $category->getTestNew(),
 
         ];
@@ -174,6 +175,7 @@ class Topmenu
         $collection->addAttributeToSelect('name');
         $collection->addAttributeToSelect('image');
         $collection->addAttributeToSelect('icon_category');
+        $collection->addAttributeToSelect('image_thumb');
         $collection->addAttributeToSelect('color_bg');
         $collection->addAttributeToSelect('test_new');
         $collection->addFieldToFilter('path', ['like' => '1/' . $rootId . '/%']); //load only from store root
