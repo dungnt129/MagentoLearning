@@ -8,8 +8,17 @@
  * Environment initialization
  */
 error_reporting(E_ALL);
-#ini_set('display_errors', 1);
-
+ini_set('display_errors', 1);
+//----- function debug ----------
+function vd($var) {
+    $template = PHP_SAPI !== 'cli' ? '<pre>%s</pre>' : "\n%s\n";
+    printf($template, print_r($var, true));
+}
+function dd($var) {
+    vd($var);
+    die;
+}
+//------- end function debug --------
 /* PHP version validation */
 if (!defined('PHP_VERSION_ID') || !(PHP_VERSION_ID >= 50005 && PHP_VERSION_ID < 50700 || PHP_VERSION_ID === 70002 || PHP_VERSION_ID === 70004 || PHP_VERSION_ID >= 70006)) {
     if (PHP_SAPI == 'cli') {

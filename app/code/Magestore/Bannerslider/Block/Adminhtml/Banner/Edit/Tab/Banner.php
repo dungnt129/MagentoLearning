@@ -246,6 +246,16 @@ class Banner extends \Magento\Backend\Block\Widget\Form\Generic implements \Mage
             ]
         );
 
+        $elements['class_order'] = $fieldset->addField(
+            'class_order',
+            'text',
+            [
+                'title' => __('Class Order'),
+                'label' => __('Class Order'),
+                'name' => 'class_order',
+            ]
+        );
+
         $elements['image'] = $fieldset->addField(
             'image',
             'image',

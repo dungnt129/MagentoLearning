@@ -6,25 +6,15 @@ $htmlId   = $block->getFlexsliderHtmlId();
 $bannerCollection = $block->getBannerCollection();
 ?>
 <div class="pc2015-main-ads">
+    <?php $count = 0;?>
     <?php foreach ($bannerCollection as $banner): ?>
-        <a class="pc2015-ad pc2015-for-member pc2015-ad-279x99 pc2015-ad-pos-1-1" href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>" >
+        <?php $count ++?>
+        <?php if($count <= 4) :?>
+        <a class="pc2015-ad pc2015-for-member pc2015-ad-279x99 <?php echo $banner->getClassOrder() ?>" href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>" >
             <img width="279" height="99" alt="<?php echo $banner->getImageAlt() ?>" src="<?php echo $block->getBannerImageUrl($banner) ?>"/>
         </a>
+        <?php endif;?>
     <?php endforeach;?>
-
-
-<!--    <a href="https://www.aeonnetshop.com/shop/contents1/c130813_welcome.aspx?linkid=ns11_wV1mptd9"-->
-<!--       class="pc2015-ad pc2015-for-member pc2015-ad-279x99 pc2015-ad-pos-2-1" target="_blank">-->
-<!--        <img width="279" height="99" alt="" src="https://www.aeonnetshop.com/img/banner/7509.jpg"/>-->
-<!--    </a>-->
-<!--    <a href="https://www.aeonnetshop.com/shop/contents1/C170901_300point.aspx?linkid=nssb_0HaTTaly"-->
-<!--       class="pc2015-ad pc2015-for-member pc2015-ad-279x99 pc2015-ad-pos-1-2" target="_blank">-->
-<!--        <img width="279" height="99" alt="" src="https://www.aeonnetshop.com/img/banner/12157.jpg"/>-->
-<!--    </a>-->
-<!--    <a href="https://www.aeonnetshop.com/shop/pages/01050000805860/campaign_list.aspx?linkid=ns11_AfJQKWL7"-->
-<!--       class="pc2015-ad pc2015-for-member pc2015-ad-279x99 pc2015-ad-pos-2-2" target="_blank">-->
-<!--        <img width="279" height="99" alt="" src="https://www.aeonnetshop.com/img/banner/7366.jpg"/>-->
-<!--    </a>-->
     <div class="load-image-banner-ads" style="left:564px;position: absolute;top: 0;">
         <!-- SMARTtag start-->
         <script language="JavaScript">

@@ -200,7 +200,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             'maintable',
         );
         $storeViewId = $this->getStoreViewId();
-
         if (in_array($field, $attributes) && $storeViewId) {
             if (!in_array($field, $this->_addedTable)) {
                 $sql = sprintf(
@@ -211,7 +210,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
                     $this->getConnection()->quoteTableAs($field),
                     $this->getConnection()->quote($field)
                 );
-
                 $this->getSelect()
                     ->joinLeft(array($field => $this->getTable('magestore_bannerslider_value')), $sql, array());
                 $this->_addedTable[] = $field;
@@ -230,7 +228,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             );
 
             $this->_select->where($condition, NULL, \Magento\Framework\DB\Select::TYPE_CONDITION);
-
             return $this;
         }
         if ($field == 'store_id') {
@@ -274,12 +271,15 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         return $this;
     }
 
+    public function getListBannerForSliderId($sliderId) {
+        $bannerCollection = $this->addFieldToFilter('slider_id', $sliderId);
+        echo $bannerCollection->getSelectSql();die;
+    }
 
     public function getBannerCollection($sliderId)
     {
         $storeViewId = $this->_storeManager->getStore()->getId();
         $dateTimeNow = $this->_stdTimezone->date()->format('Y-m-d H:i:s');
-
         /** @var \Magestore\Bannerslider\Model\ResourceModel\Banner\Collection $bannerCollection */
         $bannerCollection = $this->setStoreViewId($storeViewId)
             ->addFieldToFilter('slider_id', $sliderId)
@@ -287,11 +287,9 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             ->addFieldToFilter('start_time', ['lteq' => $dateTimeNow])
             ->addFieldToFilter('end_time', ['gteq' => $dateTimeNow])
             ->setOrder('order_banner', 'ASC');
-
         if ($this->_slider->getSortType() == \Magestore\Bannerslider\Model\Slider::SORT_TYPE_RANDOM) {
             $bannerCollection->setOrderRandByBannerId();
         }
-
         return $bannerCollection;
     }
 }

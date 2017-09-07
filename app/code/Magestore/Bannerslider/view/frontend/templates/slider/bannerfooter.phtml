@@ -1,0 +1,33 @@
+<?php
+/** @var \Magestore\Bannerslider\Block\SliderItem $block */
+$styleSlide = $block->getSlider()->getStyleSlide();
+$slider = $block->getSlider();
+$htmlId   = $block->getFlexsliderHtmlId();
+$bannerCollection = $block->getBannerCollection();
+?>
+<div class="pc2015-main-block">
+    <div class="pc2015-main-block-header">
+        <h2>おすすめサイト一覧</h2>
+        <a class="pc2015-main-block-toggle pc2015-designed" href="#">＋</a>
+    </div>
+    <!--<h2 class="futaba">おすすめサイト一覧</h2>-->
+    <div class="pc2015-main-block-body" style="display: block;">
+        <ul class="pc2015-clearfix pc2015-main-site-list">
+            <?php foreach ($bannerCollection as $banner) :?>
+                <li>
+                    <a href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>" >
+                        <img style="margin:2px 2px 2px 2px;" width="181" height="40" alt="<?php echo $banner->getImageAlt() ?>" src="<?php echo $block->getBannerImageUrl($banner) ?>"/>
+                    </a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+    <!-- Retailigence　RETARGETING TAG START -->
+    <script src="//bypass.ad-stir.com/mk?group_id=10068"></script>
+    <!-- Retailigence　RETARGETING TAG END -->
+    <!-- OPT RetargetingTAG Start 20140731 -->
+    <script type="text/javascript">var smnAdvertiserId = '00001606';</script>
+    <script type="text/javascript" src="//cd-ladsp-com.s3.amazonaws.com/script/pixel.js"></script>
+    <script type="text/javascript" src="//px.ladsp.com/pixel?advertiser_id=00001606&amp;referer="></script>
+    <!-- OPT RetargetingTAG END 20140731 -->
+</div>
