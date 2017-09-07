@@ -15,6 +15,8 @@ class Categories implements \Magento\Framework\Option\ArrayInterface {
      *
      * @var array
      */
+    const KEY_BACKGORUND_COLOR = 'color_bg';
+
     protected $_storeCategories = [];
     /**
      * @var \Magento\Catalog\Model\CategoryFactory
@@ -46,6 +48,7 @@ class Categories implements \Magento\Framework\Option\ArrayInterface {
         /**
          * Check if parent node of the store still exists
          */
+
         $category = $this->_categoryFactory->create();
         $storeCategories = $category->getCategories(1, $recursionLevel = 1, false, false, true);
 
@@ -61,4 +64,5 @@ class Categories implements \Magento\Framework\Option\ArrayInterface {
 
         return $resultArray;
     }
+
 }

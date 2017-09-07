@@ -1,54 +1,81 @@
 <?php
+
+
 namespace Atwix\CategoryAttribute\Setup;
 
-use Magento\Framework\Module\Setup\Migration;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Catalog\Setup\CategorySetupFactory;
+use Magento\Eav\Setup\EavSetup;
+use Magento\Eav\Setup\EavSetupFactory;
+
 class InstallData implements InstallDataInterface
 {
+
+    private $eavSetupFactory;
+
     /**
-     * Category setup factory
+     * Constructor
      *
-     * @var CategorySetupFactory
+     * @param \Magento\Eav\Setup\EavSetupFactory $eavSetupFactory
      */
-    private $categorySetupFactory;
-    /**
-     * Init
-     *
-     * @param CategorySetupFactory $categorySetupFactory
-     */
-    public function __construct(CategorySetupFactory $categorySetupFactory)
+    public function __construct(EavSetupFactory $eavSetupFactory)
     {
-        $this->categorySetupFactory = $categorySetupFactory;
+        $this->eavSetupFactory = $eavSetupFactory;
     }
+
     /**
      * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
-    {
-        $installer = $setup;
-        $installer->startSetup();
-        $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
-        $entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Category::ENTITY);
-        $attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
-        $categorySetup->removeAttribute(
-            \Magento\Catalog\Model\Category::ENTITY, 'new_attribute');
-        $categorySetup->addAttribute(
-            \Magento\Catalog\Model\Category::ENTITY, 'new_attribute', [
-                'type' => 'int',
-                'label' => 'New Atrribute ',
-                'input' => 'select',
-                'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+    public function install(
+        ModuleDataSetupInterface $setup,
+        ModuleContextInterface $context
+    ) {
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Category::ENTITY,
+            'color_bg',
+            [
+                'type' => 'varchar',
+                'label' => 'color_bg',
+                'input' => 'text',
+                'sort_order' => 333,
+                'source' => '',
+                'global' => 1,
+                'visible' => true,
                 'required' => false,
-                'sort_order' => 100,
-                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'user_defined' => false,
+                'default' => null,
                 'group' => 'General Information',
+                'backend' => '',
+                'used_in_product_listing' => true, // for category pages
+                'visible_on_front' => true, // for frontend??
+                'is_used_in_grid' => true, // for category pages
+                'is_visible_in_grid' => true // for category pages
             ]
         );
 
-        $installer->endSetup();
+//        $eavSetup->addAttribute(
+//            \Magento\Catalog\Model\Category::ENTITY,
+//            'icon_category',
+//            [
+//                'type' => 'varchar',
+//                'label' => 'icon_category',
+//                'input' => 'image',
+//                'sort_order' => 333,
+//                'source' => '',
+//                'global' => 1,
+//                'visible' => true,
+//                'required' => false,
+//                'user_defined' => false,
+//                'group' => 'General Information',
+//                'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
+//                'used_in_product_listing' => true, // for category pages
+//                'visible_on_front' => true, // for frontend??
+//                'is_used_in_grid' => true, // for category pages
+//                'is_visible_in_grid' => true // for category pages
+//            ]
+//        );
     }
 }

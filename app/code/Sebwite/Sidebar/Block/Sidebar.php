@@ -18,6 +18,8 @@ class Sidebar extends Template
     /**
      * @var \Magento\Catalog\Helper\Category
      */
+
+    const KEY_BACKGORUND_COLOR = 'color_bg';
     protected $_categoryHelper;
 
     /**
@@ -40,7 +42,9 @@ class Sidebar extends Template
 	
     /** @var \Magento\Catalog\Helper\Output */
     private $helper;
-	
+
+    protected $_productAttributeRepository;
+
     /**
      * @param Template\Context                                        $context
      * @param \Magento\Catalog\Helper\Category                        $categoryHelper
@@ -51,8 +55,10 @@ class Sidebar extends Template
      * @param \Magento\Catalog\Helper\Output                          $helper
      * @param array                                                   $data
      */
+
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
+        \Magento\Catalog\Model\Product\Attribute\Repository $productAttributeRepository,
         \Magento\Catalog\Helper\Category $categoryHelper,
         \Magento\Framework\Registry $registry,
         \Magento\Catalog\Model\Indexer\Category\Flat\State $categoryFlatState,
@@ -64,6 +70,7 @@ class Sidebar extends Template
         $data = [ ]
     )
     {
+        $this->_productAttributeRepository = $productAttributeRepository;
         $this->_categoryHelper           = $categoryHelper;
         $this->_coreRegistry             = $registry;
         $this->categoryFlatConfig        = $categoryFlatState;
@@ -73,6 +80,7 @@ class Sidebar extends Template
 		$this->_dataHelper = $dataHelper;
 
         parent::__construct($context, $data);
+
     }
 	
     /*
@@ -277,4 +285,12 @@ class Sidebar extends Template
     {
         return $this->_categoryHelper->getCategoryUrl($category);
     }
+
+
+    public function getProductAttributeByCode($code)
+    {
+        $attribute = $this->_productAttributeRepository->get($code);
+        return $attribute;
+    }
+
 }

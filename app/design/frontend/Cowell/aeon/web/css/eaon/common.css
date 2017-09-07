@@ -2615,9 +2615,15 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
 /* ========================================================================= */
 /* nav tagle */
 /* ========================================================================= */
+.pc5-nav-tgl li.level0
+{
+  margin: 0;
+  width: 200px;
+}
 .pc5-nav-tgl {
   padding-top: 25px;
 }
+
 .pc5-nav-tgl div {
   display: block;
   background-repeat: no-repeat;
@@ -2643,6 +2649,8 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   font-weight: bolder;
   background-repeat: no-repeat;
   background-position: left top;
+  background-image: url(../../images/menu/icon/010550.ico);
+  background-size: 40px;
 }
 .pc5-nav-tgl div a.pc5-nav-link:hover, .pc5-nav li a.pc5-nav-link.pc5-active {
   text-decoration: none;
@@ -2663,7 +2671,18 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   text-indent: 100%;
   background: url(../../images/menu/detail.png) repeat-y left 14px;
 }
-
+.submenu li
+{
+  margin: 0;
+}
+.submenu li div
+{
+  width: 200px !important;
+  margin: 0 !important;
+  height: 22px !important;
+  background: none !important;
+  background-color: white !important;
+}
 .pc5-nav-tgl li.pc5-active > span.pc5-nav-anchor {
   background-position: left 148px;
 }
@@ -2677,7 +2696,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0262A', endColorstr='#9B0000', GradientType=0); /* IE7,8,9 */
 }
 .pc5-nav-tgl div.pc5-nav-osusume a.pc5-nav-link:hover {
-  background-image: url(../../images/menu/nav-osusume-over200.png),url(../../images/menu/nav-osusume-icon_w43.png);
+  /*background-image: url(../../images/menu/nav-osusume-over200.png),url(../../images/menu/nav-osusume-icon_w43.png);*/
   cursor: pointer;
 }
 .pc5-nav-tgl div.pc5-nav-osusume a.pc5-nav-link {
@@ -2685,7 +2704,9 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   padding-left: 50px;
   padding-right: 5px;
   height: 43px;
-  background-image: url(../../images/menu/nav-osusume-icon_w43.png);
+  /*background-image: url(../../images/menu/nav-osusume-icon_w43.png);*/
+  background-image: url(../../images/menu/icon/010550.ico);
+  background-size: 40px;
 }
 .pc5-nav-tgl div.pc5-nav-osusume span.pc5-nav-anchor {
   height: 54px;
@@ -2720,6 +2741,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#FBB038), to(#F98500)); /* Safari,Google Chrome用 */
   background: -ms-linear-gradient(top, #FBB038 0%, #F98500 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBB038', endColorstr='#F98500', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-light-green {
   background-color: #CBCC3F;
@@ -2727,6 +2749,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#CBCC3F), to(#ADB100)); /* Safari,Google Chrome用 */
   background: -ms-linear-gradient(top, #CBCC3F 0%, #ADB100 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CBCC3F', endColorstr='#ADB100', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-blue {
   background-color: #24ABE2;
@@ -2734,6 +2757,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#24ABE2), to(#007ED3)); /* Safari,Google Chrome用 */
   background: -ms-linear-gradient(top, #24ABE2 0%, #007ED3 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#24ABE2', endColorstr='#007ED3', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-pink {
   background-color: #E66F94;
@@ -2741,6 +2765,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#E66F94), to(#D7225E)); /* Safari,Google Chrome用 */
   background: -ms-linear-gradient(top, #E66F94 0%, #D7225E 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E66F94', endColorstr='#D7225E', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-red {
   background-color: #FC868E;
@@ -2748,6 +2773,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#FC868E), to(#FB4454)); /* Safari,Google Chrome用 */
   background: -ms-linear-gradient(top, #FC868E 0%, #FB4454 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FC868E', endColorstr='#FB4454', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-green {
   background-color: #92D18E;
@@ -2755,6 +2781,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#92D18E), to(#53B854)); /* Safari,Google Chrome用 */
   background: -ms-linear-gradient(top, #92D18E 0%, #53B854 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92D18E', endColorstr='#53B854', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-brown {
   background-color: #C3AD93;
@@ -2762,6 +2789,7 @@ body.pc2015-scrolled .pc2015-category-menu .pc2015-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#C3AD93), to(#A0815C)); /* Safari,Google Chrome用 */;
   background: -ms-linear-gradient(top, #C3AD93 0%, #A0815C 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C3AD93', endColorstr='#A0815C', GradientType=0); /* IE7,8,9 */
+
 }
 .pc5-nav-tgl div.pc5-nav-r-2 a.pc5-nav-link {
   background-image: url(../../images/menu/nav-orange-icon.png);

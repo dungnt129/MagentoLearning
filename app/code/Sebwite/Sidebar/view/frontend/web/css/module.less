@@ -2,6 +2,31 @@
 {
     display: block !important;
 }
+.bg-nav
+{
+    height: 43px;
+}
+.color_red
+{
+    background-color: #C0262A;
+    background: -moz-linear-gradient(top, #C0262A, #9B0000);
+    //background: -webkit-gradient(linear, left top, left bottom, from(#C0262A), to(#9B0000));
+    background: -ms-linear-gradient(top, #C0262A 0%, #9B0000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0262A', endColorstr='#9B0000', GradientType=0);
+    background-image: url(../images/menu/icon/010550.ico);
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+
+.color_orange
+{
+    background-color: #FBB038;
+    background: -moz-linear-gradient(top, #FBB038, #F98500);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FBB038), to(#F98500));
+    background: -ms-linear-gradient(top, #FBB038 0%, #F98500 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBB038', endColorstr='#F98500', GradientType=0);
+}
+
 .sidebar {
     .expand,
     .expanded {
@@ -12,11 +37,14 @@
         display: none;
         margin-bottom: 0px;
         padding-left: 0px;
-        width: 194px;
+        width: 100%;
         li {
             list-style: none;
             border-bottom: 1px solid #ededed;
-            padding-bottom: 10px;
+            //padding-bottom: 10px;
+            margin: 0;
+            padding: 0;
+            min-height: 43px;
             &.active {
                 > ul {
                     display: block;
@@ -44,18 +72,34 @@
             //background: -moz-linear-gradient(top, #C0262A, #9B0000);
             //background: -webkit-gradient(linear, left top, left bottom, from(#C0262A), to(#9B0000));
             list-style: none;
+            margin: 0;
+            padding: 0;
+            min-height: 43px;
+            > ul {
+                li {
+                    background-color: white;
+                }
+            }
         }
         .level0 a {
             //color: #ffffff;
+            padding-left: 50px;
+            padding-top: 10px;
+            font-size: 12px;
+            color: #fff;
+            font-weight: bolder;
         }
         .level1 a {
             padding-left: 15px;
+            color: #000000;
         }
         .level2 a {
             padding-left: 30px;
+            color: #000000;
         }
         .level3 a {
             padding-left: 45px;
+            color: #000000;
         }
     }
     > .o-list {

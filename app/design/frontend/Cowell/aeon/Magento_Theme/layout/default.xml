@@ -116,6 +116,8 @@
         <referenceBlock name="top.search" remove="true" />
 
         <referenceBlock name="footer" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="page.title" remove="true" />
 
         <move element="minicart" destination="head_right" />
 
