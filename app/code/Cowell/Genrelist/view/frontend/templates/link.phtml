@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Wishlist\Block\Link */
+?>
+<span style="float:right;padding:5px;">
+    <a <?php /* @escapeNotVerified */ echo $block->getLinkAttributes() ?>>
+        <img style="margin:3px;vertical-align:top" src="<?php echo $this->getViewFileUrl('images/header/voice.png'); ?>" alt="テキスト商品検索">
+    </a>
+</span>

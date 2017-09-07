@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">header links</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="top.links">
+            <block class="Magento\Theme\Block\Html\Header" name="header" as="header" before="-">
+                <arguments>
+                    <argument name="show_part" xsi:type="string">welcome</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="header.container">
+            <container name="header.panel.wrapper" htmlClass="panel wrapper" htmlTag="div" before="-">
+                <container name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="panel header">
+                    <block class="Magento\Framework\View\Element\Template" name="skip_to_content" template="Magento_Theme::html/skip.phtml">
+                        <arguments>
+                            <argument name="target" xsi:type="string">contentarea</argument>
+                            <argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="switch/languages.phtml"/>
+
+                    <container name="pc2015-extra-navigation" label="pc2015 extra navigation" as="pc2015-extra-navigation" htmlTag="div" htmlClass="pc2015-extra-navigation">
+                        <block class="Magento\Framework\View\Element\Html\Links" name="top.links">
+                            <arguments>
+                                <argument name="css_class" xsi:type="string">header links</argument>
+                            </arguments>
+                            <block class="Magento\Framework\View\Element\Template" name="pages" template="Magento_Theme::html/pages.phtml"></block>
+                        </block>
+                    </container>
+                </container>
+            </container>
+            
+            <container name="header-wrapper-content" label="header wrapper content" as="header-wrapper-content" htmlTag="div" htmlClass="header-wrapper-content sticky-menu">
+                <container name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header content">
+                    <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                        <arguments>
+                            <argument name="logo_img_width" xsi:type="number">211</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template" name="title_logo" template="Magento_Theme::html/title_logo.phtml"></block>
+                </container>
+
+                <container name="header-wrapper-bottom" label="header wrapper bottom" as="header-wrapper-bottom" htmlTag="div" htmlClass="header-wrapper-bottom" after="header-wrapper">
+                    <container name="header-content-bottom" label="header content bottom" as="header-content-bottom" htmlTag="div" htmlClass="header-content">
+                        <container name="header-main-menu" label="header main menu" as="header-main-menu" htmlTag="div" htmlClass="header-main-menu pc2015-global-navigation clearfix">
+                            <container name="page.top">
+                                <block class="Magento\Framework\View\Element\Template" name="navigation.sections" after="header-wrapper" template="Magento_Theme::html/sections.phtml">
+                                    <referenceBlock name="catalog.topnav" remove="true"/>
+                                </block>
+
+                                <container name="pc2015-right" label="pc2015 right clearfix" as="pc2015-right" htmlTag="div" htmlClass="pc2015-right clearfix"></container>
+
+                                <container name="pc2015-center" label="pc2015 center" as="pc2015-center" htmlTag="div" htmlClass="pc2015-center"></container>
+
+                                <container name="pc2015-leftr" label="pc2015 leftr" as="pc2015-left" htmlTag="div" htmlClass="pc2015-left">
+                                    <block class="Magento\Framework\View\Element\Template" name="left_header" template="Magento_Theme::html/left_header.phtml"></block>
+                                </container>
+
+                            </container>
+                        </container>
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+
+        <!-- Start main content-->
+        <referenceContainer name="main">
+            <container name="pc2015-main-slider" label="pc2015 main slider" as="pc2015-main-slider" htmlTag="div" htmlClass="pc2015-main-slider" before="-"></container>
+
+            <container name="pc2015-main-ads" label="pc2015 main ads" as="pc2015-main-ads" htmlTag="div" htmlClass="pc2015-main-ads" after="pc2015-main-slider"></container>
+
+            <container name="main-botton-content" label="main botton content" as="main-botton-content" htmlTag="div" htmlClass="main-botton-content" after="-"></container>
+        </referenceContainer>
+        <!-- End content-->
+
+        <!-- Start sidebar sidebar-additional-->
+        <referenceContainer name="sidebar.additional">
+            <container name="pc2015-side-banner-top" label="pc2015 side banner top" as="pc2015-side-banner-top" htmlTag="div" htmlClass="pc2015-side-banner-top" before="-"></container>
+
+            <container name="category" label="category" as="category" htmlTag="div" htmlClass="category" after="pc2015-side-banner-top"></container>
+
+            <container name="pc2015-side-delivery" label="pc2015 side delivery" as="pc2015-side-delivery" htmlTag="div" htmlClass="pc2015-side-delivery" after="category"></container>
+
+            <container name="pc2015-side-banner-upper" label="pc2015 side banner upper" as="pc2015-side-banner-upper" htmlTag="div" htmlClass="pc2015-side-banner-upper" after="pc2015-side-delivery"></container>
+        </referenceContainer>
+        <!-- End sidebar sidebar-additional-->
+
+        <!-- Start footer-->
+        <referenceContainer name="footer">
+            <container name="pc2015-footer" as="pc2015-footer" htmlTag="div" htmlClass="pc2015-footer" before="-">
+                <container name="pc2015-footer-1" as="pc2015-footer-1" htmlTag="div" htmlClass="pc2015-footer-1">
+                    <container name="clearfix" as="clearfix" label="pc2015 footer 1 clearfix" htmlTag="div" htmlClass="clearfix"></container>
+                    <container name="pc2015-footer-shop-list" as="pc2015-footer-shop-list" label="pc2015 footer 1 shop list" htmlTag="div" htmlClass="pc2015-footer-shop-list">
+                        <block class="Magento\Framework\View\Element\Template" name="shop_list" template="Magento_Theme::html/shop_list.phtml"></block>
+                    </container>
+                </container>
+                <container name="pc2015-footer-2" label="pc2015 footer 2" as="pc2015-footer-2" htmlTag="div" htmlClass="pc2015-footer-2"></container>
+                <container name="pc2015-footer-3" label="pc2015 footer 3 " as="pc2015-footer-3 " htmlTag="div" htmlClass="pc2015-footer-3"></container>
+                <container name="pc2015-footer-4" label="pc2015 footer 4" as="pc2015-footer-4" htmlTag="div" htmlClass="pc2015-footer-4"></container>
+            </container>
+
+            <referenceContainer name="footer-container">
+                <referenceBlock name="footer_links" remove="true"/>
+            </referenceContainer>
+
+            <container name="top-footer-wrapper" label="Top Footer" as="top-footer-wrapper" htmlTag="div" htmlClass="top-footer-wrapper" htmlId="topfooter">
+            </container>
+            <container name="footer-container-wrapper" label="Footer Container Wrapper" as="footer-container-wrapper" htmlTag="div" htmlClass="footer content footer-container-wrapper">
+                <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="switch/stores.phtml"/>
+            </container>
+            <container name="bottom-footer-wrapper" label="Bottom Footer Wrapper" as="bottom-footer-wrapper" htmlTag="div" htmlClass="bottom-footer-wrapper">
+            </container>
+        </referenceContainer>
+        <!-- end footer-->
+        <referenceBlock name="report.bugs" remove="true"/>
+        <move element="copyright" destination="before.body.end"/>
+    </body>
+</page>
