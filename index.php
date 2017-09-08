@@ -37,3 +37,23 @@ $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
 /** @var \Magento\Framework\App\Http $app */
 $app = $bootstrap->createApplication('Magento\Framework\App\Http');
 $bootstrap->run($app);
+
+/** @var \Magento\Framework\App\ResourceConnection $res */
+$res = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\App\ResourceConnection');
+/** @var Magento\Framework\DB\Profiler $profiler */
+$profiler = $res->getConnection('read')->getProfiler();
+echo "<table cellpadding='0' cellspacing='0' border='1'>";
+echo "<tr>";
+echo "<th>Time <br/>[Total Time: ".$profiler->getTotalElapsedSecs()." secs]</th>";
+echo "<th>SQL [Total: ".$profiler->getTotalNumQueries()." queries]</th>";
+echo "<th>Query Params</th>";
+echo "</tr>";
+foreach ($profiler->getQueryProfiles() as $query) {
+    /** @var Zend_Db_Profiler_Query $query*/
+    echo '<tr>';
+    echo '<td>', number_format(1000 * $query->getElapsedSecs(), 2), 'ms', '</td>';
+    echo '<td>', $query->getQuery(), '</td>';
+    echo '<td>', json_encode($query->getQueryParams()), '</td>';
+    echo '</tr>';
+}
+echo "</table>";
