@@ -1,0 +1,49 @@
+<div style="height: 305px;">
+    <a href="javascript:void(0)" onclick="doGlobalDeriverSearch(); return false;" class="pc2015-designed">最新の配送状況を確認</a>
+    <div id="globaldeliver_area">
+        <div class="pc2015-timetable">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <caption><strong>地域内全域</strong></caption>
+                <thead>
+                    <tr>
+                        <th>配送日時</th>
+                        <th>締切時間</th>
+                        <th class="pc2015-highlight"><?php echo $this->getData('month_current'); ?>月<?php echo $this->getData('day_current'); ?>日</th>
+                        <th class="pc2015-highlight"><?php echo $this->getData('last_month'); ?>月<?php echo $this->getData('last_day'); ?>日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $data = $this->getData('arr_status'); 
+                        foreach ($data as $dataItem) {
+                     ?>
+                    <tr class="pc2015-timetable-row-1">
+                        <td class="border">12:00～14:00</td>
+                        <td class="deadlineTime">～<?php echo $dataItem['deadline']; ?></td>
+                        <td>
+                            <?php 
+                                echo $dataItem['status_delivery'];
+                            ?>
+                        </td>
+                        <td class="pc2015-timetable-2">
+                            <?php 
+                                echo $dataItem['status_delivery_next']; 
+                            ?>
+                        </td>
+                    </tr>
+                    <?php
+
+                        }
+                    
+                    ?>
+                    
+                    
+                    <tr class="pc2015-timetable-row-2 pc2015-timetable-on-4" style="display: none;">
+                        <td colspan="4">
+                            <p class="pc2015-time-2">締切時間の目安<span>あと<strong>21時間06分</strong></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
