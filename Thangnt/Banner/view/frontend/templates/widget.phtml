@@ -1,0 +1,83 @@
+<?php
+$data = $this->getData('banners');
+$auto = $this->getData('auto') ? "true" : "false";
+$pager = $this->getData('pager') ? "true" : "false";
+$speed = intval($this->getData('speed'));
+$template = $this->getData('slide_template');
+?>
+
+<?php
+switch ($template) {
+    // include bxslide to banner
+    case "bxslide_thangnt": {
+        ?>
+
+        <link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */
+        echo $block->getViewFileUrl('Thangnt_Banner::css/jquery.bxslider.css') ?>"/>
+
+        <ul class="bxslider"">
+        <?php
+        foreach ($data as $banner) {
+            ?>
+            <li>
+                <a href="<?php echo $banner['link'] ?>">
+                    <img src="<?php echo $this->getData('mediaURL') . $banner['image']; ?>"/>
+                </a>
+            </li>
+            <?php
+        }
+        ?>
+        </ul>
+        <script>
+            require(['jquery', 'bxslider'], function ($) {
+                $(function () {
+                    $('.bxslider').bxSlider({
+                        auto: <?php echo $auto ?>,
+                        pager: <?php echo $pager ?>,
+                        speed: <?php echo $speed ?>
+                    });
+                });
+            });
+        </script>
+        <?php
+
+
+        break;
+    }
+//    include flexslide to banner
+    case "flexslide_thangnt": {
+        ?>
+        <link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */
+        echo $block->getViewFileUrl('Thangnt_Banner::css/jquery.flexslider.css') ?>"/>
+        <div class="flexslider">
+            <ul class="slides">
+                <?php
+                foreach ($data as $banner) {
+                    ?>
+                    <li>
+                        <a href="<?php echo $banner['link'] ?>">
+                            <img src="<?php echo $this->getData('mediaURL') . $banner['image']; ?>"/>
+                        </a>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
+        <script>
+            require(['jquery', 'flexslider'], function ($) {
+                $(function () {
+                    $('.flexslider').flexslider({
+                        animation: "slide"
+                    });
+                });
+
+            });
+        </script>
+        <?php
+
+        break;
+    }
+}
+?>
+
