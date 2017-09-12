@@ -59,6 +59,10 @@ class SliderItem extends \Magento\Framework\View\Element\Template
      */
     const STYLESLIDE_CUSTOM_TEMPLATE = 'Magestore_Bannerslider::slider/custom.phtml';
 
+    const BANNER_MID_TEMPLATE = 'Magestore_Bannerslider::slider/bannermid.phtml';
+    const BANNER_LEFT_TEMPLATE = 'Magestore_Bannerslider::slider/bannerleft.phtml';
+    const BANNER_FOOTER_TEMPLATE = 'Magestore_Bannerslider::slider/bannerfooter.phtml';
+
     /**
      * Date conversion model.
      *
@@ -128,7 +132,7 @@ class SliderItem extends \Magento\Framework\View\Element\Template
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \Magestore\Bannerslider\Model\ResourceModel\Banner\Collection $bannerCollectionFactory,
+        \Magestore\Bannerslider\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory,
         \Magestore\Bannerslider\Model\SliderFactory $sliderFactory,
         SliderModel $slider,
         \Magento\Framework\Stdlib\DateTime\DateTime $stdlibDateTime,
@@ -162,7 +166,7 @@ class SliderItem extends \Magento\Framework\View\Element\Template
         if (!$configEnable
             || $this->_slider->getStatus() === Status::STATUS_DISABLED
             || !$this->_slider->getId()
-            || !$this->getBannerCollection()->getSize()) {
+            ) {
             return '';
         }
 
@@ -217,7 +221,15 @@ class SliderItem extends \Magento\Framework\View\Element\Template
             case SliderModel::STYLESLIDE_SPECIAL_NOTE:
                 $this->setTemplate(self::STYLESLIDE_SPECIAL_NOTE_TEMPLATE);
                 break;
-
+            case SliderModel::BANNER_POSITION_MID:
+                $this->setTemplate(self::BANNER_MID_TEMPLATE);
+                break;
+            case SliderModel::BANNER_POSITION_LEFT:
+                $this->setTemplate(self::BANNER_LEFT_TEMPLATE);
+                break;
+            case SliderModel::BANNER_POSITION_FOOTER:
+                $this->setTemplate(self::BANNER_FOOTER_TEMPLATE);
+                break;
             // Flex slide
             default:
                 $this->setTemplate(self::STYLESLIDE_FLEXSLIDER_TEMPLATE);
@@ -232,15 +244,17 @@ class SliderItem extends \Magento\Framework\View\Element\Template
 
     /**
      * get banner collection of slider.
-     *
      * @return \Magestore\Bannerslider\Model\ResourceModel\Banner\Collection
      */
     public function getBannerCollection()
     {
-        $sliderId = $this->_slider->getId();
-        return $this->_bannerCollectionFactory->getBannerCollection($sliderId);
+        return $this->_bannerCollectionFactory->create()
+            ->getBannerCollection($this->_slider->getId());
     }
-
+    public function getListBanner() {
+        $sliderId = $this->_slider->getId();
+        return $this->_bannerCollectionFactory->getListBannerForSliderId($sliderId);
+    }
     /**
      * get first banner.
      *

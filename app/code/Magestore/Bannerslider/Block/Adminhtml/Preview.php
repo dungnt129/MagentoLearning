@@ -44,6 +44,10 @@ class Preview extends \Magento\Backend\Block\Template
     const STYLESLIDE_SPECIAL_NOTE_PREVIEW_TEMPLATE = 'Magestore_Bannerslider::slider/preview/special/note.phtml';
     const STYLESLIDE_FLEXSLIDER_PREVIEW_TEMPLATE = 'Magestore_Bannerslider::slider/preview/flexslider.phtml';
 
+    const BANNER_MID = 'Magestore_Bannerslider::slider/preview/banner/bannermid.phtml';
+    const BANNER_LEFT = 'Magestore_Bannerslider::slider/preview/banner/bannerleft.phtml';
+    const BANNER_FOOTER = 'Magestore_Bannerslider::slider/preview/banner/bannerfooter.phtml';
+
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         array $data = []
@@ -86,6 +90,15 @@ class Preview extends \Magento\Backend\Block\Template
             case SliderModel::STYLESLIDE_FLEXSLIDER_THREE:
             case SliderModel::STYLESLIDE_FLEXSLIDER_FOUR:
                 $this->setTemplate(self::STYLESLIDE_FLEXSLIDER_PREVIEW_TEMPLATE);
+                break;
+            case SliderModel::BANNER_POSITION_MID:
+                $this->setTemplate(self::BANNER_MID);
+                break;
+            case SliderModel::BANNER_POSITION_LEFT:
+                $this->setTemplate(self::BANNER_LEFT);
+                break;
+            case SliderModel::BANNER_POSITION_FOOTER:
+                $this->setTemplate(self::BANNER_FOOTER);
                 break;
         }
     }

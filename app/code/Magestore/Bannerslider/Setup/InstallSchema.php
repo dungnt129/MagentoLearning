@@ -267,6 +267,12 @@ class InstallSchema implements InstallSchemaInterface
             ['nullable' => true],
             'Banner image'
         )->addColumn(
+                'class_order',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                255,
+                ['nullable' => true],
+                'Class order'
+        )->addColumn(
             'image_alt',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,

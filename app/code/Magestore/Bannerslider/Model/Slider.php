@@ -89,6 +89,10 @@ class Slider extends \Magento\Framework\Model\AbstractModel
     const NOTE_POSITION_MIDDLE_BOTTOM = 'middle-bottom';
     const NOTE_POSITION_BOTTOM_RIGHT = 'bottom-right';
 
+    const BANNER_POSITION_MID = 11;
+    const BANNER_POSITION_LEFT = 12;
+    const BANNER_POSITION_FOOTER = 13;
+
     /**
      * banner collection factory.
      *

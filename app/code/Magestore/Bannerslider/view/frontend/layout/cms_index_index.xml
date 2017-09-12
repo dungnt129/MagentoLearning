@@ -22,11 +22,11 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="pc2015-main-slider">
+        <referenceContainer name="content">
             <block class="Magestore\Bannerslider\Block\Bannerslider" name="bannerslider.cms.page.content.top" before="-">
-                <action method="setPosition">
-                    <argument name="position" xsi:type="string">cms-page-content-top</argument>
-                </action>
+            	<action method="setPosition">
+            		<argument name="position" xsi:type="string">cms-page-content-top</argument>
+            	</action>
             </block>
             <block class="Magestore\Bannerslider\Block\Bannerslider" name="bannerslider.popup.on.homepage">
                 <action method="setPopupOnHomePage" />

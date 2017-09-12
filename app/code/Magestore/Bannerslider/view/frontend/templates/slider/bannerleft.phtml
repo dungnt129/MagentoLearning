@@ -1,0 +1,24 @@
+<?php
+/** @var \Magestore\Bannerslider\Block\SliderItem $block */
+$styleSlide = $block->getSlider()->getStyleSlide();
+$slider = $block->getSlider();
+$htmlId   = $block->getFlexsliderHtmlId();
+$bannerCollection = $block->getBannerCollection();
+?>
+<div class="pc2015-side-banner-upper">
+    <?php foreach ($bannerCollection as $banner) :?>
+<!--        --><?php //echo $banner->getName();?>
+        <a class="pc2015-banner pc2015-banner-200x200" href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>" >
+            <img width="200" height="200" alt="<?php echo $banner->getImageAlt() ?>" src="<?php echo $block->getBannerImageUrl($banner) ?>"/>
+        </a>
+    <?php endforeach;?>
+<!--    <a href="/shop/c/c01050000017900" class="pc2015-banner pc2015-banner-200x200"><img src="https://www.aeonnetshop.com/pc2015/img/shop/banner/200x200-0001.jpg" alt="おうちでイオン イオンドラッグ 医薬品をおうちへお届け！ 入会金 年会費 無料 ネットでらくらくご注文、ご自宅までお届けします。" width="200" height="200"></a>-->
+<!--    <a href="https://www.aeonshop.com/shop/c/c01050000059020/" class="pc2015-banner pc2015-banner-200x200"><img src="https://www.aeonnetshop.com/pc2015/img/shop/banner/200x200-0004.jpg" alt="おうちでイオン　イオンショップ" width="200" height="200"></a>-->
+</div>
+
+<style>
+    .pc2015-side-banner-upper a{
+        display: block;
+        margin-bottom: 24px;
+    }
+</style>

@@ -213,6 +213,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                     ],
                 ],
             ],
+            [
+                'label' => __('Banner style'),
+                'value' => [
+                    [
+                        'label' => __('Banner slide'),
+                        'value' => Slider::BANNER_POSITION_MID,
+                    ],
+                    [
+                        'label' => __('Banner left'),
+                        'value' => Slider::BANNER_POSITION_LEFT,
+                    ],
+                    [
+                        'label' => __('Banner footer'),
+                        'value' => Slider::BANNER_POSITION_FOOTER,
+                    ]
+                ],
+            ]
         ];
     }
 
