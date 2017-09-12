@@ -1,0 +1,444 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+@import 'module/_collapsible_navigation.less';
+
+//
+//  Theme variables
+//  _____________________________________________
+
+//  Messages
+@message-global-note__color: @text__color;
+@message-global-note__background: @color-yellow-light2;
+@message-global-note-link__color: @link__color;
+@message-global-note-link__color-hover: @link__hover__color;
+@message-global-note-link__color-active: @link__active__color;
+@message-global-note__border-color: @color-yellow-light3;
+
+@message-global-caution__color: @color-white;
+@message-global-caution__background: @color-red9;
+@message-global-caution-link__color: @link__color;
+@message-global-caution-link__color-hover: @link__hover__color;
+@message-global-caution-link__color-active: @link__active__color;
+@message-global-caution__border-color: none;
+
+@header__background-color: false;
+@header-panel__background-color: @color-gray-middle3;
+@header-panel__text-color: @color-white;
+@header-icons-color: @color-gray56;
+@header-icons-color-hover: @color-gray20;
+@customer-welcome__z-index: @dropdown-list__z-index + 1;
+
+@addto-color: @color-gray60;
+@addto-hover-color: @primary__color;
+@minicart-icons-color: @header-icons-color;
+@minicart-icons-color-hover: @header-icons-color-hover;
+
+@price-color: @color-gray34;
+@price-size: 22px;
+@price-size-desktop: 36px;
+
+@button__shadow: inset 0 1px 0 0 rgba(255, 255, 255, 1), inset 0 -1px 0 0 fade(@border-color__base, 30); // Used for secondary button and catalog toolbar controls
+@button__shadow-active: inset 0 1px 0 0 fade(@border-color__base, 80), inset 0 -1px 0 0 fade(@border-color__base, 30); // Used for secondary button and catalog toolbar controls
+
+@h1__margin-bottom__desktop: @indent__xl;
+
+//  Footer
+@footer__background-color: @color-gray-light01;
+@footer-links-separator-border-color: @color-gray-light4;
+@footer-links-color: @color-gray34;
+@footer-links-color-hover: @color-gray20;
+@footer-links-color-current: @primary__color__light;
+
+//  Layered navigation
+@filter-title-background-color: @color-gray94;
+@filter-link: @color-gray-darken4;
+@filter-link-hover: darken(@filter-link, 30%);
+@filter-quantity: @color-gray52;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    body{
+        line-height: 150%;
+        color: #404040;
+        text-align: center;
+        font-size: 12px;
+        background: #ffffff;
+        height: 100%;
+        background: url(../images/body/bg.png) left top repeat-y;
+    }
+
+    /*****************Header***************************/
+    .page-header {
+        display: block;
+        .panel.wrapper{
+            min-width: 964px;
+            color: #fff;
+            background: #ad2181;
+            height: 36px;
+            padding: 6px 0px 0;
+            text-align: left;
+            position: relative;
+            z-index: 30000;
+        }
+    }
+    .header-wrapper-content{
+        .header.content{
+            padding-left: 0px;
+            padding-right: 0px;
+            display: inline-block;
+            width: 100%;
+            strong.logo{
+                float: left;
+                padding-top: 25px;
+                margin-right: 29px;
+            }
+            p.title{
+                font-size: 24px;
+                font-weight: bolder;
+                line-height: 30px;
+                width: 724px;
+                white-space: nowrap;
+                float: left;
+                text-align: left;
+                padding-top: 25px;
+                span{
+                    font-size: 16px;
+                }
+            }
+        }
+        .header-wrapper-bottom{
+            .header-main-menu.pc2015-global-navigation{
+                min-width: 964px;
+                text-align: left;
+                padding: 10px 30px 0;
+                height: 75px;
+                background: #efc99a;
+                position: relative !important;
+                z-index: 30000;
+                .pc2015-center{
+                    height: 75px;
+                    margin: 0px 360px 0 237px;
+                }
+                .pc2015-right{
+                    height: 75px;
+                    width: 360px;
+                    margin-left: auto;
+                    display: inline-block;
+                    float: right;
+                }
+                .pc2015-left{
+                    height: 75px;
+                    width: 237px;
+                    position: absolute;
+                    top: 7px;
+                    span.pc2015-button-category{
+                        height: 0;
+                        overflow: hidden;
+                        width: 202px;
+                        display: inline-block;
+                        padding-top: 68px;
+                        background-image: url(../images/header/category.png);
+                        background-repeat: no-repeat;
+
+                    }
+                }
+            }
+        }
+    }
+    /*****************Left side bar****************************/
+    .page-layout-2columns-left{
+        .sidebar.sidebar-additional{
+            float: left;
+            text-align: left;
+            position: relative;
+        }
+    }
+
+    /*****************Main content**************************/
+    .columns{
+        .column.main{
+            .pc2015-main-slider{
+                margin: 0 auto;
+                padding-top: 0px;
+                width: 766px;
+                height: 199px;
+                overflow: hidden;
+                position: relative;
+            }
+            .pc2015-main-ads{
+                width: 766px;
+                height: 200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                position: relative;
+                a{
+                    position: absolute;
+                    display: block;
+                }
+                a img{
+                    display: block;
+                    border: none;
+                    vertical-align: middle;
+                }
+                .pc2015-ad-pos-1-1{
+                    left: 20px;
+                    top: 0px;
+                }
+                .pc2015-ad-pos-2-1{
+                    left: 301px;
+                    top: 0px;
+                }
+                .pc2015-ad-pos-1-2{
+                    left: 20px;
+                    top: 101px;
+                }
+                .pc2015-ad-pos-2-2{
+                    left: 301px;
+                    top: 101px;
+
+                }
+            }
+        }
+    }
+    /*********************Footer********************************/
+    .page-footer{
+        .footer.content{
+            max-width: 100%;
+            .pc2015-footer{
+                text-align: left;
+                background: #fef2e2;
+                .pc2015-left{
+                    width: 56%;
+                    float: left;
+                    display: inline-block;
+                    .pc2015-footer-delivery{
+                        padding: 0 30px 0 0;
+                        h3{
+                            padding-top: 50px;
+                            background-image: url(../images/footer/delivery.png);
+                            background-position: left top;
+                            border-bottom: 1px dotted #666;
+                            background-repeat: no-repeat;
+                            height: 0;
+                            overflow: hidden;
+                            background-repeat: no-repeat;
+                        }
+                        div{
+                            padding: 16px 0;
+                            h4{
+                                font-size: 18px;
+                                font-weight: bolder;
+                                line-height: 20px;
+                                strong{
+                                    color: #c1272d;
+                                }
+                            }
+                        }
+                        ul{
+                            clear: both;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+                .pc2015-right{
+                    width: 44%;
+                    float: left;
+                    a{
+                        display: block;
+                        margin: 16px auto;
+                        width: 276px;
+                        padding-top: 58px;
+                        background-image: url(../images/footer/smartphone.png);
+                        background-repeat: no-repeat;
+                        height: 0;
+                        overflow: hidden;
+                    }
+                    ul{
+                        list-style: none;
+                        li{
+                            padding-left: 1em;
+                            text-indent: -1em;
+                            color: #666;
+                            list-style: none;
+                        }
+                    }
+                    .pc2015-item-footer-pagetop{
+                        margin: 18px 0 32px;
+                        text-align: right;
+                        float: right;
+                        a{
+                            width: 102px;
+                            padding-top: 35px;
+                            background-image: url(../images/shop/pagetop.png);
+                        }
+                    }
+                }
+                .clearfix{
+                    width: 100%;
+                    display: inline-block;
+                    border-bottom: 1px dotted #666;
+                }
+                .pc2015-footer-1, .pc2015-footer-2{
+                    min-width: 1226px;
+                    width: 96%;
+                    display: inline-block;
+                    padding: 0px 30px 0;
+                    .pc2015-footer-shop{
+                        h3{
+                            min-height: 42px;
+                            font-size: 18px;
+                            font-weight: bolder;
+                            padding-bottom: 4px;
+                            margin-bottom: 0px;
+                            margin-top: 0px;
+                            line-height: 20px;
+                            span{
+                                font-size: 13px;
+                                font-weight: normal;
+                            }
+                        }
+                        p{
+                            margin-bottom: 8px;
+                        }
+                    }
+                    .pc2015-footer-shop-list{
+                        padding: 16px 0;
+                        width: 100%;
+                        display: inline-block;
+                        border-bottom: 1px dotted #666;
+                        a{
+                            background: url(../images/footer/icon-k-right.png) no-repeat left center;
+                            padding-left: 20px;
+                            font-weight: bolder;
+                            font-size: 16px;
+                            color: #333;
+                            text-decoration: none;
+                        }
+                    }
+                }
+                .pc2015-footer-3{
+                    min-width: 964px;
+                    background: #b3b3b3 url(../images/footer/border.png) left top repeat-x;
+                    color: #fff;
+                    padding: 16px 30px 0;
+                    height: 93px;
+                    dl{
+                        dt{
+                            float: left;
+                            vertical-align: top;
+                            margin-top: 19px;
+                            width: 239px;
+                            padding-top: 43px;
+                            background-image: url(../images/footer/phone-caption.png);
+                            background-repeat: no-repeat;
+                            height: 0;
+                            overflow: hidden;
+                        }
+                        dd{
+                            margin: 23px 0 0 13px;
+                            width: 271px;
+                            padding-top: 28px;
+                            background-image: url(../images/footer/phone-number.png);
+                            background-repeat: no-repeat;
+                            float: left;
+                            vertical-align: top;
+                            height: 0;
+                            overflow: hidden;
+                        }
+                    }
+                    p{
+                        line-height: 16px;
+                        font-size: 12px;
+                    }
+                }
+                .pc2015-footer-4{
+                    min-width: 1024px;
+                    height: 43px;
+                    line-height: 43px;
+                    background: #666;
+                    text-align: center;
+                    margin-top: -25px;
+                    color: #fff;
+                    ul{
+                        padding: 0 30px;
+                        min-width: 964px;
+                        li{
+                            display: block;
+                            float: left;
+                            text-align: center;
+                            a{
+                                color: #fff;
+                                padding: 1px 0 0 14px;
+                                background: url(../images/footer/icon-g-right.png) no-repeat left center;
+                                font-size: 10px;
+                            }
+                            &.pc2015-footer-nav-1{
+                                width: 10%;
+                            }
+                            &.pc2015-separator{
+                                width: 1%;
+                            }
+                            &.pc2015-footer-nav-2{
+                                width: 14%;
+                            }
+                            &.pc2015-footer-nav-3{
+                                width: 9%;
+                            }
+                            &.pc2015-footer-nav-4{
+                                width: 16%;
+                            }
+                            &.pc2015-footer-nav-5{
+                                width: 16%;
+                            }
+                            &.pc2015-footer-nav-6{
+                                width: 15%;
+                            }
+                            &.pc2015-footer-nav-7{
+                                width: 11%;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    /************************Copy right****************************/
+    .copyright{
+        min-width: 1024px;
+        display: inline-block;
+        padding-top: 67px;
+        height: 46px;
+        text-align: center;
+        background: url(../images/footer/logo.png) no-repeat center 31px;
+        color: #666;
+    }
+
+}
+
+//
+//  Navigation
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+
+}

@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+?>
+<div class="block block-search em-search">
+    <div class="block block-title"><strong><?php /* @escapeNotVerified */ echo __('Search'); ?></strong></div>
+    <div class="em-wrapper-js-search em-search-style01">
+        <div class="em-wrapper-search em-category-search block block-search">
+            <a class="em-search-icon" title="Search" href="javascript:void(0);" style="display: none;"><span>Search</span></a>
+            <div class="block block-content em-container-js-search" style="overflow: inherit; ">
+                <form class="form minisearch" id="search_mini_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
+                    <div class="field search">
+                        <select class="pc2015-select-category pc2015-need-login" name="m_tree">
+                            <option value="">すべてのカテゴリ</option><option value="50;1;おすすめ・特集・トップバリュ,01050000805860">おすすめ・特集・トップバリュ</option><option value="56;31;食品,01050000805860">食品</option><option value="57;32;お菓子・アイス・デザート,01050000805860">お菓子・アイス・デザート</option><option value="58;33;水・飲料・お酒,01050000805860">水・飲料・お酒</option><option value="53;34;日用品・ホーム＆キッチン,01050000805860">日用品・ホーム＆キッチン</option><option value="05;35;お薬・健康・美容・介護,01050000805860">お薬・健康・美容・介護</option><option value="54;36;ベビー・キッズ,01050000805860">ベビー・キッズ</option><option value="55;37;肌着・衣料・服飾雑貨,01050000805860">肌着・衣料・服飾雑貨</option><option value="60;39;イオンのレシピ,01050000805860">イオンのレシピ</option><option value="62;40;ヘルス&amp;ウェルネス,01050000805860">ヘルス&amp;ウェルネス</option><option value="09;41;予約商品,01050000805860">予約商品</option>
+                        </select>
+                        <label class="label" for="search" data-role="minisearch-label">
+                            <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                        </label>
+                        <div class="control">
+                            <input id="search"
+                                   data-mage-init='{"quickSearch":{
+                                        "formSelector":"#search_mini_form",
+                                        "url":"<?php /* @escapeNotVerified */ echo $block->getUrl('search/ajax/suggest', ['_secure' => $block->getRequest()->isSecure()]); ?>",
+                                        "destinationSelector":"#search_autocomplete"}
+                                   }'
+                                   type="text"
+                                   name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
+                                   value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
+                                   placeholder="<?php /* @escapeNotVerified */ echo __('キーワードを入力して下さい。'); ?>"
+                                   class="input-text"
+                                   maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+                                   role="combobox"
+                                   aria-haspopup="false"
+                                   aria-autocomplete="both"
+                                   autocomplete="off"/>
+                            <div id="search_autocomplete" class="search-autocomplete"></div>
+                            <?php echo $block->getChildHtml() ?>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button type="submit"
+                                title="<?php echo $block->escapeHtml(__('Search')) ?>"
+                                class="action search">
+                            <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

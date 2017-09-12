@@ -1,0 +1,55 @@
+.jcarousel .product-item-info .product-item-details{
+    padding: 0px;
+}
+.jcarousel .product-item-info .product-item-details .product-item-name{
+    font-size: 12px;
+    line-height: 30px;
+    font-weight: bolder;
+    display: block;
+    min-height: 40px;
+    margin-top: 16px;
+    margin-bottom: 0px;
+    text-align: left;
+    overflow: hidden;
+    max-height: 60px;
+}
+.jcarousel .price-box.price-final_price{
+    text-align: right;
+    padding-top: 4px;
+    padding-bottom: 0px;
+    margin-bottom: 6px;
+}
+.jcarousel .product-item-actions .actions-primary{
+    width: 100%;
+    display: block;
+}
+.jcarousel .product-item-actions .actions-primary button.action.tocart{
+    display: block;
+    background-image: url(../images/shop/cart-171x40.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 171px;
+    padding-top: 40px;
+    height: 0px;
+    overflow: hidden;
+    border: none;
+}
+.jcarousel .product-item-actions .actions-primary button.action.tocart span{
+    height: 0px;
+    overflow: hidden;
+}
+.jcarousel .product-item-actions .actions-secondary{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+.jcarousel .product-item-actions .actions-secondary a.action.tocompare{
+    display: none;
+}
+.jcarousel .product-item-actions .actions-secondary a.action.towishlist{
+    display: block;
+    background-image: url(../images/shop/memo-171x30.png);
+    background-position: left -40px;
+    cursor: default;
+    width: 171px;
+    padding-top: 30px;
+}

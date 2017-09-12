@@ -1,0 +1,42 @@
+<?php
+$categories = $this->getStoreCategories(true,false,true);
+$categoryHelper = $this->getCategoryHelper();
+?>
+<div style="padding: 10px;">
+    <?php
+    foreach($categories as $category):
+        if (!$category->getIsActive()) {
+            continue;
+        }
+        $childrenCategories = $this->getChildCategories($category);
+        if($childrenCategories->count() > 0) {
+            foreach ($childrenCategories as $childrenCategory):
+                if (!$childrenCategory->getIsActive()) {
+                    continue;
+                }
+                ?>
+                <div style="background-color:#f2f2f2;">
+                    <a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+                        <font color="blue" style="font-size:20px;"><?php echo $category->getName() . __('内の商品を表示する') ?></font>
+                    </a>
+
+                    <a href="<?php echo $block->getUrlInterfaceData() . '?category_id=' . $category->getId(); ?>" style="font-size:12px;">
+                        <font color="blue"><?php echo $childrenCategory->getName() . __('内のカテゴリを表示する') ?></font>
+                    </a>
+                </div>
+                <br>
+                <?php
+            endforeach;
+        }else {
+            ?>
+            <div style="background-color:#f2f2f2;">
+                <a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+                    <font color="blue" style="font-size:20px;"><?php echo $category->getName() . __('内の商品を表示する') ?></font>
+                </a>
+            </div>
+            <br>
+            <?php
+        }
+    endforeach;
+    ?>
+</div>

@@ -1,0 +1,159 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .page-layout-2columns-left{
+        .sidebar.sidebar-additional{
+            .pc5-nav-tgl{
+                padding-top: 0px;
+                padding-left: 0px;
+                ul{
+                    padding-left: 0px;
+                }
+                li {
+                    list-style: none;
+                    margin-bottom: 0px;
+                }
+                div{
+                    display: block;
+                    background-repeat: no-repeat;
+                    background-position: left top;
+                    width: 200px;
+                    height: 43px;
+                    position: relative;
+                    overflow: hidden;
+                    vertical-align: bottom;
+                    text-align: left;
+                    &.pc5-nav-osusume{
+                        height: 43px;
+                        background-color: #C0262A;
+                        background: -moz-linear-gradient(top, #C0262A, #9B0000);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#C0262A), to(#9B0000));
+                        background: -ms-linear-gradient(top, #C0262A 0%, #9B0000 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C0262A', endColorstr='#9B0000', GradientType=0);
+                    }
+                    &.pc5-nav-orange{
+                        background-color: #FBB038;
+                        background: -moz-linear-gradient(top, #FBB038, #F98500);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#FBB038), to(#F98500));
+                        background: -ms-linear-gradient(top, #FBB038 0%, #F98500 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBB038', endColorstr='#F98500', GradientType=0);
+                    }
+                    &.pc5-nav-light-green{
+                        background-color: #CBCC3F;
+                        background: -moz-linear-gradient(top, #CBCC3F, #ADB100);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#CBCC3F), to(#ADB100));
+                        background: -ms-linear-gradient(top, #CBCC3F 0%, #ADB100 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CBCC3F', endColorstr='#ADB100', GradientType=0);
+                    }
+                    &.pc5-nav-blue{
+                        background-color: #24ABE2;
+                        background: -moz-linear-gradient(top, #24ABE2, #007ED3);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#24ABE2), to(#007ED3));
+                        background: -ms-linear-gradient(top, #24ABE2 0%, #007ED3 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#24ABE2', endColorstr='#007ED3', GradientType=0);
+                    }
+                    &.pc5-nav-pink{
+                        background-color: #E66F94;
+                        background: -moz-linear-gradient(top, #E66F94, #D7225E);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#E66F94), to(#D7225E));
+                        background: -ms-linear-gradient(top, #E66F94 0%, #D7225E 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E66F94', endColorstr='#D7225E', GradientType=0);
+                    }
+                    &.pc5-nav-red{
+                        background-color: #FC868E;
+                        background: -moz-linear-gradient(top, #FC868E, #FB4454);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#FC868E), to(#FB4454));
+                        background: -ms-linear-gradient(top, #FC868E 0%, #FB4454 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FC868E', endColorstr='#FB4454', GradientType=0);
+                    }
+                    &.pc5-nav-green{
+                        background-color: #92D18E;
+                        background: -moz-linear-gradient(top, #92D18E, #53B854);
+                        background: -webkit-gradient(linear, left top, left bottom, from(#92D18E), to(#53B854));
+                        background: -ms-linear-gradient(top, #92D18E 0%, #53B854 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92D18E', endColorstr='#53B854', GradientType=0);
+                    }
+
+                    a.pc5-nav-link{
+                        display: table-cell;
+                        vertical-align: middle;
+                        width: 200px;
+                        padding: 0 5px 0 50px;
+                        line-height: 17px;
+                        height: 43px;
+                        font-size: 12px;
+                        color: #fff;
+                        font-weight: bolder;
+                        background-repeat: no-repeat;
+                        background-position: left top;
+                        background-size: 40px 40px;
+                    }
+                    a.pc5-nav-sm2-link{
+                        display: block;
+                        vertical-align: middle;
+                        width: 162px;
+                        padding: 5px 3px 0px 4px;
+                        line-height: 20px;
+                        color: #000000;
+                        text-decoration: none;
+                        span.pc5-nav-sm2-anchor{
+                            position: absolute;
+                            display: block;
+                            right: 0;
+                            top: 6px;
+                            width: 40px;
+                            height: 23px;
+                            text-indent: 100%;
+                            background-image: url(../images/menu/toggle-menu-gray.png);
+                            background-position: center top;
+                            cursor: pointer;
+                        }
+                    }
+                    &.pc5-tgl-active a.pc5-nav-sm2-link span.pc5-nav-sm2-anchor{
+                        background-position: center 107px;
+                    }
+
+                }
+                div.pc5-nav-sm-3{
+                    display: block;
+                    width: 200px;
+                    height: auto;
+                    padding: 2px 0;
+                    overflow: visible;
+                    a.pc5-nav-sm3-link{
+                        display: block;
+                        vertical-align: middle;
+                        width: 152px;
+                        padding: 1px 4px 1px 14px;
+                        line-height: 20px;
+                        color: #000000;
+                        text-decoration: none;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+}
