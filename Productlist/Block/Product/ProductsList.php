@@ -351,4 +351,5 @@ class ProductsList extends \Magento\Catalog\Block\Product\AbstractProduct implem
     {
         return $this->getData('title');
     }
+    
 }

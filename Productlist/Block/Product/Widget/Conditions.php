@@ -73,7 +73,6 @@ class Conditions extends Template implements RendererInterface
         $this->conditions = $conditions;
         $this->rule = $rule;
         $this->registry = $registry;
-
         parent::__construct($context, $data);
     }
 
@@ -140,4 +139,5 @@ class Conditions extends Template implements RendererInterface
         $this->input->setRule($this->rule)->setRenderer($this->conditions);
         return $this->input->toHtml();
     }
+       
 }

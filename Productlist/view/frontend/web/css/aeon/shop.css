@@ -362,6 +362,7 @@
 .pc2015-main-block {
   text-align: left;
   padding: 0 20px;
+  width: 1200px;
 }
 .pc2015-main-block .pc2015-main-block-header {
   padding-top: 10px;
@@ -697,8 +698,11 @@
 .pc2015-item .pc2015-item-price .pc2015-price-2 strong {
   font-weight: bolder;
 }
+.pc2015-item-list .pc2015-item .product-item-info{
+    width: 100% !important;
+}
 .pc2015-item dl.pc2015-item-quantity {
-  margin: 0 53px 6px;
+  margin: 0 53px 6px !important;
 }
 .pc2015-item dl.pc2015-item-quantity dt, .pc2015-item dl.pc2015-item-quantity dd {
   text-align: center;

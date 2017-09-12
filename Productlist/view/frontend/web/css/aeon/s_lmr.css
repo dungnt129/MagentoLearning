@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/* --------------------------------------------------------------------
+	表示幅：固定
+	表示順：左メニュー・メインコンテンツ・右メニュー
+-------------------------------------------------------------------- */
+div.wrapper_ {
+	margin: 0 auto;
+	width: 100%;
+	text-align:left;
+}
+div.container_ {
+}
+div.contents_ {
+}
+/* 左メニュー */
+div.leftmenuframe_ {
+}
+/**/
+/* 右メニュー */
+div.rightmenuframe_ {
+}
+/**/
+/* メインフレーム */
+div.mainframe_ {
+}
+div.container_ div.contents_, 
+div.container_ div.mainframe_, 
+div.container_ div.mainframe_ .event_ .goods_ { /* 左メニューのみ表示の場合 */
+	/* width: 750px;  = div.container_ - div.leftmenuframe_ */
+}
+div.container_ div.contents_ div.mainframe_, 
+div.container_ div.contents_ div.mainframe_ .event_ .goods_ { /* 左右メニューの表示の場合 */
+	/* width: 600px;  = div.container_ - (div.leftmenuframe_ + div.rightmenuframe_) */
+}
+/**/
+div.single_mainframe_ {
+	/* float: right; */
+	display: inline;
+	overflow: hidden;
+}
+
+div.col1_ {
+	padding: 0 140px;
+}
+div.col2_ {
+	/*padding: 0 140px;*/
+	padding: 0 260px;
+}
+
+/* --------------------------------------------------------------------
+	タブレット用
+-------------------------------------------------------------------- */
+.tablet_ div.col1_ {
+	padding: 0;
+}
+
