@@ -1,0 +1,42 @@
+.pc2015-global-navigation > div.pc2015-center > div.pc2015-upper {
+	height: 38px;
+	background: url(images/search-bg.png) no-repeat 129px top;
+}
+.pc2015-global-navigation > div.pc2015-center > div {
+	position: relative;
+}
+
+.pc2015-global-navigation > div.pc2015-center > div.pc2015-upper select {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	width: 125px;
+	height: 29px;
+	border: 1px solid #666;
+	border-radius: 4px;
+}
+.pc2015-global-navigation > div.pc2015-center > div.pc2015-upper div {
+	position: absolute;
+	left: 129px;
+	right: 58px;
+	height: 29px;
+	padding: 0 5px 0 25px;
+	background: url(images/search-bg.png) no-repeat right top;
+}
+.pc2015-global-navigation > div.pc2015-center > div.pc2015-upper div input {
+	width: 100%;
+	padding: 0;
+	border: 0;
+	height: 29px;
+	line-height: 29px;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #808080;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.pc2015-global-navigation > div.pc2015-center > div.pc2015-upper input[type="image"] {
+	position: absolute;
+	right: 0;
+}
