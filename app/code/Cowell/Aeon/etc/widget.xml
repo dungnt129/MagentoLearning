@@ -8,7 +8,7 @@
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="Cowell_Aeon_ListProduct" class="Cowell\Aeon\Block\ListProduct\ListProductWidget">
-        <label translate="true">Trung Anh list product</label>
+        <label translate="true">Trung Anh list product_NEW</label>
         <description translate="true">San pham</description>
         <parameters>
             <parameter name="title" xsi:type="text" required="false" visible="true">

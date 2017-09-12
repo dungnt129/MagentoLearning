@@ -20,7 +20,6 @@ use Magento\Widget\Block\BlockInterface;
  */
 class ListProductWidget extends \Magento\CatalogWidget\Block\Product\ProductsList
 {
-
     public function createCollection()
     {
         /** @var $collection \Magento\Catalog\Model\ResourceModel\Product\Collection */
@@ -41,6 +40,7 @@ class ListProductWidget extends \Magento\CatalogWidget\Block\Product\ProductsLis
 
     protected function _beforeToHtml()
     {
+
         $this->setTemplate('product_list.phtml');
         return parent::_beforeToHtml();
     }

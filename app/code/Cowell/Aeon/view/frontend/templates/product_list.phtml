@@ -4,6 +4,7 @@
  *
  * @var $block \Magento\CatalogWidget\Block\Product\ProductsList
  */
+
 ?>
 <?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())):?>
     <?php
@@ -100,6 +101,7 @@
                                 </dl>
                                 <a href="#" class="pc2015-designed pc2015-cart-inc">+</a>
                                 <a href="#" class="pc2015-designed pc2015-cart-dec">-</a>
+
                             <!--End so luong-->
                                 <?php if ($showWishlist || $showCompare || $showCart): ?>
                                     <div class="product-item-actions">
@@ -115,7 +117,7 @@
                                                     <?php else: ?>
                                                         <?php
                                                         $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
-                                                        $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()])
+                                                        $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()]);
                                                         ?>
                                                         <button class="action tocart primary pc2015-item-cart"
                                                                 data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
