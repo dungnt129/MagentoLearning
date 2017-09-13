@@ -150,6 +150,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             Slider::STYLESLIDE_FLEXSLIDER_TWO => 'FlexSlider 2',
             Slider::STYLESLIDE_FLEXSLIDER_THREE => 'FlexSlider 3',
             Slider::STYLESLIDE_FLEXSLIDER_FOUR => 'FlexSlider 4',
+
         ];
     }
 
@@ -227,6 +228,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                     [
                         'label' => __('Banner footer'),
                         'value' => Slider::BANNER_POSITION_FOOTER,
+                    ]
+                ],
+            ],
+            [
+                'label' => __('Content Slider'),
+                'value' => [
+                    [
+                        'label' => __('Main slider'),
+                        'value' => Slider::CONTENT_MAINSLIDER,
                     ]
                 ],
             ]

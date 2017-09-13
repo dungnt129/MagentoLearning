@@ -63,6 +63,9 @@ class SliderItem extends \Magento\Framework\View\Element\Template
     const BANNER_LEFT_TEMPLATE = 'Magestore_Bannerslider::slider/bannerleft.phtml';
     const BANNER_FOOTER_TEMPLATE = 'Magestore_Bannerslider::slider/bannerfooter.phtml';
 
+    // template for main slider
+    const CONTENT_MAINSLIDER_TEMPLATE = 'Magestore_Bannerslider::slider/mainslider.phtml';
+
     /**
      * Date conversion model.
      *
@@ -233,6 +236,10 @@ class SliderItem extends \Magento\Framework\View\Element\Template
             // Flex slide
             default:
                 $this->setTemplate(self::STYLESLIDE_FLEXSLIDER_TEMPLATE);
+                break;
+            // Main slide
+            case SliderModel::CONTENT_MAINSLIDER:
+                $this->setTemplate(self::CONTENT_MAINSLIDER_TEMPLATE);
                 break;
         }
     }

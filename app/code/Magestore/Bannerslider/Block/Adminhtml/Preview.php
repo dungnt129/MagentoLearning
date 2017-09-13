@@ -48,6 +48,9 @@ class Preview extends \Magento\Backend\Block\Template
     const BANNER_LEFT = 'Magestore_Bannerslider::slider/preview/banner/bannerleft.phtml';
     const BANNER_FOOTER = 'Magestore_Bannerslider::slider/preview/banner/bannerfooter.phtml';
 
+    //Main slider
+    const CONTENT_MAINSLIDER = 'Magestore_Bannerslider::slider/preview/content/mainslider.phtml';
+
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         array $data = []
@@ -99,6 +102,9 @@ class Preview extends \Magento\Backend\Block\Template
                 break;
             case SliderModel::BANNER_POSITION_FOOTER:
                 $this->setTemplate(self::BANNER_FOOTER);
+                break;
+            case SliderModel::CONTENT_MAINSLIDER:
+                $this->setTemplate(self::CONTENT_MAINSLIDER);
                 break;
         }
     }

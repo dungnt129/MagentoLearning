@@ -94,6 +94,11 @@ class Slider extends \Magento\Framework\Model\AbstractModel
     const BANNER_POSITION_FOOTER = 13;
 
     /**
+     * main slider
+     */
+    const CONTENT_MAINSLIDER = 14;
+
+    /**
      * banner collection factory.
      *
      * @var \Magestore\Bannerslider\Model\ResourceModel\Banner\CollectionFactory

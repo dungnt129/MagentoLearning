@@ -10,6 +10,8 @@ var config = {
 		'magestore/flexslider': 'Magestore_Bannerslider/js/jquery/slider/jquery-flexslider-min',
 		'magestore/evolutionslider': 'Magestore_Bannerslider/js/jquery/slider/jquery-slider-min',
 		'magestore/popup': 'Magestore_Bannerslider/js/jquery.bpopup.min',
+        "jcarouselx": "Magestore_Bannerslider/js/jquery/slider/jquery-jcarousel-min",
+        "shopx": "Magestore_Bannerslider/js/jquery/slider/shop"
 	},
 	shim: {
 		'magestore/flexslider': {
@@ -21,5 +23,8 @@ var config = {
 		'magestore/zebra-tooltips': {
 			deps: ['jquery']
 		},
+        'jcarouselx': {
+            deps: ['jquery']
+        },
 	}
 };
