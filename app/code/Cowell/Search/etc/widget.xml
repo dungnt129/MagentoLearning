@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Cowell\Search\Block\Widget\TopKeywordsWidget" id="cowell_aeon_topkeyword">
+        <label>Top Keywords</label>
+        <description>Top keywords display bellow search textbox</description>
+        <parameters>
+            <parameter name="keywords_count" sort_order="10" visible="true" xsi:type="text">
+                <label>Number of top keywords display</label>
+            </parameter>
+        </parameters>
+    </widget>
+
+</widgets>
