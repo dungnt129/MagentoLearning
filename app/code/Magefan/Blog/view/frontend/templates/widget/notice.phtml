@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © 2016 Ihor Vansach (ihor@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog recent posts widget
+ *
+ * @var $block \Magefan\Blog\Block\Widget\Recent
+ */
+?>
+<?php
+    $_postCollection = $block->getPostCollection();
+?>
+
+<?php if ($_postCollection->count()) { ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Magefan_Blog::css/news_notice.css') ?>"/>
+<div class="pc2015-main-info">
+    <h2><?php echo $block->escapeHtml($block->getTitle()) ?></h2>
+    <dl>
+        <?php
+        foreach ($_postCollection as $_post) {
+            $_postUrl = $_post->getPostUrl();
+            $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+        ?>
+        <dt><?php echo $_post->getPublishDate('Y年m月d日') ?></dt>
+        <dd>
+            <a href="<?php echo $_postUrl ?>" target="_blank">
+                <?php echo $_postName;?>
+            </a>
+        </dd>
+        <?php } ?>
+    </dl>
+</div>
+<?php }?>
