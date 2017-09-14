@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customer_new>
+            <general>
+                <active>1</active>
+            </general>
+            <sso_link>
+                <handover_url>http://172.16.40.188:8080/auth/v1/handover</handover_url>
+                <token_url>http://172.16.40.188:8080/api/v1/token</token_url>
+                <status_url>http://172.16.40.188:8080/api/v1/status</status_url>
+                <login_url>http://172.16.40.188:8080/auth/login.do</login_url>
+            </sso_link>
+            <token>
+                <csid_mobile>Hsffj5FDLskffGk</csid_mobile>
+                <csky_mobile>KhklldbnsA2M4jd</csky_mobile>
+                <csid_pc>Hsffj5FDLskffGk</csid_pc>
+                <csky_pc>KhklldbnsA2M4jd</csky_pc>
+            </token>
+        </customer_new>
+    </default>
+</config>

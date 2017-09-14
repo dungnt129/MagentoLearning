@@ -1,0 +1,212 @@
+.pc2015-global-navigation .pc2015-delivery-menu {
+  display: none;
+  z-index: 31000;
+  position: absolute;
+  right: 320px;
+  top: 70px;
+  width: 500px;
+  height: 200px;
+  padding-top: 19px;
+  background: url(../images/delivery-bg.png) no-repeat left top;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div {
+  border-width: 0 5px 5px;
+  border-style: solid;
+  border-color: #f7931e;
+  background: #f9f9f9;
+  text-align: center;
+  padding: 20px 26px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pc2015-global-navigation .pc2015-delivery-menu > div > a {
+  width: 438px;
+  padding-top: 67px;
+  background-image: url(../images/delivery-check.png);
+}
+
+.pc2015-designed {
+  height: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+a.pc2015-designed, span.pc2015-designed, strong.pc2015-designed {
+  display: inline-block;
+}
+
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-timetable {
+  margin: 20px 0;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table caption {
+  font-size: 24px;
+  height: 32px;
+  line-height: 28px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table caption strong {
+  margin-right: 4px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table th, .pc2015-global-navigation .pc2015-delivery-menu > div table td {
+  padding: 8px 4px;
+  font-size: 16px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table th {
+  font-size: 16px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-1 td {
+  background: #f9f8e4;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-1.pc2015-active td {
+  background: #ddd;
+  color: #c1272d;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-2 td {
+  padding: 0 0 10px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-2 td p {
+  width: 374px;
+  height: 65px;
+  margin: 0 auto;
+  /*background-image: url(../img/header/delivery-balloon.png);*/
+  line-height: 77px;
+  font-size: 18px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-2 td p span {
+  margin-left: 4px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-2 td p span strong {
+  font-size: 28px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-2.pc2015-timetable-on-3 p.pc2015-time-1 {
+  background-position: center -130px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div table tr.pc2015-timetable-row-2.pc2015-timetable-on-4 p.pc2015-time-2 {
+  background-position: center -65px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div > p {
+  text-align: left;
+  padding-left: 1em;
+  text-indent: -1em;
+  padding-bottom: 1em;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information {
+  margin-top: 40px;
+  padding-bottom: 36px;
+  text-align: left;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information h3 {
+  padding-top: 40px;
+  margin-bottom: 5px;
+  /*background-image: url(../img/header/delivery-title.png);*/
+  background-position: center top;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information > div {
+  border-top: 1px dotted #666;
+  padding-top: 16px;
+  text-align: left;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information > div > span {
+  width: 68px;
+  padding-top: 42px;
+  float: left;
+  margin-right: 10px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information > div > div {
+  float: left;
+  width: 343px;
+  padding-bottom: 10px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information > div h4 {
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.pc2015-global-navigation .pc2015-delivery-menu > div .pc2015-delivery-information > div h4 strong {
+  color: #c1272d;
+}
+
+.pc2015-timetable table, table.pc2015-delivery-charge {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-bottom: 1px solid #808080;
+}
+.pc2015-timetable table caption, table.pc2015-delivery-charge caption {
+  font-weight: bolder;
+}
+.pc2015-timetable table td, .pc2015-timetable table th, table.pc2015-delivery-charge td, table.pc2015-delivery-charge th {
+  border-left: 1px solid #808080;
+  font-weight: bolder;
+}
+.pc2015-timetable table td:first-child, .pc2015-timetable table th:first-child, table.pc2015-delivery-charge td:first-child, table.pc2015-delivery-charge th:first-child {
+  border-left: 0;
+}
+.pc2015-timetable table td:last-child, .pc2015-timetable table th:last-child, table.pc2015-delivery-charge td:last-child, table.pc2015-delivery-charge th:last-child {
+  border-right: 0;
+}
+.pc2015-timetable table tbody tr:first-child td, table.pc2015-delivery-charge tbody tr:first-child td {
+  border-top: 1px solid #808080;
+}
+.pc2015-timetable table th, table.pc2015-delivery-charge th {
+  border-top: 1px solid #808080;
+  color: #fff;
+  background: #f7931e;
+  text-align: center;
+}
+.pc2015-timetable table th.pc2015-highlight, table.pc2015-delivery-charge th.pc2015-highlight {
+  background: #f15a24;
+}
+.pc2015-timetable table td, table.pc2015-delivery-charge td {
+  border-top: 1px dotted #808080;
+  background: #f9f8e4;
+  text-align: center;
+}
+
+.pc2015-timetable table tr.pc2015-timetable-row-1 td {
+  background: #f9f8e4;
+}
+
+.pc2015-timetable table tr.pc2015-timetable-row-1.pc2015-active td {
+  background: #ddd;
+  color: #c1272d;
+}
+
+.pc2015-timetable table tr.pc2015-timetable-row-2 {
+  display: none;
+}
+.pc2015-timetable table tr.pc2015-timetable-row-2 td {
+  border-top: 0;
+  background: transparent;
+}
+.pc2015-timetable table tr.pc2015-timetable-row-2 td p {
+  background-repeat: no-repeat;
+  background-position: center top;
+  color: #444;
+}
+.pc2015-timetable table tr.pc2015-timetable-row-2 td p span {
+  color: #c1272d;
+}
+.pc2015-timetable table tr.pc2015-timetable-row-2.pc2015-time-for-1 p.pc2015-time-2, .pc2015-timetable table tr.pc2015-timetable-row-2.pc2015-time-for-2 p.pc2015-time-1 {
+  display: none;
+}
+
+table.pc2015-delivery-charge tbody tr:first-child td {
+  border-top: 1px solid #808080;
+}
+
+table.pc2015-delivery-charge th.pc2015-highlight:first-child {
+  border-left: 1px solid #808080;
+}
+
+table.pc2015-delivery-charge td {
+  text-align: center;
+}
+table.pc2015-delivery-charge td strong {
+  color: #c1272d;
+}

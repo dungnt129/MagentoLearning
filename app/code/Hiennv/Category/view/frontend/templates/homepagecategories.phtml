@@ -1,0 +1,32 @@
+<ul class="pc5-nav-tgl">
+    <?php echo $this->getHtml() ?>
+</ul>
+<script>// <![CDATA[
+    require([
+        'jquery',
+    ], function ($) {
+        $('li div.parent_category').click(function(){
+            var next = $(this).next();
+            if ( next.is( "ul" ) ) {
+                next.slideToggle('slow');
+            }
+        });
+        $('a span').click(function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            var parent = $(this).parent().parent();
+            var next = parent.next();
+            if ( next.is( "ul" ) ) {
+                next.slideToggle('slow',function(){
+                    if(parent.hasClass('pc5-tgl-active')) {
+                        parent.removeClass('pc5-tgl-active');
+                    } else {
+                        parent.addClass('pc5-tgl-active');
+                    }
+
+                });
+            }
+        });
+    });
+    // ]]>
+</script>

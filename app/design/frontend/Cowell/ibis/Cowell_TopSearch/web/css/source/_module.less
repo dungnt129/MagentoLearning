@@ -1,0 +1,71 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .pc2015-center{
+        .pc2015-lower{
+            position: relative;
+            width: 100%;
+            display: inline-block;
+            dt{
+                width: 93px;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                font-weight: bolder;
+                background: url(../images/header/word-title.png);
+                color: #fff;
+                font-size: 14px;
+            }
+            dd{
+                position: absolute;
+                left: 93px;
+                right: 0;
+                top: 0;
+                height: 28px;
+                padding-right: 4px;
+                background: url(../images/header/word-body.png) right top;
+                ul{
+                    display: block;
+                    height: 28px;
+                    line-height: 28px;
+                    padding: 0 4px 0 14px;
+                    background: #f2f2f2;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    a{
+                        color: #dd0000;
+                        text-decoration: none;
+                    }
+                    li{
+                        list-style: none;
+                        display: inline;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+}

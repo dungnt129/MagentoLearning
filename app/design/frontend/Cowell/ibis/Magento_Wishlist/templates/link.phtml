@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Wishlist\Block\Link */
+?>
+<a class="link wishlist pc2015-designed pc2015-button-bookmark pc2015-disabled" data-bind="scope: 'wishlist'" <?php /* @escapeNotVerified */ echo $block->getLinkAttributes() ?>><?php echo $block->escapeHtml($block->getLabel()) ?>
+    <!-- ko if: wishlist().counter -->
+    <span data-bind="text: wishlist().counter" class="counter qty"></span>
+    <!-- /ko -->
+</a>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+
+</script>

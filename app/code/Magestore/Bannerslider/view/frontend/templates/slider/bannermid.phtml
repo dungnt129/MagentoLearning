@@ -1,0 +1,51 @@
+<?php
+/** @var \Magestore\Bannerslider\Block\SliderItem $block */
+$styleSlide = $block->getSlider()->getStyleSlide();
+$slider = $block->getSlider();
+$htmlId   = $block->getFlexsliderHtmlId();
+$bannerCollection = $block->getBannerCollection();
+?>
+<div class="pc2015-main-ads">
+    <?php $count = 0;?>
+    <?php foreach ($bannerCollection as $banner): ?>
+        <?php $count ++?>
+        <?php if($count <= 4) :?>
+        <a class="pc2015-ad pc2015-for-member pc2015-ad-279x99 <?php echo $banner->getClassOrder() ?>" href="<?php echo $banner->getClickUrl() ?>" target="<?php echo $banner->getTargetValue() ?>" >
+            <img width="279" height="99" alt="<?php echo $banner->getImageAlt() ?>" src="<?php echo $block->getBannerImageUrl($banner) ?>"/>
+        </a>
+        <?php endif;?>
+    <?php endforeach;?>
+    <div class="load-image-banner-ads" style="left:564px;position: absolute;top: 0;">
+        <!-- SMARTtag start-->
+        <script language="JavaScript">
+            var CM8Server = 'web-jp.ad-v.jp';
+            var CM8Cat = 'tokyo.nerima';
+        </script>
+        <script language="JavaScript" src="https://web-jp.ad-v.jp/adam/cm8adam_1_call.js"></script>
+        <script type="text/javascript"
+                src="https://web-jp.ad-v.jp/adam/detect?cat=tokyo.nerima&amp;page=7121572606445172&amp;serial=1000:1:A&amp;&amp;LOC=https://www.aeonnetshop.com/shop/category/category.aspx\qcategory=01050000805860&amp;WIDTH=1366&amp;HEIGHT=662&amp;WIDTH_RANGE=WR_E&amp;DATE=01170905&amp;HOUR=09&amp;RES=RS27&amp;ORD=09795582583752149&amp;req=fr&amp;&amp;"></script>
+        <!-- SMARTtag end-->
+
+        <!-- PLACEHOLDERtag start-->
+        <script language="JavaScript">CM8ShowAd('rectangle_banner')</script>
+        <div id="CM8_FORMAT_rectangle_banner" style="display:none"></div>
+        <noscript>
+            &lt;a href='tokyo.nerima' target='_blank'&gt;
+            &lt;img src='tokyo.nerima' border='0'&gt;&lt;/a&gt;
+        </noscript>
+        <!-- PLACEHOLDERtag end-->
+    </div>
+</div>
+
+<style>
+    .pc2015-main-ads {
+        width: 766px;
+        height: 200px;
+        margin: 4px auto 32px;
+        padding: 0 20px;
+        position: relative;
+    }
+    .load-image-banner-ads img {
+        max-width:none;
+    }
+</style>

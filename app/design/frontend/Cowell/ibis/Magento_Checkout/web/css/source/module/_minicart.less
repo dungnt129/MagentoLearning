@@ -1,0 +1,68 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@minicart__border-color: @color-gray80;
+@minicart__padding-horizontal: @indent__base;
+
+@minicart-qty__height: 24px;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .minicart-wrapper{
+        a{
+            width: 171px;
+            height: 63px;
+            background-image: url('../images/header/cart.png');
+            position: relative;
+            text-decoration: none;
+            float: right;
+            display: inline-block;
+            .global_totalprice{
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 4px;
+                text-align: center;
+                color: #fff;
+                font-size: 14px;
+                font-weight: bolder;
+                .pc2015-button-cart-title-1, .pc2015-button-cart-title-2{
+                    font-size: 11px;
+                }
+                .pc2015-button-cart-num{
+                    font-size: 15px;
+                    margin-left: 6px;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}

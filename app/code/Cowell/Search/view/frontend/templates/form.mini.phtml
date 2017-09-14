@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+$categories = $this->getStoreCategories(true, false, true);
+?>
+<div class="pc2015-upper">
+    <form class="sn_ form minisearch" name="frmSearch" id="search_mini_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
+        <ul>
+            <li class="sn_search_">
+                <select class="pc2015-select-category pc2015-need-login" name="cat">
+                    <option value="">All Categories</option>
+                    <?php
+                    foreach ($categories as $category):
+                        if (!$category->getIsActive()) {
+                            continue;
+                        }
+                    ?>
+                    <option value="<?php echo $category->getId() ?>" <?php echo (($this->getRequest()->getParam('cat')&&($this->getRequest()->getParam('cat')== $category->getId()))? "selected" : ''); ?>><?php echo $category->getName() ?></option>
+
+                    <?php
+                    endforeach;?>
+                </select>
+                <div>
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?php /* @escapeNotVerified */ echo $block->getUrl('search/ajax/suggest', ['_secure' => $block->getRequest()->isSecure()]); ?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
+                           value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
+                           placeholder="<?php /* @escapeNotVerified */ echo __('Search entire store here...'); ?>"
+                           class="input-text"
+                           maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <?php echo $block->getChildHtml() ?>
+                </div>
+                <span>
+                    <input onclick="void(this.form.submit());return false" src="<?php echo $this->getViewFileUrl('Cowell_Search::css/images/search.png') ?>" name="search" alt="検索" type="image">
+                </span>
+            </li>
+        </ul>
+    </form>
+</div>
