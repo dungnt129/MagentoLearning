@@ -6,7 +6,19 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <!--<event name="checkout_cart_update_items_after">-->
-        <!--<observer name="model_cart_checkout_update_item_cart" instance="Cowell\Checkout\Observer\UpdateItemCartObserver" />-->
+    <!--<event name="checkout_cart_add_product_complete">-->
+        <!--<observer name="cart_add" instance="Cowell\Cart\Observer\CustomAddCartObserver" />-->
     <!--</event>-->
+
+    <event name="sales_quote_product_add_after">
+        <observer name="custom_cart_add_after" instance="Cowell\Cart\Observer\CustomAddCartObserver" />
+    </event>
+
+    <event name="sales_quote_remove_item">
+        <observer name="custom_remove_item" instance="Cowell\Cart\Observer\CustomRemoveItemObserver" />
+    </event>
+
+    <event name="checkout_cart_update_items_after">
+        <observer name="custom_update_items_cart" instance="Cowell\Cart\Observer\CustomUpdateItemObserver" />
+    </event>
 </config>

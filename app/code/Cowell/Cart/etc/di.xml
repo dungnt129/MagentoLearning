@@ -6,7 +6,5 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <!--<type name="Magento\Checkout\Controller\Cart\Add">-->
-        <!--<plugin name="Cowell-checkout-cart-add" type="Cowell\Checkout\Plugin\Controller\AddToCartPlugin" />-->
-    <!--</type>-->
+    <!--<preference for="\Magento\CatalogInventory\Model\StockManagement" type="Cowell\Cart\Model\StockManagement" />-->
 </config>
