@@ -38,12 +38,8 @@ class CustomRemoveItemObserver implements ObserverInterface
         $items = $observer->getEvent()->getQuoteItem();
         if ($items) {
             if ($items->getHasChildren()) {
-                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-                $model = $objectManager->create('Cowell\Cart\Model\QuoteItem');
                 foreach ($items->getChildren() as $child) {
-                    $itemId = $child->getParentItemId();
-                    $quoteItem = $model->getOldQty($itemId);
-                    $registeredItems[$child->getProductId()] = $quoteItem[0]['qty'];
+                    $registeredItems[$child->getProductId()] = $items->getQty();
                 }
             } else {
                 $registeredItems[$items->getProductId()] = $items->getQty();

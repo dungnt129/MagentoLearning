@@ -7,7 +7,7 @@ namespace Cowell\Cart\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
-class CustomAddCartObserver implements ObserverInterface
+class CustomUpdateCartObserver implements ObserverInterface
 {
     /**
      * @var \Cowell\Cart\Helper\CustomChangeQtyProduct
@@ -34,6 +34,6 @@ class CustomAddCartObserver implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $items = $observer->getEvent()->getQuoteItem();
-        $this->changeQtyProductHelper->updateQtyProduct($items);
+        $this->changeQtyProductHelper->updateQtyProduct($items, true);
     }
 }

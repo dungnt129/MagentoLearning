@@ -35,11 +35,11 @@ class CustomUpdateItemObserver implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $websiteId = $this->stockConfiguration->getDefaultScopeId();
+
         $info = $observer->getEvent()->getInfo()->toArray();
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $model = $objectManager->create('Cowell\Cart\Model\QuoteItem');
         foreach ($info as $itemId => $itemInfo) {
-            $registeredItems = [];
             $quoteItem = $model->getQuoteItem($itemId);
             if (!empty($quoteItem)){
                 $operator = '-';

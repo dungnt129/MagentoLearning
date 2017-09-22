@@ -6,12 +6,51 @@
 namespace Cowell\Cart\Model;
 
 use Magento\CatalogInventory\Api\Data\StockItemInterface;
+use Magento\CatalogInventory\Api\StockConfigurationInterface;
+use Magento\CatalogInventory\Api\StockManagementInterface;
+use Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface;
+use Magento\CatalogInventory\Model\Spi\StockRegistryProviderInterface;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\CatalogInventory\Model\ResourceModel\Stock as ResourceStock;
 
 /**
  * Class StockManagement
  */
 class StockManagement extends \Magento\CatalogInventory\Model\StockManagement
 {
+
+
+    public $customqtyCounter;
+
+    public $customStockState;
+    /**
+     * @param ResourceStock $stockResource
+     * @param StockRegistryProviderInterface $stockRegistryProvider
+     * @param StockState $stockState
+     * @param StockConfigurationInterface $stockConfiguration
+     * @param ProductRepositoryInterface $productRepository
+     * @param QtyCounterInterface $qtyCounter
+     */
+    public function __construct(
+        ResourceStock $stockResource,
+        StockRegistryProviderInterface $stockRegistryProvider,
+        \Magento\CatalogInventory\Model\StockState $stockState,
+        StockConfigurationInterface $stockConfiguration,
+        ProductRepositoryInterface $productRepository,
+        QtyCounterInterface $qtyCounter,
+        \Magento\Framework\App\State $customStockState
+    ) {
+        $this->customqtyCounter = $qtyCounter;
+        $this->customStockState = $customStockState;
+        parent::__construct(
+            $stockResource,
+            $stockRegistryProvider,
+            $stockState,
+            $stockConfiguration,
+            $productRepository,
+            $qtyCounter
+        );
+    }
 
     /**
      * Subtract product qtys from stock.
@@ -61,7 +100,9 @@ class StockManagement extends \Magento\CatalogInventory\Model\StockManagement
                 $fullSaveItems[] = $stockItem;
             }
         }
-
+        if ($this->customStockState->getAreaCode() == 'adminhtml') {
+            $this->customqtyCounter->correctItemsQty($registeredItems, $websiteId, '-');
+        }
         $this->getResource()->commit();
         return $fullSaveItems;
     }
