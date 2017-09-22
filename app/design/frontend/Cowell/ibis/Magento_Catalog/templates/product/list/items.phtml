@@ -1,0 +1,283 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+?>
+
+<?php
+switch ($type = $block->getType()) {
+
+    case 'related-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = null;
+            $description = false;
+        }
+        break;
+
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related $block */
+        if ($exist = $block->getItems()->getSize()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getItems();
+            $limit = 0;
+            $shuffle = 0;
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = null;
+            $description = false;
+        }
+        break;
+
+    case 'upsell-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'upsell';
+            $class = $type;
+
+            $image = 'upsell_products_list';
+            $title = __('We found other products you might like!');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+
+            $showAddTo = false;
+            $showCart = true;
+            $templateType = null;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'upsell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Upsell $block */
+        if ($exist = count($block->getItemCollection()->getItems())) {
+            $type = 'upsell';
+            $class = $type;
+
+            $image = 'upsell_products_list';
+            $title = __('We found other products you might like!');
+            $items = $block->getItemCollection()->getItems();
+            $limit = $block->getItemLimit('upsell');
+            $shuffle = 0;
+
+            $showAddTo = false;
+            $showCart = true;
+            $templateType = null;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'crosssell-rule':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->hasItems()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItemCollection();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'crosssell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->getItemCount()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItems();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'new':
+        if ($exist = $block->getProductCollection()) {
+            $type = 'new';
+            $mode = 'grid';
+            $type = $type . ' ' . $mode;
+
+            $class = 'widget' . ' ' . $type;
+
+            $image = 'new_products_content_widget_grid';
+            $title = __('New Products');
+            $items = $exist;
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = ($mode == 'list') ? true : false;
+            $canItemsAddToCart = false;
+        }
+        break;
+
+    case 'other':
+        break;
+}
+?>
+
+<?php if ($exist):?>
+<div class="pc2015-main-block">
+    <div class="pc2015-main-block-header">
+        <h2>お客さまがご覧になった商品</h2>
+    </div>
+    <div class="pc2015-main-block-body">
+        <div class="pc2015-item-list pc2015-item-carousel pc2015-item-list-selectable jcarousel-container jcarousel-container-horizontal" style="position: relative; display: block; width: 1445px;">
+
+            <?php if ($type == 'related' || $type == 'upsell'): ?>
+            <?php if ($type == 'related'): ?>
+            <div class="block <?php /* @escapeNotVerified */ echo $class; ?>" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="<?php /* @escapeNotVerified */ echo $limit; ?>" data-shuffle="<?php /* @escapeNotVerified */ echo $shuffle; ?>">
+                <?php else: ?>
+                <div class="block <?php /* @escapeNotVerified */ echo $class; ?>" data-mage-init='{"upsellProducts":{}}' data-limit="<?php /* @escapeNotVerified */ echo $limit; ?>" data-shuffle="<?php /* @escapeNotVerified */ echo $shuffle; ?>">
+                    <?php endif; ?>
+                    <?php else: ?>
+                    <div class="block <?php /* @escapeNotVerified */ echo $class; ?>">
+                        <?php endif; ?>
+                        <div class="block-content content" aria-labelledby="block-<?php /* @escapeNotVerified */ echo $class?>-heading">
+                            <div class="products wrapper grid products-grid products-<?php /* @escapeNotVerified */ echo $type; ?>">
+                                <ol class="products list items product-items">
+                                    <?php $iterator = 1; ?>
+                                    <?php foreach ($items as $_item): ?>
+                                    <?php $available = ''; ?>
+                                    <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
+                                        <?php if (!$_item->getRequiredOptions()): ?>
+                                            <?php $available = 'related-available'; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    <?php if ($type == 'related' || $type == 'upsell'): ?>
+                                        <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item" style="display: none;">' : '</li><li class="item product product-item" style="display: none;">' ?>
+                                    <?php else: ?>
+                                        <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+                                    <?php endif; ?>
+                                    <div class="product-item-info <?php /* @escapeNotVerified */ echo $available; ?>">
+                                        <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
+                                        <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
+                                            <?php echo $block->getImage($_item, $image)->toHtml(); ?>
+                                        </a>
+                                        <div class="product details product-item-details fix-product-item-details">
+                                            <strong class="product name product-item-name"><a class="product-item-link" title="<?php echo $block->escapeHtml($_item->getName()) ?>" href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>">
+                                                    <?php echo $block->escapeHtml($_item->getName()) ?></a>
+                                            </strong>
+                                            <span class="pc2015-item-price" style="margin-top: 8px; padding-bottom: 0px;">
+                                                <span class="pc2015-price-1"><strong><?php /* @escapeNotVerified */ echo $block->getProductPrice($_item); ?></strong></span>
+                                                <!--<span class="pc2015-price-2">(税込価格 <strong>267円</strong>)</span>-->
+                                            </span>
+                                            <?php if ($templateType): ?>
+                                                <?php echo $block->getReviewsSummaryHtml($_item, $templateType) ?>
+                                            <?php endif; ?>
+
+                                            <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
+                                                <?php if (!$_item->getRequiredOptions()): ?>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+
+                                            <?php if ($showAddTo || $showCart): ?>
+                                            <div class="product actions product-item-actions fix-itemscard">
+                                                <a href="#" class="pc2015-item-select pc2015-designed" style="margin-bottom: 0px;"></a>
+                                                <?php if ($showCart): ?>
+                                                <form  data-role="tocart-form" action="<?php echo $block->getAddToCartUrl($_item); ?>" method="post">
+
+                                                    <div class="control">
+                                                        <button type="button" onclick="incrementValue1()" spinner-button="up" title="add 1" class="fixbntc pc2015-cart-inc"></button>
+                                                        <label class="label" for="qty"><span class="fomart-qty fix-itemscart "><?php /* @escapeNotVerified */ echo __('Qty') ?></span>
+                                                            <input type="number"
+                                                                           name="qty"
+                                                                           id="qty"
+                                                                           style="width:62px; height: 28px;text-align: center;font-weight: 600;"
+                                                                           maxlength="12"
+                                                                           value="<?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>"
+                                                                           title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="info-text qty fix-formitemscart"
+                                                                           data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                                                            />
+                                                        </label>
+                                                        <button type="button" onclick="decrementValue1()" spinner-button="down" title="subtract 1" class="fixbntt pc2015-cart-dec"></button>
+
+                                                    </div>
+                                                    <?php echo $block->getBlockHtml('formkey'); ?>
+
+
+                                                    <button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="fix-addtocard pc2015-item-cart" style="float:right;margin-left: 10px;">
+                                                        <!-- <span><?php /* @escapeNotVerified *///echo __('Add to Cart'); ?></span>-->
+                                                    </button>
+                                                    <a href="javascript:void(0);" class="pc2015-for-member pc2015-designed pc2015-item-memo pc2015-disabled"></a>
+                                            </div>
+                                            </form>
+                                        <?php endif; ?>
+                                            <?php if ($showAddTo): ?>
+                                                <div class="secondary-addto-links actions-secondary" data-role="add-to-links">
+                                                    <?php if ($addToBlock = $block->getChildBlock('addto')): ?>
+                                                        <?php echo $addToBlock->setProduct($_item)->getChildHtml(); ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    </div>
+                            <?php echo($iterator == count($items)+1) ? '</li>' : '' ?>
+                            <?php endforeach ?>
+                            </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        function incrementValue1()
+        {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value<10){
+                value++;
+                document.getElementById('number').value = value;
+            }
+        }
+        function decrementValue1()
+        {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>1){
+                value--;
+                document.getElementById('number').value = value;
+            }
+
+        }
+    </script>
+    <?php endif;?>
