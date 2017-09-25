@@ -69,6 +69,7 @@ Persistence Lifetime (seconds) : input param (example 120)
 - Define in app/code/Cowell/Cart/etc/di.xml
 - Function execute:  public function registerProductsSale($items, $websiteId = null): Cart\Model\StockManagement.php
 
+
 5. Batch
 - Setting in /Users/nguyenduyhung/magento2/app/code/Cowell/Cart/etc/crontab.xml
     + <group id="index"> : group of cron
