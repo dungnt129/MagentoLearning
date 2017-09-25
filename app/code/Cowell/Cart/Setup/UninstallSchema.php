@@ -13,6 +13,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 
 class UninstallSchema implements UninstallInterface
+
 {
     /**
      * Module uninstall code
@@ -22,14 +23,15 @@ class UninstallSchema implements UninstallInterface
      * @return void
      */
 
-    public function uninstall(SchemaSetupInterface $setup, ModuleContextInterface $context) {
+
+    public function uninstall(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    {
         $setup->startSetup();
         $connection = $setup->getConnection();
         $tableName = $setup->getTable('quote_item');
 
-        if ($connection->isTableExists($tableName) == true ) {
+        if ($connection->isTableExists($tableName) == true) {
             $connection->dropColumn($tableName, 'cron_status');
         }
-        $setup->endSetup();
     }
 }
