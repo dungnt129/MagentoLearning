@@ -10,6 +10,7 @@ use Magento\CatalogInventory\Model\ResourceModel\Stock as ResourceStock;
 
 class CustomRemoveItemObserver implements ObserverInterface
 {
+    protected $request;
     /**
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Framework\Message\ManagerInterface $messageManager
@@ -17,10 +18,12 @@ class CustomRemoveItemObserver implements ObserverInterface
      */
     public function __construct(
         \Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface $qtyCounter,
-        \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration
+        \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration,
+        \Magento\Framework\App\Request\Http $request
     ) {
         $this->qtyCounter = $qtyCounter;
         $this->stockConfiguration = $stockConfiguration;
+        $this->request = $request;
     }
 
     /**
@@ -33,18 +36,27 @@ class CustomRemoveItemObserver implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $websiteId = $this->stockConfiguration->getDefaultScopeId();
-        $registeredItems = [];
-        $items = $observer->getEvent()->getQuoteItem();
-        if ($items) {
-            if ($items->getHasChildren()) {
-                foreach ($items->getChildren() as $child) {
-                    $registeredItems[$child->getProductId()] = $items->getQty();
+        if ($this->request->getModuleName() == 'checkout') {
+            $websiteId = $this->stockConfiguration->getDefaultScopeId();
+            $registeredItems = [];
+            $items = $observer->getEvent()->getQuoteItem();
+            if ($items) {
+                $qtyParent = 1;
+                if ($items->getProductType() !== 'simple'){
+                    $qtyParent = $items->getQty() ;
                 }
-            } else {
-                $registeredItems[$items->getProductId()] = $items->getQty();
+
+                if ($items->getHasChildren()) {
+                    //list of products in the group
+                    foreach ($items->getChildren() as $child) {
+                        $registeredItems[$child->getProductId()] = $child->getQty() * $qtyParent;
+                    }
+                } else {
+                    //product simple
+                    $registeredItems[$items->getProductId()] = $items->getQty();
+                }
             }
+            $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, '+');
         }
-        $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, '+');
     }
 }

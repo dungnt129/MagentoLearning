@@ -28,6 +28,7 @@ class QuoteItem extends \Magento\Framework\Model\AbstractModel
         return $quoteItem;
     }
 
+
     /*
      * Get quote item
      * @return array
@@ -36,19 +37,11 @@ class QuoteItem extends \Magento\Framework\Model\AbstractModel
      * Created : 20-09-2017
      */
     public function getQuoteItem($itemId){
-        $quoteItemParent = $this->getOldQty($itemId);
-        if (!empty($quoteItemParent) && $quoteItemParent[0]['product_type'] == self::ProductypeConfigurable) {
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $quoteItemCollection = $objectManager->create('\Cowell\Cart\Model\QuoteItem')->getCollection();
-            $quoteItem = $quoteItemCollection
-                ->addFieldToFilter('parent_item_id', ['eq' => $quoteItemParent[0]['item_id']])
-                ->getData();
-            if (!empty($quoteItem)) {
-                $quoteItem[0]['qty'] = $quoteItemParent[0]['qty'];
-            }
-            return $quoteItem;
-        }
-
-        return $quoteItemParent;
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $quoteItemCollection = $objectManager->create('\Cowell\Cart\Model\QuoteItem')->getCollection();
+        $quoteItem = $quoteItemCollection
+            ->addFieldToFilter('parent_item_id', ['eq' => $itemId])
+            ->getData();
+        return $quoteItem;
     }
 }
