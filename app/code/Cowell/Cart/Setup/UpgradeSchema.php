@@ -17,7 +17,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         if(version_compare($context->getVersion(), '2.0.1', '<')) {
             if ($connection->isTableExists($tableName) == true && $connection->tableColumnExists($tableName,'cron_status') == false){
-                $setup->run("ALTER TABLE " . $tableName . " ADD COLUMN cron_status tinyint(1) AFTER base_weee_tax_row_disposition;");
+                $setup->run("ALTER TABLE " . $tableName . " ADD COLUMN cron_status tinyint(1) comment 'deault:null ; 1: cron ran sucess' AFTER base_weee_tax_row_disposition;");
             }
         }
 

@@ -61,6 +61,12 @@ class StockManagement extends \Magento\CatalogInventory\Model\StockManagement
      * @return StockItemInterface[]
      * @throws \Magento\Framework\Exception\LocalizedException
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     *
+     * Check url request
+     * If request from frontend not update qty prouct
+     *
+     * Auth : Hiennv6244<hiennv6244@co-well.com.vn>
+     * Created : 25-09-2017
      */
     public function registerProductsSale($items, $websiteId = null)
     {

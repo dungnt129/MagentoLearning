@@ -7,20 +7,23 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
 
-    <event name="checkout_cart_product_add_after">
-        <observer name="custom_cart_add_after" instance="Cowell\Cart\Observer\CustomAddCartObserver" />
+    <!--custom event add product in cart-->
+    <event name="sales_quote_product_add_after">
+        <observer name="custom_sales_quote_product_add_after" instance="Cowell\Cart\Observer\CustomAddCartObserver" />
     </event>
 
+    <!--custom event remove product in cart-->
     <event name="sales_quote_remove_item">
-        <observer name="custom_remove_item" instance="Cowell\Cart\Observer\CustomRemoveItemObserver" />
+        <observer name="custom_sales_quote_remove_item" instance="Cowell\Cart\Observer\CustomRemoveItemObserver" />
     </event>
 
     <event name="checkout_cart_update_items_after">
-        <observer name="custom_update_items_cart" instance="Cowell\Cart\Observer\CustomUpdateItemObserver" />
+        <observer name="custom_checkout_cart_update_items_after" instance="Cowell\Cart\Observer\CustomUpdateItemObserver" />
     </event>
 
-    <event name="checkout_cart_product_update_after">
-    <observer name="custom_checkout_cart_product_update_after" instance="Cowell\Cart\Observer\CustomUpdateCartObserver" />
+    <!--custom event edit product in cart with case no change option-->
+    <event name="checkout_cart_update_item_complete">
+        <observer name="custom_checkout_cart_update_item_complete" instance="Cowell\Cart\Observer\CustomUpdateCartObserver" />
     </event>
 
 </config>

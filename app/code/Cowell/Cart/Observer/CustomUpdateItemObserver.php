@@ -11,6 +11,7 @@ use Magento\CatalogInventory\Model\ResourceModel\Stock as ResourceStock;
 class CustomUpdateItemObserver implements ObserverInterface
 {
 
+    protected $request;
     /**
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Framework\Message\ManagerInterface $messageManager
@@ -18,10 +19,12 @@ class CustomUpdateItemObserver implements ObserverInterface
      */
     public function __construct(
         \Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface $qtyCounter,
-        \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration
+        \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration,
+        \Magento\Framework\App\Request\Http $request
     ) {
         $this->qtyCounter = $qtyCounter;
         $this->stockConfiguration = $stockConfiguration;
+        $this->request = $request;
     }
 
     /**
@@ -34,22 +37,34 @@ class CustomUpdateItemObserver implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $websiteId = $this->stockConfiguration->getDefaultScopeId();
+        if ($this->request->getModuleName() == 'checkout') {
+            $websiteId = $this->stockConfiguration->getDefaultScopeId();
+            $info = $observer->getEvent()->getInfo()->toArray();
 
-        $info = $observer->getEvent()->getInfo()->toArray();
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $model = $objectManager->create('Cowell\Cart\Model\QuoteItem');
-        foreach ($info as $itemId => $itemInfo) {
-            $quoteItem = $model->getQuoteItem($itemId);
-            if (!empty($quoteItem)){
-                $operator = '-';
-                $qty = (int) $itemInfo['qty'] - (int) $quoteItem[0]['qty'];
-                if ((int) $quoteItem[0]['qty'] > (int) $itemInfo['qty']) {
-                    $qty = (int) $quoteItem[0]['qty'] - (int) $itemInfo['qty'];
-                    $operator = '+';
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $model = $objectManager->create('Cowell\Cart\Model\QuoteItem');
+            if (count($info) > 0) {
+                foreach ($info as $itemId => $itemInfo) {
+                    $registeredItems= [];
+                    //get old quote item
+                    $quoteItemOld = $model->getOldQty($itemId);
+                    //get list quote item with parent_id $itemId
+                    $quoteItem = $model->getQuoteItem($itemId);
+                    $operator = '-';
+                    $qty = (int) $itemInfo['qty'] - (int) $quoteItemOld[0]['qty'];
+                    $qty = abs($qty);
+                    if ((int) $itemInfo['qty'] <= (int) $quoteItemOld[0]['qty']) {
+                        $operator = '+';
+                    }
+                    if (count($quoteItem) > 0){
+                        foreach ($quoteItem as $key => $value) {
+                            $registeredItems[$value['product_id']] = (int) $value['qty'] * $qty;
+                        }
+                    } else {
+                        $registeredItems[$quoteItemOld[0]['product_id']] = $qty;
+                    }
+                    $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, $operator);
                 }
-                $registeredItems[$quoteItem[0]['product_id']] = $qty;
-                $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, $operator);
             }
         }
     }

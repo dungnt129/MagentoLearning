@@ -14,13 +14,17 @@ class CustomAddCartObserver implements ObserverInterface
      */
     protected $changeQtyProductHelper;
 
+    protected $request;
+
     /**
      * @param \Cowell\Cart\Helper\CustomChangeQtyProduct $changeQtyProductHelper
      */
     public function __construct(
-        \Cowell\Cart\Helper\CustomChangeQtyProduct $changeQtyProductHelper
+        \Cowell\Cart\Helper\CustomChangeQtyProduct $changeQtyProductHelper,
+        \Magento\Framework\App\Request\Http $request
     ) {
         $this->changeQtyProductHelper = $changeQtyProductHelper;
+        $this->request = $request;
     }
 
     /**
@@ -28,12 +32,17 @@ class CustomAddCartObserver implements ObserverInterface
      * @return void
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      *
+     * Update qty product after add product
+     *
      * Auth: Hiennv6244
      * Created : 20-09-2017
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $items = $observer->getEvent()->getQuoteItem();
-        $this->changeQtyProductHelper->updateQtyProduct($items);
+        $action  = $this->request->getActionName();
+        if ($this->request->getModuleName() == 'checkout') {
+            $items = $observer->getEvent()->getItems();
+            $this->changeQtyProductHelper->updateQtyProduct($items, $action);
+        }
     }
 }
