@@ -42,8 +42,14 @@
 // How to use coding
 // ********************
 1. Add cart
+- Using event "sales_quote_product_add_after" :
+- Define in app/code/Cowell/Cart/etc/frontend/events.xml
+- Function execute: public function execute(\Magento\Framework\Event\Observer $observer)
 
 2. Edit cart
+- Using event "checkout_cart_update_items_after" :
+- Define in app/code/Cowell/Cart/etc/frontend/events.xml
+- Function execute: public function execute(\Magento\Framework\Event\Observer $observer)
 
 3. Delete cart
 - Using event "sales_quote_remove_item" :
@@ -51,6 +57,9 @@
 - Function execute: public function execute(\Magento\Framework\Event\Observer $observer)
 
 4. Checkout cart
+- Using preference <preference for="Magento\CatalogInventory\Model\StockManagement" type="Cowell\Cart\Model\StockManagement" /> :
+- Define in app/code/Cowell/Cart/etc/di.xml
+- Function execute public function registerProductsSale($items, $websiteId = null): Cart\Model\StockManagement.php
 
 5. Batch
 - Setting in /Users/nguyenduyhung/magento2/app/code/Cowell/Cart/etc/crontab.xml
