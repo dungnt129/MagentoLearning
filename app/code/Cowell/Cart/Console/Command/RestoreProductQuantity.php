@@ -96,7 +96,7 @@ class RestoreProductQuantity extends Command
             }
 
             $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, '+');
-
+            die();
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
             $output->writeln('<error>' . $e->getMessage() . '</error>');
