@@ -37,7 +37,7 @@ Persistence Lifetime (seconds) : input param (example 120)
     Result: + Disable module cart
             + Drop cron_status column into quote_item table
 - Close cron
-    + run command each a
+    + run command
         crontab -e
 
         #* * * * * /usr/bin/php /var/www/magento2/bin/magento cron:run | grep -v "Ran jobs by schedule" >> /var/www/magento2/var/log/magento.cron.log
@@ -69,9 +69,10 @@ Persistence Lifetime (seconds) : input param (example 120)
 - Define in app/code/Cowell/Cart/etc/di.xml
 - Function execute:  public function registerProductsSale($items, $websiteId = null): Cart\Model\StockManagement.php
 
+
 5. Batch
 - Setting in /Users/nguyenduyhung/magento2/app/code/Cowell/Cart/etc/crontab.xml
     + <group id="index"> : group of cron
     + Cron_restore_quantity_cart: name of cron
-    + <schedule>*/1 * * * *</schedule>  : schedule : 1 minute / time
-    + coding:  public function execute() in app/code/Cowell/Cart/Cron/Run.php
+    + <schedule>*/30 * * * *</schedule>  : schedule ( 30 minutes / time )
+    + coding:  public function execute() in app/code/Cowell/Cart/Console/Command/RestoreProductQuantity.php
