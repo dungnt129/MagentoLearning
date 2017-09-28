@@ -16,18 +16,34 @@ class RestoreProductQuantity
 //    const PRODUCT_TYPE_BUNDLE       = 'bundle';
     const CRON_STATUS_ACTIVE = 1;
 
+    protected $_quoteItemModel;
+
+    protected $_quoteitemCollectionFactory;
+    protected $_configCollectionFactory;
+
+    protected  $_resource;
+
     /**
      * @param ModuleListInterface $moduleList
      */
     public function __construct(
         \Psr\Log\LoggerInterface $logger,
         \Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface $qtyCounter,
-        \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration
+        \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration,
+        \Cowell\Cart\Model\QuoteItem $quoteItem,
+        \Cowell\Cart\Model\ResourceModel\Item\CollectionFactory $quoteitemCollectionFactory,
+        \Cowell\Cart\Model\ResourceModel\CoreConfig\CollectionFactory $configCollectionFactory,
+        \Magento\Framework\App\ResourceConnection $resource
     )
     {
         $this->logger = $logger;
         $this->qtyCounter = $qtyCounter;
         $this->stockConfiguration = $stockConfiguration;
+
+        $this->_quoteItemModel = $quoteItem;
+        $this->_quoteitemCollectionFactory = $quoteitemCollectionFactory;
+        $this->_configCollectionFactory = $configCollectionFactory;
+        $this->_resource = $resource;
     }
 
 
@@ -36,11 +52,9 @@ class RestoreProductQuantity
         try {
             $this->logger->info('start cron : Cron_restore_quantity_cart');
 
-//            $date = (new \DateTime())->setTimestamp(time());
             $websiteId = $this->stockConfiguration->getDefaultScopeId();
+            $coreConfigCollection = $this->_configCollectionFactory->create();
 
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $coreConfigCollection = $objectManager->create('\Cowell\Cart\Model\CoreConfig')->getCollection();
             $data = $coreConfigCollection
                 ->addFieldToFilter('path', ['eq' => 'persistent/options/lifetime'])
                 ->getData();
@@ -50,47 +64,34 @@ class RestoreProductQuantity
 
             $now = time() - $this->expireTime;
             $now = date('Y-m-d h:i:s', $now);
-
-            $collection = $objectManager->create('\Cowell\Cart\Model\QuoteItem')->getCollection();
-            $collection
-                ->getSelect()
-                ->join(
-                ['quote' => $collection->getTable('quote')],
-                'main_table.quote_id = quote.entity_id',
-                ['quote.entity_id'=>'quote.entity_id'])
-                ->where("quote.is_active = 1")
-                ->where("quote.items_count > 0")
-                ->where("CASE quote.updated_at WHEN '0000-00-00 00:00:00' THEN quote.created_at <= '$now' ELSE quote.updated_at <= '$now' END")
-                ->where("main_table.cron_status is null")
-                ->where("main_table.item_id >= 57")
-                ->order("main_table.parent_item_id"," asc")
-                ->order("main_table.item_id"," asc");
-
-//            echo $collection->getSelect();die;
-            $attributes = $collection->getData();
+            // Get data
+            $dataQuoteItemAttribute = $this->_quoteItemModel->getAttributeQuoteItem($now);
             // Get connection
-            $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
-            $connection = $resource->getConnection();
-            $tableName = $resource->getTableName('quote_item');
+            $connection = $this->_resource->getConnection('Magento\Framework\App\ResourceConnection');
+            $tableName = $connection->getTableName('quote_item');
+
             $parentQty = 0;
-            foreach ($attributes as $quoteItem) {
-                $parentQty = $quoteItem['qty'];
-                if ($quoteItem['parent_item_id']) { // child
-                    $qty = $parentQty * $quoteItem['qty'];
-                    $registeredItems[$quoteItem['product_id']] = $qty;
-                } else {
-                    $qty = $parentQty;
-                    if ($quoteItem['product_type'] == self::PRODUCT_TYPE_SIMPLE) {
+            if (!empty($dataQuoteItemAttribute)) {
+                foreach ($dataQuoteItemAttribute as $quoteItem) {
+                    $parentQty = $quoteItem['qty'];
+                    if ($quoteItem['parent_item_id']) { // child
+                        $qty = $parentQty * $quoteItem['qty'];
                         $registeredItems[$quoteItem['product_id']] = $qty;
+                    } else {
+                        $qty = $parentQty;
+                        if ($quoteItem['product_type'] == self::PRODUCT_TYPE_SIMPLE) {
+                            $registeredItems[$quoteItem['product_id']] = $qty;
+                        }
                     }
+
+                    $connection->update($tableName, ['cron_status' => self::CRON_STATUS_ACTIVE], ['item_id = ?' => $quoteItem['item_id']]);
+                    $this->logger->info('Update status success: '. $quoteItem['item_id']);
                 }
 
-                $sql = "UPDATE " . $tableName . " SET cron_status = 1 WHERE item_id = " . $quoteItem['item_id'];
-                $connection->query($sql);
-//                $connection->update($tableName, ['cron_status' => self::CRON_STATUS_ACTIVE], ['item_id = ?' => $quoteItem['item_id']]);
+                $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, '+');
+            } else {
+                $this->logger->info('Quote item empty');
             }
-
-            $this->qtyCounter->correctItemsQty($registeredItems, $websiteId, '+');
 
             $this->logger->info('finish cron : Cron_restore_quantity_cart');
 
