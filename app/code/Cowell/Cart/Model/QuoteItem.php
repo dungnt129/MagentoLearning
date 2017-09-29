@@ -11,13 +11,7 @@ class QuoteItem extends \Magento\Framework\Model\AbstractModel
     {
         $this->_init('Cowell\Cart\Model\ResourceModel\Item');
     }
-
-    public function getQuoteItemCollection()
-    {
-        $collection = $this->getCollection();
-        return $collection;
-    }
-
+    
     /*
      * Get Old Qty
      * @return array
@@ -26,7 +20,7 @@ class QuoteItem extends \Magento\Framework\Model\AbstractModel
      * Created : 20-09-2017
      */
     public function getOldQty($itemId){
-        $quoteItem = $this->getQuoteItemCollection()
+        $quoteItem = $this->getCollection()
             ->addFieldToFilter('item_id', ['eq' => $itemId])
             ->getData();
         return $quoteItem;
@@ -41,7 +35,7 @@ class QuoteItem extends \Magento\Framework\Model\AbstractModel
      * Created : 20-09-2017
      */
     public function getQuoteItem($itemId){
-        $quoteItem = $this->getQuoteItemCollection()
+        $quoteItem = $this->getCollection()
             ->addFieldToFilter('parent_item_id', ['eq' => $itemId])
             ->getData();
         return $quoteItem;
@@ -49,7 +43,7 @@ class QuoteItem extends \Magento\Framework\Model\AbstractModel
 
     public function getAttributeQuoteItem($now)
     {
-        $collection = $this->getQuoteItemCollection();
+        $collection = $this->getCollection();
         $collection
             ->getSelect()
             ->join(
