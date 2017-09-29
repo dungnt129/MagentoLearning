@@ -12,6 +12,7 @@ class CustomUpdateItemObserver implements ObserverInterface
 {
 
     protected $request;
+    protected $_quoteItemModel;
     /**
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Framework\Message\ManagerInterface $messageManager
@@ -20,11 +21,13 @@ class CustomUpdateItemObserver implements ObserverInterface
     public function __construct(
         \Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface $qtyCounter,
         \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration,
-        \Magento\Framework\App\Request\Http $request
+        \Magento\Framework\App\Request\Http $request,
+        \Cowell\Cart\Model\QuoteItem $quoteItem
     ) {
         $this->qtyCounter = $qtyCounter;
         $this->stockConfiguration = $stockConfiguration;
         $this->request = $request;
+        $this->_quoteItemModel = $quoteItem;
     }
 
     /**
@@ -41,15 +44,13 @@ class CustomUpdateItemObserver implements ObserverInterface
             $websiteId = $this->stockConfiguration->getDefaultScopeId();
             $info = $observer->getEvent()->getInfo()->toArray();
 
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $model = $objectManager->create('Cowell\Cart\Model\QuoteItem');
             if (count($info) > 0) {
                 foreach ($info as $itemId => $itemInfo) {
                     $registeredItems= [];
                     //get old quote item
-                    $quoteItemOld = $model->getOldQty($itemId);
+                    $quoteItemOld = $this->_quoteItemModel->getOldQty($itemId);
                     //get list quote item with parent_id $itemId
-                    $quoteItem = $model->getQuoteItem($itemId);
+                    $quoteItem = $this->_quoteItemModel->getQuoteItem($itemId);
                     $operator = '-';
                     $qty = (int) $itemInfo['qty'] - (int) $quoteItemOld[0]['qty'];
                     $qty = abs($qty);

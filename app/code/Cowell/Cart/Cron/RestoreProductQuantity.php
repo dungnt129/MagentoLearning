@@ -53,18 +53,12 @@ class RestoreProductQuantity
             $this->logger->info('start cron : Cron_restore_quantity_cart');
 
             $websiteId = $this->stockConfiguration->getDefaultScopeId();
-            $coreConfigCollection = $this->_configCollectionFactory->create();
-
-            $data = $coreConfigCollection
-                ->addFieldToFilter('path', ['eq' => 'persistent/options/lifetime'])
-                ->getData();
-            if ($data) {
-                $this->expireTime = $data[0]['value'];
-            }
-
-            $now = time() - $this->expireTime;
+            //Get time out session
+            $expireTime = $this->_coreConfigModel->getSesstionCart();
+            // Calculator time out
+            $now = time() - $expireTime;
             $now = date('Y-m-d h:i:s', $now);
-            // Get data
+            // Get data item in cart time out
             $dataQuoteItemAttribute = $this->_quoteItemModel->getAttributeQuoteItem($now);
             // Get connection
             $connection = $this->_resource->getConnection('Magento\Framework\App\ResourceConnection');

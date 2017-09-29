@@ -17,6 +17,7 @@ class RestoreProductQuantity extends Command
     const CRON_STATUS_ACTIVE = 1;
 
     protected $_quoteItemModel;
+    protected $_coreConfigModel;
 
     protected $_quoteitemCollectionFactory;
     protected $_configCollectionFactory;
@@ -31,6 +32,7 @@ class RestoreProductQuantity extends Command
         \Magento\CatalogInventory\Model\ResourceModel\QtyCounterInterface $qtyCounter,
         \Magento\CatalogInventory\Api\StockConfigurationInterface $stockConfiguration,
         \Cowell\Cart\Model\QuoteItem $quoteItem,
+        \Cowell\Cart\Model\CoreConfig $coreConfig,
         \Cowell\Cart\Model\ResourceModel\Item\CollectionFactory $quoteitemCollectionFactory,
         \Cowell\Cart\Model\ResourceModel\CoreConfig\CollectionFactory $configCollectionFactory,
         \Magento\Framework\App\ResourceConnection $resource
@@ -41,6 +43,7 @@ class RestoreProductQuantity extends Command
         $this->qtyCounter = $qtyCounter;
         $this->stockConfiguration = $stockConfiguration;
         $this->_quoteItemModel = $quoteItem;
+        $this->_coreConfigModel = $coreConfig;
         $this->_quoteitemCollectionFactory = $quoteitemCollectionFactory;
         $this->_configCollectionFactory = $configCollectionFactory;
         $this->_resource = $resource;
@@ -57,21 +60,15 @@ class RestoreProductQuantity extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
-//            $date = (new \DateTime())->setTimestamp(time());
             $websiteId = $this->stockConfiguration->getDefaultScopeId();
-            $coreConfigCollection = $this->_configCollectionFactory->create();
-
-            $data = $coreConfigCollection
-                ->addFieldToFilter('path', ['eq' => 'persistent/options/lifetime'])
-                ->getData();
-            if ($data) {
-                $this->expireTime = $data[0]['value'];
-            }
-
-            $now = time() - $this->expireTime;
+            //Get time out session
+            $expireTime = $this->_coreConfigModel->getSesstionCart();
+            // Calculator time out
+            $now = time() - $expireTime;
             $now = date('Y-m-d h:i:s', $now);
-            // Get data
+            // Get data item in cart time out
             $dataQuoteItemAttribute = $this->_quoteItemModel->getAttributeQuoteItem($now);
+
             // Get connection
             $connection = $this->_resource->getConnection('Magento\Framework\App\ResourceConnection');
             $tableName = $connection->getTableName('quote_item');
