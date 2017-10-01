@@ -1,0 +1,67 @@
+<?php
+$rootCategoryId = $this->getRootCategoryId();
+$categoryId = $block->getRequest()->getParams('shop');
+
+?>
+<ul>
+    <?php
+    $subCat = $this->getsubCategories($categoryId);
+    if (!$subCat) {
+        $rootCategories = $this->getsubCategories($rootCategoryId);
+
+        // list root of categories link
+        foreach ($rootCategories as $category) {
+            ?>
+            <div>
+                <a href="<?php echo $category['urlSubcategory'] ?>">
+                    <font color="blue"
+                          style="font-size:20px;"><?php echo $category['name'] . __('内の商品を表示する') ?></font>
+                </a>
+                <?php if ($category['child']): ?>
+                    <a href="<?php echo $block->getUrlInterfaceData() . '?shop=' . $category['id']; ?>"
+                       style="font-size:12px;">
+                        <font color="blue"><?php echo $category['name'] . __('内のカテゴリを表示する') ?></font>
+                    </a>
+                <?php endif; ?>
+
+            </div>
+            <?php
+        }
+    } else {
+        // list of child of categories link
+        foreach ($subCat as $category) {
+            ?>
+            <div>
+                <a href="<?php echo $category['urlSubcategory'] ?>">
+                    <font color="blue"
+                          style="font-size:20px;"><?php echo $category['name'] . __('内の商品を表示する') ?></font>
+                </a>
+                <?php if ($category['child']): ?>
+                    <a href="<?php echo $block->getUrlInterfaceData() . '?shop=' . $category['id']; ?>"
+                       style="font-size:12px;">
+                        <font color="blue"><?php echo $category['name'] . __('内のカテゴリを表示する') ?></font>
+                    </a>
+                <?php endif; ?>
+
+            </div>
+            <?php
+
+        }
+        ?>
+        <div>
+            <?php if ($category['parentId'] >= $rootCategoryId) {
+                ?>
+                <a href="javascript:history.back();" style="font-size:22px;"><font color="blue">▲ひとつ上のカテゴリに戻る</font></a>
+                <br>
+                <a href="<?php echo $block->getUrlInterfaceData() . '?shop=' . $category['parentId']; ?>"
+                   style="font-size:22px;">
+                    <font color="blue">▲カテゴリ一覧に戻る</font>
+                </a>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+    ?>
+</ul>
