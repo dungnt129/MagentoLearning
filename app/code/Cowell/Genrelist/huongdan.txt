@@ -1,0 +1,3 @@
+# Muc dich: genrelist cac category
+# Code xu ly chu yeu o trong view/templates/list.phtml va Block/index.php
+# Trong Block/index.php, Viet them ham getsubCategories de xu ly cac param truyen tu view/templates/list.phtml sang.
